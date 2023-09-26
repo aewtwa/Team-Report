@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="yaControllerScript.h" />
+    <ClInclude Include="FolderTest.h" />
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaplayer.h" />
     <ClInclude Include="yaPlayerScript.h" />
