@@ -220,7 +220,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaobject.h">
       <Filter>Engine\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SBTEST.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">
