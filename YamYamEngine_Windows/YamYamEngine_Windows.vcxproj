@@ -142,12 +142,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="yaControllerScript.h" />
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaplayer.h" />
     <ClInclude Include="yaPlayerScript.h" />
     <ClInclude Include="yaPlayScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="yaControllerScript.cpp" />
     <ClCompile Include="yaplayer.cpp" />
     <ClCompile Include="yaPlayerScript.cpp" />
     <ClCompile Include="yaPlayScene.cpp" />
