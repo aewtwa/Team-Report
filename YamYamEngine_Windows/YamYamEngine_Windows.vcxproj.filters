@@ -10,6 +10,9 @@
     <Filter Include="GameObjects">
       <UniqueIdentifier>{ddf577a3-351d-416f-92c0-6086e4c11f0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Test">
+      <UniqueIdentifier>{92ebf7f6-dded-4a64-b52c-d92c371f9bca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="yaPlayScene.h">
@@ -20,6 +23,12 @@
     <ClInclude Include="yaplayer.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="FolderTest.h">
+      <Filter>Test</Filter>
+    </ClInclude>
+    <ClInclude Include="yaControllerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -28,6 +37,9 @@
     <ClCompile Include="yaPlayerScript.cpp" />
     <ClCompile Include="yaplayer.cpp">
       <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaControllerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
