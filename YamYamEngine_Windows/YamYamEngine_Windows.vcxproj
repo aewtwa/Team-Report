@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FolderTest.h" />
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaplayer.h" />
     <ClInclude Include="yaPlayerScript.h" />
