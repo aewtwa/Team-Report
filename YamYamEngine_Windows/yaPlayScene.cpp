@@ -36,7 +36,7 @@ namespace ya
 			object->AddComponent<PlayerScript>();
 			object->AddComponent<ControllerScript>();
 			object->AddComponent<Collider>();
-			object->AddComponent<Rigidbody>();
+			//object->AddComponent<Rigidbody>();
 
 			AddGameObject(object, LAYER::Monster);
 			Camera::SetTarget(object);
