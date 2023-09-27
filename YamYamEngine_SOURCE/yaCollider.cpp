@@ -30,7 +30,7 @@ namespace ya
 		mPos = Camera::CalculatePositionApi(mPos);
 		Vector3 pos = GetOwner()->GetComponent<Transform>()->GetPosition() + mOffset;
 		pos.x *= 400.0f;
-		pos.y *= 200.0f;
+		pos.y *= 225.0f;
 		mPos.x += pos.x;
 		mPos.y -= pos.y;
 
