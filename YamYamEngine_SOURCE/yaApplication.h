@@ -31,9 +31,16 @@ namespace ya
 		void SetWindow(HWND hwnd, HDC dc, UINT width, UINT height);
 
 		UINT GetWidth() { return mWidth; }
-		UINT GetHeight() { return mHegith; }
+		UINT GetHeight() { return mHeight; }
 		HWND GetHwnd() { return mHwnd; }
 		HDC GetDC() { return mDC; }
+
+		void SetWindowSize(int width, int height) 
+		{
+			mWidth = width; 
+			mHeight = height; 
+		};
+
 
 	private:
 		bool initialized = false;
@@ -42,6 +49,6 @@ namespace ya
 		HWND mHwnd;
 		HDC  mDC;
 		UINT mWidth;
-		UINT mHegith;
+		UINT mHeight;
 	};
 }

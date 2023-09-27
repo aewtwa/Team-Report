@@ -347,6 +347,14 @@ namespace ya::graphics
         D3D11_VIEWPORT mViewPort = { 0.0f, 0.0f, (FLOAT)(winRect.right - winRect.left), (FLOAT)(winRect.bottom - winRect.top) };
         BindViewports(&mViewPort);
         mContext->OMSetRenderTargets(1, mRenderTargetView.GetAddressOf(), mDepthStencilView.Get());
+
+        int rectHeight = winRect.bottom;
+        int rectWidth = winRect.right;
+
+        application.SetWindowSize(rectWidth, rectHeight);
+
+
+        
     }
 
     void GraphicsDevice_DX11::Draw(UINT VertexCount, UINT StartVertexLocation)

@@ -70,7 +70,7 @@ namespace ya
 			mHwnd = hwnd;
 			mDC = dc;
 			mWidth = width;
-			mHegith = height;
+			mHeight = height;
 
 			graphicsDevice = std::make_unique<GraphicsDevice_DX11>();
 			ya::graphics::GetDevice() = graphicsDevice.get();

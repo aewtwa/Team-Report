@@ -35,6 +35,7 @@ namespace ya::graphics
 	enum class eCBType
 	{
 		Transform,
+		Collider,
 		Test,
 		End,
 	};
