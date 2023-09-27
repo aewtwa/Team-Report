@@ -378,13 +378,20 @@ namespace ya::graphics
         //set costant buffer 
         renderer::constantBuffers[(UINT)graphics::eCBType::Transform]->Bind(eShaderStage::VS);
 
+        renderer::lineMesh->BindBuffer();
+        Vector4 lpos(0.0f, 0.0f, 0.0f, 0.0f);
+        renderer::constantBuffers[(UINT)graphics::eCBType::Transform]->SetData(&lpos);
+
+        renderer::lineShader->Update();
         //// Input Assembeler 단계에 버텍스버퍼 정보 지정
-        renderer::mesh->BindBuffer();
-        Vector4 pos(0.0f, 0.0f, 0.0f, 0.0f);
-        renderer::constantBuffers[(UINT)graphics::eCBType::Transform]->SetData(&pos);
+        renderer::triangleMesh->BindBuffer();
+        Vector4 tpos(0.0f, 0.0f, 0.0f, 0.0f);
+        renderer::constantBuffers[(UINT)graphics::eCBType::Transform]->SetData(&tpos);
 
         // Set Inputlayout, shader
-        renderer::shader->Update();
+        renderer::triangleShader->Update();
+
+
 
 
         DrawIndexed(6, 0, 0);

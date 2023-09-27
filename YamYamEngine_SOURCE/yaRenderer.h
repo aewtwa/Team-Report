@@ -33,8 +33,22 @@ namespace ya::renderer
 		int padd3;
 	};
 
-	extern Mesh* mesh;
-	extern Shader* shader;
+	CBUFFER(ColliderCB, CBSLOT_COLLIDER)
+	{
+		Vector3 pos;
+		int padd1;
+
+		Vector3 scale;
+		int padd2;
+
+		Vector3 color;
+		int padd3;
+	};
+
+	extern Mesh* triangleMesh;
+	extern Mesh* lineMesh;
+	extern Shader* triangleShader;
+	extern Shader* lineShader;
 	extern ConstantBuffer* constantBuffers[];
 
 	// Initialize the renderer

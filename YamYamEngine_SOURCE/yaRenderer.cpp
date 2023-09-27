@@ -10,10 +10,12 @@ namespace ya::renderer
 {
 
 	D3D11_INPUT_ELEMENT_DESC InputLayouts[2];
-	Mesh* mesh = nullptr;
-	Shader* shader = nullptr;
+	Mesh* triangleMesh = nullptr;
+	Mesh* lineMesh = nullptr;
+	Shader* triangleShader = nullptr;
+	Shader* lineShader = nullptr;
 	ConstantBuffer* constantBuffers[(UINT)graphics::eCBType::End];
-	
+
 	void SetUpStates()
 	{
 
@@ -21,46 +23,89 @@ namespace ya::renderer
 
 	void LoadBuffer()
 	{
-		std::vector<Vertex> vertexes;
-		vertexes.resize(4);
-		vertexes[0].pos = Vector3(-0.5f, -0.5f, 0.0f);			//0
-		vertexes[0].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+		{
+			std::vector<Vertex> vertexes;
+			vertexes.resize(4);
+			vertexes[0].pos = Vector3(-0.5f, -0.5f, 0.0f);			//0
+			vertexes[0].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
-		vertexes[1].pos = Vector3(-0.5f, +0.5f, 0.0f);			// 1
-		vertexes[1].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[1].pos = Vector3(-0.5f, +0.5f, 0.0f);			// 1
+			vertexes[1].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
-		vertexes[2].pos = Vector3(+0.5f, -0.5f, 0.0f);			// 2
-		vertexes[2].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[2].pos = Vector3(+0.5f, -0.5f, 0.0f);			// 2
+			vertexes[2].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
-		vertexes[3].pos = Vector3(+0.5f, +0.5f, 0.0f);			// 3
-		vertexes[3].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[3].pos = Vector3(+0.5f, +0.5f, 0.0f);			// 3
+			vertexes[3].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
-		std::vector<UINT> indexes;
-		indexes.push_back(0);
-		indexes.push_back(1);
-		indexes.push_back(2);
-		
-		indexes.push_back(2);
-		indexes.push_back(1);
-		indexes.push_back(3);
-	
-		// Triangle Vertex Buffer
-		mesh->CreateVertexBuffer(vertexes.data(), 4);
-		mesh->CreateIndexBuffer(indexes.data(), indexes.size());
-		Resources::Insert(L"TriangleMesh", mesh);
-		
+			std::vector<UINT> indexes;
+			indexes.push_back(0);
+			indexes.push_back(1);
+			indexes.push_back(2);
+
+			indexes.push_back(2);
+			indexes.push_back(1);
+			indexes.push_back(3);
+
+			// Triangle Vertex Buffer
+			triangleMesh->CreateVertexBuffer(vertexes.data(), 4);
+			triangleMesh->CreateIndexBuffer(indexes.data(), indexes.size());
+			Resources::Insert(L"TriangleMesh", triangleMesh);
+		}
+
+		{
+			std::vector<Vertex> vertexes;
+			vertexes.resize(4);
+			vertexes[0].pos = Vector3(-0.5f, -0.5f, 0.0f);			//0
+			vertexes[0].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+
+			vertexes[1].pos = Vector3(-0.5f, +0.5f, 0.0f);			// 1
+			vertexes[1].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+
+			vertexes[2].pos = Vector3(+0.5f, -0.5f, 0.0f);			// 2
+			vertexes[2].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+
+			vertexes[3].pos = Vector3(+0.5f, +0.5f, 0.0f);			// 3
+			vertexes[3].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+
+			std::vector<UINT> indexes;
+			indexes.push_back(0);
+			indexes.push_back(1);
+
+			indexes.push_back(1);
+			indexes.push_back(3);
+
+			indexes.push_back(3);
+			indexes.push_back(2);
+
+			indexes.push_back(2);
+			indexes.push_back(0);
+
+			// Triangle Vertex Buffer
+			lineMesh->CreateVertexBuffer(vertexes.data(), 4);
+			lineMesh->CreateIndexBuffer(indexes.data(), indexes.size());
+			Resources::Insert(L"LineMesh", lineMesh);
+		}
+
 		constantBuffers[(UINT)graphics::eCBType::Transform] = new ConstantBuffer();
 		constantBuffers[(UINT)graphics::eCBType::Transform]->Create(sizeof(TransformCB));
+
+		constantBuffers[(UINT)graphics::eCBType::Collider] = new ConstantBuffer();
+		constantBuffers[(UINT)graphics::eCBType::Collider]->Create(sizeof(ColliderCB));
 		//mesh->CreateConstantBuffer(nullptr, sizeof(Vector4));
 	}
 
 	void LoadShader()
 	{
-		shader->Create(eShaderStage::VS, L"TriangleVS.hlsl", "VS_Test");
-		shader->Create(eShaderStage::PS, L"TrianglePS.hlsl", "PS_Test");
+		triangleShader->Create(eShaderStage::VS, L"TriangleVS.hlsl", "VS_Test");
+		triangleShader->Create(eShaderStage::PS, L"TrianglePS.hlsl", "PS_Test");
 
+		lineShader->Create(eShaderStage::VS, L"TriangleVS.hlsl", "VS_Test");
+		lineShader->Create(eShaderStage::PS, L"TrianglePS.hlsl", "PS_Test");
+		lineShader->SetTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
 
-		Resources::Insert(L"TriangleShader", shader);
+		Resources::Insert(L"TriangleShader", triangleShader);
+		Resources::Insert(L"LineShader", lineShader);
 		//GetDevice()->CreateShader(eShaderStage::NONE);
 		//GetDevice()->CreateVertexShader();`
 		// Input layout 정점 구조 정보
@@ -79,15 +124,17 @@ namespace ya::renderer
 		InputLayouts[1].SemanticIndex = 0;
 
 		GetDevice()->CreateInputLayout(InputLayouts, 2,
-			shader->GetVSCode()->GetBufferPointer()
-			, shader->GetVSCode()->GetBufferSize()
-			, shader->GetInputLayoutAddressOf());
+			triangleShader->GetVSCode()->GetBufferPointer()
+			, triangleShader->GetVSCode()->GetBufferSize()
+			, triangleShader->GetInputLayoutAddressOf());
 	}
 
 	void Initialize()
 	{
-		mesh = new Mesh();
-		shader = new Shader();
+		triangleMesh = new Mesh();
+		lineMesh = new Mesh();
+		triangleShader = new Shader();
+		lineShader = new Shader();
 
 		LoadShader();
 		SetUpStates();
@@ -96,8 +143,10 @@ namespace ya::renderer
 
 	void Release()
 	{
-		delete mesh;
-		delete shader;
+		delete triangleMesh;
+		delete lineMesh;
+		delete triangleShader;
+		delete lineShader;
 
 		delete constantBuffers[(UINT)graphics::eCBType::Transform];
 		//triangleVertexBuffer->Release();

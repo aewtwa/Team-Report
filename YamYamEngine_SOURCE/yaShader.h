@@ -15,6 +15,7 @@ namespace ya::graphics
 		void Create(const graphics::eShaderStage stage, const std::wstring& file, const std::string& funcName);
 		void Update();
 
+		void SetTopology(D3D11_PRIMITIVE_TOPOLOGY topology) { mTopology = topology; }
 
 		ID3D11InputLayout* GetInputLayout()
 		{
@@ -29,6 +30,8 @@ namespace ya::graphics
 		{
 			return mVSBlob.Get();
 		}
+
+
 
 	private:
 		Microsoft::WRL::ComPtr<ID3D11InputLayout> mInputLayout;

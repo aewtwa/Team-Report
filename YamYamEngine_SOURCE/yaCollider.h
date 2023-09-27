@@ -1,8 +1,7 @@
 #pragma once
 #include"yaComponent.h"
-#include "yaApplication.h"
-
-extern ya::Application app;
+#include "yaMesh.h"
+#include "yaShader.h"
 
 namespace ya
 {
@@ -40,5 +39,7 @@ namespace ya
 		math::Vector3 mOffset;
 		math::Vector2 mSize;
 
+		Mesh* mMesh;
+		graphics::Shader* mShader;
 	};
 }

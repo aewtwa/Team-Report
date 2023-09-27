@@ -1,11 +1,9 @@
 #include "yaCollider.h"
+#include "yaResources.h"
 #include "yaGameObject.h"
 #include "yaTransform.h"
 #include "yaCamera.h"
-#include "yaApplication.h"
-#include <wingdi.h>
-
-extern ya::Application application;
+#include "yaRenderer.h"
 
 namespace ya
 {
@@ -13,7 +11,7 @@ namespace ya
 		: Component(COMPONENTTYPE::COLLIDER)
 		, mPos(math::Vector2::Zero)
 		, mOffset(math::Vector2::Zero)
-		, mSize(math::Vector2::One * 10)
+		, mSize(math::Vector2::One)
 		, isCollision(false)
 	{
 	}
@@ -23,40 +21,30 @@ namespace ya
 	void Collider::Initialize()
 	{
 		mPos = GetOwner()->GetComponent<Transform>()->GetPosition() + mOffset;
+
+		mMesh = Resources::Find<Mesh>(L"LineMesh");
+		mShader = Resources::Find<graphics::Shader>(L"LineShader");
 	}
 	void Collider::Update()
 	{
 		mPos = GetOwner()->GetComponent<Transform>()->GetPosition() + mOffset;
-		mPos = Camera::CalculatePositionApi(mPos);
-		Vector3 pos = GetOwner()->GetComponent<Transform>()->GetPosition() + mOffset;
 	}
 	void Collider::LateUpdate()
 	{
 	}
 	void Collider::Render()
 	{
-		HBRUSH brush = (HBRUSH)GetStockObject(NULL_BRUSH);
-		HPEN pen;
-		if (GetCollision())
-			pen = CreatePen(PS_SOLID, 0, RGB(255, 0, 0));
-		else
-			pen = CreatePen(PS_SOLID, 0, RGB(0, 255, 0));
+		ConstantBuffer* cb = renderer::constantBuffers[(UINT)graphics::eCBType::Transform];
 
-		HBRUSH oldB = (HBRUSH)SelectObject(application.GetDC(), brush);
-		HPEN oldP = (HPEN)SelectObject(application.GetDC(), pen);
+		renderer::TransformCB data = {};
+		data.pos = mPos;
+		data.scale = (Vector3)mSize;
+		cb->SetData(&data);
 
-		Rectangle(application.GetDC()
-			, mPos.x - mSize.x / 2
-			, mPos.y + mSize.y / 2
-			, mPos.x + mSize.x / 2
-			, mPos.y - mSize.y / 2);
+		cb->Bind(graphics::eShaderStage::VS);
 
-		SelectObject(application.GetDC(), oldB);
-		SelectObject(application.GetDC(), oldP);
-
-		DeleteObject(brush);
-		DeleteObject(pen);
-
+		mShader->Update();
+		mMesh->Render();
 	}
 	void Collider::OnCollisionEnter(Collider* other)
 	{
