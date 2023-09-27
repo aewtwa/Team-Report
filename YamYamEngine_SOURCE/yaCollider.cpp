@@ -29,10 +29,11 @@ namespace ya
 		mPos = GetOwner()->GetComponent<Transform>()->GetPosition() + mOffset;
 		mPos = Camera::CalculatePositionApi(mPos);
 		Vector3 pos = GetOwner()->GetComponent<Transform>()->GetPosition() + mOffset;
-		pos.x *= 400.0f;
-		pos.y *= 225.0f;
-		mPos.x += pos.x;
-		mPos.y -= pos.y;
+
+		//pos.x *= 400.0f;
+		//pos.y *= 225.0f;
+		//mPos.x += pos.x;
+		//mPos.y -= pos.y;
 
 	}
 	void Collider::LateUpdate()
@@ -52,9 +53,9 @@ namespace ya
 
 		Rectangle(application.GetDC()
 			, mPos.x - mSize.x / 2
-			, mPos.y - mSize.y / 2
+			, mPos.y + mSize.y / 2
 			, mPos.x + mSize.x / 2
-			, mPos.y + mSize.y / 2);
+			, mPos.y - mSize.y / 2);
 
 		SelectObject(application.GetDC(), oldB);
 		SelectObject(application.GetDC(), oldP);

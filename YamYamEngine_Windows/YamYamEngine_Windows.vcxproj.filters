@@ -23,6 +23,9 @@
     <ClInclude Include="yaControllerScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="yaBullet.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -34,6 +37,9 @@
     </ClCompile>
     <ClCompile Include="yaControllerScript.cpp">
       <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaBullet.cpp">
+      <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

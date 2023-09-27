@@ -22,44 +22,30 @@ namespace ya::renderer
 	void LoadBuffer()
 	{
 		std::vector<Vertex> vertexes;
-		vertexes.resize(6);
-		vertexes[0].pos = Vector3(-0.25f, -0.5f, 0.0f);			//0
+		vertexes.resize(4);
+		vertexes[0].pos = Vector3(-0.5f, -0.5f, 0.0f);			//0
 		vertexes[0].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
-		vertexes[1].pos = Vector3(-0.25f, +0.5f, 0.0f);			// 1
+		vertexes[1].pos = Vector3(-0.5f, +0.5f, 0.0f);			// 1
 		vertexes[1].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
-		vertexes[2].pos = Vector3(+0.25f, -0.5f, 0.0f);			// 2
+		vertexes[2].pos = Vector3(+0.5f, -0.5f, 0.0f);			// 2
 		vertexes[2].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
-		vertexes[3].pos = Vector3(+0.25f, -0.5f, 0.0f);			// 2
+		vertexes[3].pos = Vector3(+0.5f, +0.5f, 0.0f);			// 3
 		vertexes[3].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
-
-		vertexes[4].pos = Vector3(-0.25f, +0.5f, 0.0f);			// 1
-		vertexes[4].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
-
-		vertexes[5].pos = Vector3(+0.25f, +0.5f, 0.0f);			// 3
-		vertexes[5].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
 		std::vector<UINT> indexes;
 		indexes.push_back(0);
-		indexes.push_back(2);
-		indexes.push_back(3);
-
-		indexes.push_back(3);
-		indexes.push_back(5);
-		indexes.push_back(6);
-
-		indexes.push_back(0);
 		indexes.push_back(1);
 		indexes.push_back(2);
-
+		
+		indexes.push_back(2);
+		indexes.push_back(1);
 		indexes.push_back(3);
-		indexes.push_back(4);
-		indexes.push_back(5);
-
+	
 		// Triangle Vertex Buffer
-		mesh->CreateVertexBuffer(vertexes.data(), 6);
+		mesh->CreateVertexBuffer(vertexes.data(), 4);
 		mesh->CreateIndexBuffer(indexes.data(), indexes.size());
 		Resources::Insert(L"TriangleMesh", mesh);
 		

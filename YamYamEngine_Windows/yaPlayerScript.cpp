@@ -29,12 +29,18 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Vector3 pos = tr->GetPosition();
 
-		if (Input::GetKeyDown(KEY_CODE::SPACE))
+		if (Input::GetKeyDown(KEY_CODE::LBTN))
 		{
-			GameObject* objecti = object::Instantiate<GameObject>(Player);
+			GameObject* objecti = object::Instantiate<GameObject>(Bullet);
 			Transform* tr = objecti->AddComponent<Transform>();
-			tr->SetPosition(Vector3(0.5f, 0.2f, 0.0f));
-			tr->SetScale(Vector3(0.5f, 0.5f, 1.0f));
+			Vector2 Pos = Input::GetMousPosition();
+			Vector3 vPos = {};
+			Pos.x /= 1600;
+			Pos.y /= 900;
+			vPos.x = Pos.x;
+			vPos.y = Pos.y;
+			vPos.z = 0.0f;
+			tr->SetPosition(vPos);
 
 			MeshRenderer* meshRenderer = objecti->AddComponent<MeshRenderer>();
 			meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));

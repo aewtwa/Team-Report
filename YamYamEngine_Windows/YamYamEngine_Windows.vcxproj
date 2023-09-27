@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="yaBullet.h" />
     <ClInclude Include="yaControllerScript.h" />
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaplayer.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="yaPlayScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="yaBullet.cpp" />
     <ClCompile Include="yaControllerScript.cpp" />
     <ClCompile Include="yaplayer.cpp" />
     <ClCompile Include="yaPlayerScript.cpp" />

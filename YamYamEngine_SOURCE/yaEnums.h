@@ -5,6 +5,7 @@ namespace ya::enums
 	enum LAYER
 	{
 		Player,
+		Bullet,
 		Monster,
 		End
 	};
