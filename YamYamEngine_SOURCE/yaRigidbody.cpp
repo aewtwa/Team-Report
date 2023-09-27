@@ -12,9 +12,9 @@ namespace ya
 		, mFriction(0.0f)
 		, mbGround(false)
 	{
-		mLimitedVelocity.x = 200.0f;
-		mLimitedVelocity.y = 1000.0f;
-		mGravity = Vector2(0.0f, 800.0f);
+		mLimitedVelocity.x = 10.0f;
+		mLimitedVelocity.y = 10.0f;
+		mGravity = Vector2(0.0f, 8.0f);
 
 	}
 
