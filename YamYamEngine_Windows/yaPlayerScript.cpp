@@ -7,6 +7,7 @@
 #include "yaobject.h"
 #include "yaMeshRenderer.h"
 #include "yaResources.h"
+#include "yaBullet.h"
 
 namespace ya
 {
@@ -31,8 +32,8 @@ namespace ya
 
 		if (Input::GetKeyDown(KEY_CODE::LBTN))
 		{
-			GameObject* objecti = object::Instantiate<GameObject>(Bullet);
-			Transform* tr = objecti->AddComponent<Transform>();
+			GameObject* objecti = object::Instantiate<ya::Bullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
+			Transform* tr = objecti->GetComponent<Transform>();
 			Vector2 Pos = Input::GetMousPosition();
 			Vector3 vPos = {};
 			Pos.x /= 1600;
@@ -41,12 +42,6 @@ namespace ya
 			vPos.y = Pos.y;
 			vPos.z = 0.0f;
 			tr->SetPosition(vPos);
-
-			MeshRenderer* meshRenderer = objecti->AddComponent<MeshRenderer>();
-			meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
-			meshRenderer->SetShader(Resources::Find<Shader>(L"TriangleShader"));
-
-			objecti->AddComponent<Collider>();
 		}
 
 		tr->SetPosition(pos);

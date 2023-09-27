@@ -21,7 +21,7 @@ namespace ya::object
 	{
 		T* gameObject = new T();
 		Scene* scene = SceneManager::GetActiveScene();
-		scene->AddGameObject(gameObject, gameObject);
+		scene->AddGameObject(gameObject, type);
 		gameObject->Initialize();
 		gameObject->GetComponent<Transform>()->SetPosition(position);
 

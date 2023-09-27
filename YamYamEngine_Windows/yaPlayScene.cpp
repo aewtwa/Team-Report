@@ -9,6 +9,7 @@
 #include "..\\YamYamEngine_SOURCE\\yaCamera.h"
 #include "..\\YamYamEngine_SOURCE\yaobject.h"
 #include "yaControllerScript.h"
+#include "yaplayer.h"
 namespace ya
 {
 	PlayScene::PlayScene()
@@ -24,22 +25,9 @@ namespace ya
 	void PlayScene::Initialize()
 	{
 		{
-			GameObject* object = new GameObject;
-			Transform* tr = object->AddComponent<Transform>();
-
-			MeshRenderer* meshRenderer = object->AddComponent<MeshRenderer>();
-			meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
-			meshRenderer->SetShader(Resources::Find<Shader>(L"TriangleShader"));
-
-			object->AddComponent<PlayerScript>();
-			object->AddComponent<ControllerScript>();
-			object->AddComponent<Collider>();
-			//object->AddComponent<Rigidbody>();
-
+			GameObject* object = new player();
 			AddGameObject(object, LAYER::Player);
 			Camera::SetTarget(object);
-			//object->AddComponent<PlayerScript2>();
-	
 		}
 	}
 

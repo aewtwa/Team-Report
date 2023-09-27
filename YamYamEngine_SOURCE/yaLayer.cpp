@@ -50,5 +50,6 @@ namespace ya
 	void Layer::AddGameObject(GameObject* gameObject)
 	{
 		mGameObjects.push_back(gameObject);
+		gameObject->Initialize();
 	}
 }
