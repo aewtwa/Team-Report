@@ -99,6 +99,10 @@ namespace ya
 		mForce.clear();
 	}
 
+	void Rigidbody::LateUpdate()
+	{
+	}
+
 	void Rigidbody::Render()
 	{
 

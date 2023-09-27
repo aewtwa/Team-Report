@@ -9,11 +9,12 @@ namespace ya
 	{
 	public:
 		Rigidbody();
-		~Rigidbody();
+		~Rigidbody() override;
 
-		virtual void Initialize();
-		virtual void Update();
-		virtual void Render();
+		void Initialize() override;
+		void Update() override;
+		void LateUpdate() override;
+		void Render() override;
 
 		void AddForce(Vector2 force) { mForce += force; }
 		void SetMass(float mass) { mMass = mass; }
