@@ -1,6 +1,7 @@
 #pragma once
 #include "..\\YamYamEngine_SOURCE\\yaScene.h"
 
+#include "..\\YamYamEngine_SOURCE\yaobject.h"
 
 namespace ya
 {
@@ -16,5 +17,7 @@ namespace ya
 		void Render() override;
 
 	private:
+		GameObject* obj;
+
 	};
 }

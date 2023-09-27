@@ -1,5 +1,6 @@
 #include "yaBullet.h"
 #include "..\YamYamEngine_SOURCE\yaResources.h"
+#include "..\YamYamEngine_SOURCE\yaTime.h"
 #include "..\YamYamEngine_SOURCE\yaTransform.h"
 #include "..\YamYamEngine_SOURCE\yaCollider.h"
 #include "..\YamYamEngine_SOURCE\yaMeshRenderer.h"
@@ -26,6 +27,13 @@ namespace ya
 	void Bullet::Update()
 	{
 		GameObject::Update();
+
+		Transform* tr = GetComponent<Transform>();
+		math::Vector2 pos = (Vector2)tr->GetPosition();
+
+		pos += mDirection * 10.f * Time::DeltaTime();
+
+		tr->SetPosition((Vector3)pos);
 	}
 	void Bullet::LateUpdate()
 	{

@@ -33,15 +33,19 @@ namespace ya
 		if (Input::GetKeyDown(KEY_CODE::LBTN))
 		{
 			GameObject* objecti = object::Instantiate<ya::Bullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
-			Transform* tr = objecti->GetComponent<Transform>();
+			//Transform* tr = objecti->GetComponent<Transform>();
 			Vector2 Pos = Input::GetMousPosition();
-			Vector3 vPos = {};
-			Pos.x /= 1600;
-			Pos.y /= 900;
-			vPos.x = Pos.x;
-			vPos.y = Pos.y;
-			vPos.z = 0.0f;
-			tr->SetPosition(vPos);
+			Vector3 vPos = GetOwner()->GetComponent<Transform>()->GetPosition();
+			Pos.x -= 1600 / 2;
+			Pos.y -= 900 / 2;
+
+			Vector2 dir = Pos - vPos;
+			dir.y *= -1;
+			dir.normalize();
+
+			dynamic_cast<ya::Bullet*>(objecti)->SetDir(dir);
+
+			//tr->SetPosition(vPos);
 		}
 
 		tr->SetPosition(pos);

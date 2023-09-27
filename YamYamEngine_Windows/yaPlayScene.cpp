@@ -1,6 +1,8 @@
 #include "yaPlayScene.h"
 #include "yaResources.h"
 
+#include "..\YamYamEngine_SOURCE\yaInput.h"
+
 #include "yaGameObject.h"
 #include "yaTransform.h"
 #include "yaMeshRenderer.h"
@@ -25,7 +27,8 @@ namespace ya
 	void PlayScene::Initialize()
 	{
 		{
-			GameObject* object = new player();
+			obj = new player();
+			GameObject* object = obj;
 			AddGameObject(object, LAYER::Player);
 			Camera::SetTarget(object);
 		}
@@ -35,6 +38,14 @@ namespace ya
 	{
 		Scene::Update();
 		Camera::Update();
+
+		if (Input::GetKeyDown(KEY_CODE::N))
+		{
+			if (Camera::GetTarget() == nullptr)
+				Camera::SetTarget(obj);
+			else
+				Camera::SetTarget(nullptr);
+		}
 	}
 
 	void PlayScene::LateUpdate()
