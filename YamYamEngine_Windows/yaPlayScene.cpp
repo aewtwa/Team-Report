@@ -7,6 +7,7 @@
 #include "yaPlayerScript.h"
 #include "..\\YamYamEngine_SOURCE\\yaCamera.h"
 #include "..\\YamYamEngine_SOURCE\yaobject.h"
+#include "yaControllerScript.h"
 namespace ya
 {
 	PlayScene::PlayScene()
@@ -32,6 +33,7 @@ namespace ya
 			meshRenderer->SetShader(Resources::Find<Shader>(L"TriangleShader"));
 
 			object->AddComponent<PlayerScript>();
+			object->AddComponent<ControllerScript>();
 			object->AddComponent<Collider>();
 
 			AddGameObject(object, LAYER::Monster);
