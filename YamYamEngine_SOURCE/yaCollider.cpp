@@ -11,7 +11,7 @@ namespace ya
 {
 	Collider::Collider()
 		: Component(COMPONENTTYPE::COLLIDER)
-		, mPos(math::Vector2(800, 450))
+		, mPos(math::Vector2::Zero)
 		, mOffset(math::Vector2::Zero)
 		, mSize(math::Vector2::One * 10)
 		, isCollision(false)
@@ -26,8 +26,8 @@ namespace ya
 	}
 	void Collider::Update()
 	{
-		//mPos = GetOwner()->GetComponent<Transform>()->GetPosition() + mOffset;
-		//Camera::CalculatePosition(mPos);
+		mPos = GetOwner()->GetComponent<Transform>()->GetPosition() + mOffset;
+		mPos = Camera::CalculatePositionApi(mPos);
 	}
 	void Collider::LateUpdate()
 	{
