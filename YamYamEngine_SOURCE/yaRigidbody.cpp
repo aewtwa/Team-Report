@@ -12,9 +12,9 @@ namespace ya
 		, mFriction(0.0f)
 		, mbGround(false)
 	{
-		mLimitedVelocity.x = 200.0f;
-		mLimitedVelocity.y = 1000.0f;
-		mGravity = Vector2(0.0f, 800.0f);
+		mLimitedVelocity.x = 10.0f;
+		mLimitedVelocity.y = 10.0f;
+		mGravity = Vector2(0.0f, 8.0f);
 
 	}
 
@@ -43,12 +43,12 @@ namespace ya
 			Vector2 gravity = mGravity;
 			gravity.normalize();
 			float dot = ya::math::Vector2::Dot(mVelocity, gravity);
-			mVelocity -= gravity * dot;
+			mVelocity += gravity * dot;
 		}
 		else
 		{
 			// 공중에 있을때
-			mVelocity += mGravity * Time::DeltaTime();
+			mVelocity -= mGravity * Time::DeltaTime();
 		}
 
 		// 최대 속도 제한
@@ -97,6 +97,10 @@ namespace ya
 		pos = pos + mVelocity * Time::DeltaTime();
 		tr->SetPosition(pos);
 		mForce.clear();
+	}
+
+	void Rigidbody::LateUpdate()
+	{
 	}
 
 	void Rigidbody::Render()

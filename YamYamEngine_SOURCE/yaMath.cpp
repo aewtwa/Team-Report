@@ -374,74 +374,74 @@ namespace ya::math
 	// // Comparision operators
 	// //------------------------------------------------------------------------------
 
-	//bool Vector2::operator == (const Vector2& V) const noexcept
-	//{
-	//	using namespace DirectX;
-	//	const XMVECTOR v1 = XMLoadFloat2(this);
-	//	const XMVECTOR v2 = XMLoadFloat2(&V);
-	//	return XMVector2Equal(v1, v2);
-	//}
+	bool Vector2::operator == (const Vector2& V) const noexcept
+	{
+		using namespace DirectX;
+		const XMVECTOR v1 = XMLoadFloat2(this);
+		const XMVECTOR v2 = XMLoadFloat2(&V);
+		return XMVector2Equal(v1, v2);
+	}
 
-	//bool Vector2::operator != (const Vector2& V) const noexcept
-	//{
-	//	using namespace DirectX;
-	//	const XMVECTOR v1 = XMLoadFloat2(this);
-	//	const XMVECTOR v2 = XMLoadFloat2(&V);
-	//	return XMVector2NotEqual(v1, v2);
-	//}
+	bool Vector2::operator != (const Vector2& V) const noexcept
+	{
+		using namespace DirectX;
+		const XMVECTOR v1 = XMLoadFloat2(this);
+		const XMVECTOR v2 = XMLoadFloat2(&V);
+		return XMVector2NotEqual(v1, v2);
+	}
 
-	////------------------------------------------------------------------------------
-	//// Assignment operators
-	////------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------
+	// Assignment operators
+	//------------------------------------------------------------------------------
 
-	//Vector2& Vector2::operator+= (const Vector2& V) noexcept
-	//{
-	//	using namespace DirectX;
-	//	const XMVECTOR v1 = XMLoadFloat2(this);
-	//	const XMVECTOR v2 = XMLoadFloat2(&V);
-	//	const XMVECTOR X = XMVectorAdd(v1, v2);
-	//	XMStoreFloat2(this, X);
-	//	return *this;
-	//}
+	Vector2& Vector2::operator+= (const Vector2& V) noexcept
+	{
+		using namespace DirectX;
+		const XMVECTOR v1 = XMLoadFloat2(this);
+		const XMVECTOR v2 = XMLoadFloat2(&V);
+		const XMVECTOR X = XMVectorAdd(v1, v2);
+		XMStoreFloat2(this, X);
+		return *this;
+	}
 
-	//Vector2& Vector2::operator-= (const Vector2& V) noexcept
-	//{
-	//	using namespace DirectX;
-	//	const XMVECTOR v1 = XMLoadFloat2(this);
-	//	const XMVECTOR v2 = XMLoadFloat2(&V);
-	//	const XMVECTOR X = XMVectorSubtract(v1, v2);
-	//	XMStoreFloat2(this, X);
-	//	return *this;
-	//}
+	Vector2& Vector2::operator-= (const Vector2& V) noexcept
+	{
+		using namespace DirectX;
+		const XMVECTOR v1 = XMLoadFloat2(this);
+		const XMVECTOR v2 = XMLoadFloat2(&V);
+		const XMVECTOR X = XMVectorSubtract(v1, v2);
+		XMStoreFloat2(this, X);
+		return *this;
+	}
 
-	//Vector2& Vector2::operator*= (const Vector2& V) noexcept
-	//{
-	//	using namespace DirectX;
-	//	const XMVECTOR v1 = XMLoadFloat2(this);
-	//	const XMVECTOR v2 = XMLoadFloat2(&V);
-	//	const XMVECTOR X = XMVectorMultiply(v1, v2);
-	//	XMStoreFloat2(this, X);
-	//	return *this;
-	//}
+	Vector2& Vector2::operator*= (const Vector2& V) noexcept
+	{
+		using namespace DirectX;
+		const XMVECTOR v1 = XMLoadFloat2(this);
+		const XMVECTOR v2 = XMLoadFloat2(&V);
+		const XMVECTOR X = XMVectorMultiply(v1, v2);
+		XMStoreFloat2(this, X);
+		return *this;
+	}
 
-	//Vector2& Vector2::operator*= (float S) noexcept
-	//{
-	//	using namespace DirectX;
-	//	const XMVECTOR v1 = XMLoadFloat2(this);
-	//	const XMVECTOR X = XMVectorScale(v1, S);
-	//	XMStoreFloat2(this, X);
-	//	return *this;
-	//}
+	Vector2& Vector2::operator*= (float S) noexcept
+	{
+		using namespace DirectX;
+		const XMVECTOR v1 = XMLoadFloat2(this);
+		const XMVECTOR X = XMVectorScale(v1, S);
+		XMStoreFloat2(this, X);
+		return *this;
+	}
 
-	//Vector2& Vector2::operator/= (float S) noexcept
-	//{
-	//	using namespace DirectX;
-	//	assert(S != 0.0f);
-	//	const XMVECTOR v1 = XMLoadFloat2(this);
-	//	const XMVECTOR X = XMVectorScale(v1, 1.f / S);
-	//	XMStoreFloat2(this, X);
-	//	return *this;
-	//}
+	Vector2& Vector2::operator/= (float S) noexcept
+	{
+		using namespace DirectX;
+		assert(S != 0.0f);
+		const XMVECTOR v1 = XMLoadFloat2(this);
+		const XMVECTOR X = XMVectorScale(v1, 1.f / S);
+		XMStoreFloat2(this, X);
+		return *this;
+	}
 
 	//------------------------------------------------------------------------------
 	// Binary operators

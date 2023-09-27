@@ -4,6 +4,7 @@
 #include "yaGameObject.h"
 #include "yaTransform.h"
 #include "yaMeshRenderer.h"
+#include "yaRigidbody.h"
 #include "yaPlayerScript.h"
 #include "..\\YamYamEngine_SOURCE\\yaCamera.h"
 #include "..\\YamYamEngine_SOURCE\yaobject.h"
@@ -35,6 +36,7 @@ namespace ya
 			object->AddComponent<PlayerScript>();
 			object->AddComponent<ControllerScript>();
 			object->AddComponent<Collider>();
+			//object->AddComponent<Rigidbody>();
 
 			AddGameObject(object, LAYER::Monster);
 			Camera::SetTarget(object);

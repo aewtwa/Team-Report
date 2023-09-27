@@ -22,27 +22,44 @@ namespace ya::renderer
 	void LoadBuffer()
 	{
 		std::vector<Vertex> vertexes;
-		vertexes.resize(3);
-		vertexes[0].pos = Vector3(0.f, 0.5f, 0.f);
-		vertexes[0].color = Vector4(0.f, 1.f, 0.f, 1.f);
+		vertexes.resize(6);
+		vertexes[0].pos = Vector3(-0.25f, -0.5f, 0.0f);			//0
+		vertexes[0].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
-		vertexes[1].pos = Vector3(0.5f, -0.5f, 0.f);
-		vertexes[1].color = Vector4(1.f, 0.f, 0.f, 1.f);
+		vertexes[1].pos = Vector3(-0.25f, +0.5f, 0.0f);			// 1
+		vertexes[1].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
-		vertexes[2].pos = Vector3(-0.5f, -0.5f, 0.f);
-		vertexes[2].color = Vector4(0.f, 0.f, 1.f, 1.f);
+		vertexes[2].pos = Vector3(+0.25f, -0.5f, 0.0f);			// 2
+		vertexes[2].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+
+		vertexes[3].pos = Vector3(+0.25f, -0.5f, 0.0f);			// 2
+		vertexes[3].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+
+		vertexes[4].pos = Vector3(-0.25f, +0.5f, 0.0f);			// 1
+		vertexes[4].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+
+		vertexes[5].pos = Vector3(+0.25f, +0.5f, 0.0f);			// 3
+		vertexes[5].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
 
 		std::vector<UINT> indexes;
 		indexes.push_back(0);
 		indexes.push_back(2);
 		indexes.push_back(3);
 
+		indexes.push_back(3);
+		indexes.push_back(5);
+		indexes.push_back(6);
+
 		indexes.push_back(0);
 		indexes.push_back(1);
 		indexes.push_back(2);
 
+		indexes.push_back(3);
+		indexes.push_back(4);
+		indexes.push_back(5);
+
 		// Triangle Vertex Buffer
-		mesh->CreateVertexBuffer(vertexes.data(), 3);
+		mesh->CreateVertexBuffer(vertexes.data(), 6);
 		mesh->CreateIndexBuffer(indexes.data(), indexes.size());
 		Resources::Insert(L"TriangleMesh", mesh);
 		
@@ -55,10 +72,12 @@ namespace ya::renderer
 	{
 		shader->Create(eShaderStage::VS, L"TriangleVS.hlsl", "VS_Test");
 		shader->Create(eShaderStage::PS, L"TrianglePS.hlsl", "PS_Test");
+
+
 		Resources::Insert(L"TriangleShader", shader);
 		//GetDevice()->CreateShader(eShaderStage::NONE);
 		//GetDevice()->CreateVertexShader();`
-				// Input layout 정점 구조 정보
+		// Input layout 정점 구조 정보
 		InputLayouts[0].AlignedByteOffset = 0;
 		InputLayouts[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
 		InputLayouts[0].InputSlot = 0;

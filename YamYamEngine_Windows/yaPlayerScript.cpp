@@ -43,11 +43,6 @@ namespace ya
 			objecti->AddComponent<Collider>();
 		}
 
-		if (Input::GetKey(KEY_CODE::W))
-		{
-			pos.y += 5.f * Time::DeltaTime();
-		}
-
 		tr->SetPosition(pos);
 	}
 
