@@ -47,6 +47,11 @@ namespace ya
 		mActiveScene->Render();
 	}
 
+	void SceneManager::Destroy()
+	{
+		mActiveScene->Destroy();
+	}
+
 	Scene* SceneManager::LoadScene(const std::wstring name)
 	{
 		std::map<std::wstring, Scene*>::iterator iter

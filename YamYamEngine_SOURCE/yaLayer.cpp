@@ -47,6 +47,21 @@ namespace ya
 		}
 	}
 
+	void Layer::Destroy()
+	{
+		for (std::vector<GameObject*>::iterator iter = mGameObjects.begin(); iter != mGameObjects.end();)
+		{
+			if ((*iter)->GetState() == GameObject::eState::Dead)
+			{
+				iter = mGameObjects.erase(iter);
+			}
+			else
+			{
+				iter++;
+			}
+		}
+	}
+
 	void Layer::AddGameObject(GameObject* gameObject)
 	{
 		mGameObjects.push_back(gameObject);

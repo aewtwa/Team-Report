@@ -68,10 +68,13 @@ namespace ya
 			return mKeys[static_cast<UINT>(keyCode)].eState == KEY_STATE::PRESSED;
 		}
 
-		static __forceinline Vector2 GetMousPosition()
+		static __forceinline Vector2 GetMousePosition()
 		{
-			return mMousPosition;
+			return mMousePosition;
 		}
+
+		static Vector2 GetMouseWorldPosition();
+		
 
 	private:
 		Input() = delete;
@@ -79,7 +82,7 @@ namespace ya
 
 	private:
 		static std::vector<Key> mKeys;
-		static Vector2 mMousPosition;
+		static Vector2 mMousePosition;
 	};
 }
 

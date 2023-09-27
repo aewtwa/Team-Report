@@ -17,6 +17,7 @@ namespace ya
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
+		virtual void Destroy();
 
 		Layer* GetLayer(UINT index) { return &mLayers[index]; }
 		void AddGameObject(GameObject* gameObject, UINT layerIndex);

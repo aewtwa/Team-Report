@@ -14,6 +14,7 @@ namespace ya
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
+		virtual void Destroy();
 
 		void AddGameObject(GameObject*  gameObject);
 

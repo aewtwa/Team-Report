@@ -10,6 +10,7 @@ namespace ya
 		static void Update();
 		static void LateUpdate();
 		static void Render();
+		static void Destroy();
 
 		template <typename T>
 		static bool CreateScene(const std::wstring name)

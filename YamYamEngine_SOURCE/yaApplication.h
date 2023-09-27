@@ -27,6 +27,8 @@ namespace ya
 		//  RenderPath::Render is also called from here for the active component
 		virtual void Render();
 
+		virtual void Destroy();
+
 		// You need to call this before calling Run() or Initialize() if you want to render
 		void SetWindow(HWND hwnd, HDC dc, UINT width, UINT height);
 

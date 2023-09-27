@@ -15,7 +15,10 @@ namespace ya
 			Active,
 			Paused,
 			Dead,
+			End
 		};
+
+		friend static __forceinline void Destroy(GameObject* gameObject);
 
 		GameObject();
 		virtual ~GameObject();
@@ -66,6 +69,9 @@ namespace ya
 		virtual void OnCollisionStay(Collider* other);
 		virtual void OnCollisionExit(Collider* other);
 
+		eState GetState() { return mState; }
+		void Pause() { mState = eState::Paused; }
+
 		virtual Collider* GetCollider() {
 			for (Component* comp : mComponents)
 			{
@@ -77,9 +83,18 @@ namespace ya
 			return nullptr;
 		}
 
+
+	private:
+		void death() { mState = eState::Dead; }
+
 	private:
 		eState mState;
 		std::vector<Component*> mComponents;
 		std::vector<Script*> mScripts;
 	};
+
+	static __forceinline void Destroy(GameObject* gameObject)
+	{
+		gameObject->death();
+	}
 }

@@ -30,16 +30,13 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Vector3 pos = tr->GetPosition();
 
-		if (Input::GetKeyDown(KEY_CODE::LBTN))
+		if (Input::GetKeyDown(KEY_CODE::RBTN))
 		{
 			GameObject* objecti = object::Instantiate<ya::Bullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
 			//Transform* tr = objecti->GetComponent<Transform>();
-			Vector2 Pos = Input::GetMousPosition();
-			Vector3 vPos = GetOwner()->GetComponent<Transform>()->GetPosition();
-			Pos.x -= 1600 / 2;
-			Pos.y -= 900 / 2;
+			Vector2 MPos = Input::GetMouseWorldPosition();
 
-			Vector2 dir = Pos - vPos;
+			Vector2 dir = MPos - pos;
 			dir.y *= -1;
 			dir.normalize();
 

@@ -4,6 +4,7 @@
 #include "..\YamYamEngine_SOURCE\yaTransform.h"
 #include "..\YamYamEngine_SOURCE\yaCollider.h"
 #include "..\YamYamEngine_SOURCE\yaMeshRenderer.h"
+#include "yaInput.h"
 
 namespace ya
 {
@@ -34,6 +35,12 @@ namespace ya
 		pos += mDirection * 10.f * Time::DeltaTime();
 
 		tr->SetPosition((Vector3)pos);
+
+		if (pos.x > 16.f || pos.y > 9.f ||
+			pos.x < -16.f || pos.y < -9.f)
+		{
+			Destroy(this);
+		}
 	}
 	void Bullet::LateUpdate()
 	{

@@ -71,15 +71,10 @@ namespace ya::renderer
 			std::vector<UINT> indexes;
 			indexes.push_back(0);
 			indexes.push_back(1);
-
-			indexes.push_back(1);
 			indexes.push_back(3);
-
-			indexes.push_back(3);
-			indexes.push_back(2);
-
 			indexes.push_back(2);
 			indexes.push_back(0);
+
 
 			// Triangle Vertex Buffer
 			lineMesh->CreateVertexBuffer(vertexes.data(), 4);
@@ -102,7 +97,7 @@ namespace ya::renderer
 
 		lineShader->Create(eShaderStage::VS, L"TriangleVS.hlsl", "VS_Test");
 		lineShader->Create(eShaderStage::PS, L"TrianglePS.hlsl", "PS_Test");
-		lineShader->SetTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
+		lineShader->SetTopology(D3D11_PRIMITIVE_TOPOLOGY_LINESTRIP);
 
 		Resources::Insert(L"TriangleShader", triangleShader);
 		Resources::Insert(L"LineShader", lineShader);

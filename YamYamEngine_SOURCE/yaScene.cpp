@@ -44,6 +44,14 @@ namespace ya
         }
     }
 
+    void Scene::Destroy()
+    {
+        for (Layer& layer : mLayers)
+        {
+            layer.Destroy();
+        }
+    }
+
     void Scene::AddGameObject(GameObject* gameObject, UINT layerIndex)
     {
         mLayers[layerIndex].AddGameObject(gameObject);

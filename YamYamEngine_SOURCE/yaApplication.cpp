@@ -1,7 +1,7 @@
 #include "yaApplication.h"
 #include <WinUser.h>
 #include "yaGraphicsDevice_DX11.h"
-
+#include "yaScene.h"
 #include "yaInput.h"
 #include "yaTime.h"
 #include "yaRenderer.h"
@@ -24,6 +24,7 @@ namespace ya
 		Update();
 		LateUpdate();
 		Render();
+		Destroy();
 	}
 
 	void Application::Initialize()
@@ -61,6 +62,11 @@ namespace ya
 
 		//graphicsDevice->Render();
 		graphicsDevice->Present();
+	}
+
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
 	}
 
 	void Application::SetWindow(HWND hwnd, HDC dc, UINT width, UINT height)
