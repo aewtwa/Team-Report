@@ -43,12 +43,12 @@ namespace ya
 			Vector2 gravity = mGravity;
 			gravity.normalize();
 			float dot = ya::math::Vector2::Dot(mVelocity, gravity);
-			mVelocity -= gravity * dot;
+			mVelocity += gravity * dot;
 		}
 		else
 		{
 			// 공중에 있을때
-			mVelocity += mGravity * Time::DeltaTime();
+			mVelocity -= mGravity * Time::DeltaTime();
 		}
 
 		// 최대 속도 제한
