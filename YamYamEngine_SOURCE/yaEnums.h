@@ -4,6 +4,7 @@ namespace ya::enums
 {
 	enum LAYER
 	{
+		Wall,
 		Player,
 		Bullet,
 		Monster,

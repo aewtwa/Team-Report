@@ -82,6 +82,8 @@ namespace ya::renderer
 			Resources::Insert(L"LineMesh", lineMesh);
 		}
 
+
+
 		constantBuffers[(UINT)graphics::eCBType::Transform] = new ConstantBuffer();
 		constantBuffers[(UINT)graphics::eCBType::Transform]->Create(sizeof(TransformCB));
 

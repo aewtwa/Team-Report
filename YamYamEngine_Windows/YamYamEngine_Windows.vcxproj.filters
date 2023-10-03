@@ -26,6 +26,10 @@
     <ClInclude Include="yaBullet.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="yaMonsterScript.h" />
+    <ClInclude Include="yaWall.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -39,6 +43,10 @@
       <Filter>Scripts</Filter>
     </ClCompile>
     <ClCompile Include="yaBullet.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaMonsterScript.cpp" />
+    <ClCompile Include="yaWall.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
