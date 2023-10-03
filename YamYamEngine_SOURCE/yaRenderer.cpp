@@ -27,16 +27,16 @@ namespace ya::renderer
 			std::vector<Vertex> vertexes;
 			vertexes.resize(4);
 			vertexes[0].pos = Vector3(-0.5f, -0.5f, 0.0f);			//0
-			vertexes[0].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[0].color = Vector4(0.0f, 0.0f, 0.0f, 1.0f);
 
 			vertexes[1].pos = Vector3(-0.5f, +0.5f, 0.0f);			// 1
-			vertexes[1].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[1].color = Vector4(0.0f, 0.0f, 0.0f, 1.0f);
 
 			vertexes[2].pos = Vector3(+0.5f, -0.5f, 0.0f);			// 2
-			vertexes[2].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[2].color = Vector4(0.0f, 0.0f, 0.0f, 1.0f);
 
 			vertexes[3].pos = Vector3(+0.5f, +0.5f, 0.0f);			// 3
-			vertexes[3].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[3].color = Vector4(0.0f, 0.0f, 0.0f, 1.0f);
 
 			std::vector<UINT> indexes;
 			indexes.push_back(0);
@@ -57,16 +57,16 @@ namespace ya::renderer
 			std::vector<Vertex> vertexes;
 			vertexes.resize(4);
 			vertexes[0].pos = Vector3(-0.5f, -0.5f, 0.0f);			//0
-			vertexes[0].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[0].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 
 			vertexes[1].pos = Vector3(-0.5f, +0.5f, 0.0f);			// 1
-			vertexes[1].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[1].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 
 			vertexes[2].pos = Vector3(+0.5f, -0.5f, 0.0f);			// 2
-			vertexes[2].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[2].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 
 			vertexes[3].pos = Vector3(+0.5f, +0.5f, 0.0f);			// 3
-			vertexes[3].color = Vector4(0.8f, 0.8f, 0.8f, 1.0f);
+			vertexes[3].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 
 			std::vector<UINT> indexes;
 			indexes.push_back(0);
@@ -87,6 +87,9 @@ namespace ya::renderer
 
 		constantBuffers[(UINT)graphics::eCBType::Collider] = new ConstantBuffer();
 		constantBuffers[(UINT)graphics::eCBType::Collider]->Create(sizeof(ColliderCB));
+
+		constantBuffers[(UINT)graphics::eCBType::Color] = new ConstantBuffer();
+		constantBuffers[(UINT)graphics::eCBType::Color]->Create(sizeof(ColorCB));
 		//mesh->CreateConstantBuffer(nullptr, sizeof(Vector4));
 	}
 

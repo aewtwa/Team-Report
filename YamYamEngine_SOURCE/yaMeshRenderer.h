@@ -25,5 +25,6 @@ namespace ya
 	private:
 		Mesh* mMesh;
 		Shader* mShader;
+		Vector4 mColor;
 	};
 }

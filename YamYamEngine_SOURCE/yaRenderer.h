@@ -45,6 +45,11 @@ namespace ya::renderer
 		int padd3;
 	};
 
+	CBUFFER(ColorCB, CBSLOT_COLOR)
+	{
+		Vector4 col;
+	};
+
 	extern Mesh* triangleMesh;
 	extern Mesh* lineMesh;
 	extern Shader* triangleShader;
