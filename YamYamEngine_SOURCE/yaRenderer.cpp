@@ -84,13 +84,13 @@ namespace ya::renderer
 
 
 
-		constantBuffers[(UINT)graphics::eCBType::Transform] = new ConstantBuffer();
+		constantBuffers[(UINT)graphics::eCBType::Transform] = new ConstantBuffer(eCBType::Transform);
 		constantBuffers[(UINT)graphics::eCBType::Transform]->Create(sizeof(TransformCB));
 
-		constantBuffers[(UINT)graphics::eCBType::Collider] = new ConstantBuffer();
+		constantBuffers[(UINT)graphics::eCBType::Collider] = new ConstantBuffer(eCBType::Collider);
 		constantBuffers[(UINT)graphics::eCBType::Collider]->Create(sizeof(ColliderCB));
 
-		constantBuffers[(UINT)graphics::eCBType::Color] = new ConstantBuffer();
+		constantBuffers[(UINT)graphics::eCBType::Color] = new ConstantBuffer(eCBType::Color);
 		constantBuffers[(UINT)graphics::eCBType::Color]->Create(sizeof(ColorCB));
 		//mesh->CreateConstantBuffer(nullptr, sizeof(Vector4));
 	}

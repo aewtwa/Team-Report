@@ -9,7 +9,7 @@ namespace ya
 {
 	MeshRenderer::MeshRenderer()
 		: Component(COMPONENTTYPE::MESH)
-		, mColor(Vector4(10, 123, 223, 1))
+		, mColor(Vector4(0.f, 0.f, 0.f, 1))
 	{
 	}
 

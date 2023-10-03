@@ -19,6 +19,6 @@ namespace ya
 		void OnCollisionExit(Collider* other) override;
 
 	private:
-
+		
 	};
 }
