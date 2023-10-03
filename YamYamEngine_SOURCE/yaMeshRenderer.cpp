@@ -2,6 +2,8 @@
 #include "yaGameObject.h"
 #include "yaTransform.h"
 #include "yaResources.h"
+#include "yaGraphicsDevice_DX11.h"
+#include "yaRenderer.h"
 
 namespace ya
 {
@@ -36,6 +38,14 @@ namespace ya
 	void MeshRenderer::Render()
 	{
 		GetOwner()->GetComponent<Transform>()->SetConstantBuffer();
+
+		ConstantBuffer* cb = renderer::constantBuffers[(UINT)graphics::eCBType::Color];
+
+		renderer::ColorCB data = {};
+		data.col = mColor;
+		cb->SetData(&data);
+
+		cb->Bind(graphics::eShaderStage::PS);
 
 		mShader->Update();
 		mMesh->Render();
