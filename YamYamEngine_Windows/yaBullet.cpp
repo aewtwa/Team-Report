@@ -1,6 +1,7 @@
 #include "yaBullet.h"
 #include "..\YamYamEngine_SOURCE\yaResources.h"
 #include "..\YamYamEngine_SOURCE\yaTime.h"
+#include "..\YamYamEngine_SOURCE\yaCamera.h"
 #include "..\YamYamEngine_SOURCE\yaTransform.h"
 #include "..\YamYamEngine_SOURCE\yaCollider.h"
 #include "..\YamYamEngine_SOURCE\yaMeshRenderer.h"
@@ -18,10 +19,7 @@ namespace ya
 	{
 		AddComponent<Transform>();
 		AddComponent<Collider>();
-
-		/*MeshRenderer* meshRenderer = AddComponent<MeshRenderer>();
-		meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
-		meshRenderer->SetShader(Resources::Find<Shader>(L"TriangleShader"));*/
+		AddComponent<MeshRenderer>();
 
 		GameObject::Initialize();
 	}
@@ -34,6 +32,7 @@ namespace ya
 
 		pos += mDirection * 10.f * Time::DeltaTime();
 
+		pos = (Vector2)Camera::CalculatePosition((Vector3)pos);
 		tr->SetPosition((Vector3)pos);
 
 		if (pos.x > 16.f || pos.y > 9.f ||

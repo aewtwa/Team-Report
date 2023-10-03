@@ -1,6 +1,7 @@
 #include "yaMeshRenderer.h"
 #include "yaGameObject.h"
 #include "yaTransform.h"
+#include "yaResources.h"
 
 namespace ya
 {
@@ -15,6 +16,8 @@ namespace ya
 
 	void MeshRenderer::Initialize()
 	{
+		SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
+		SetShader(Resources::Find<Shader>(L"TriangleShader"));
 	}
 
 	void MeshRenderer::Update()
