@@ -6,12 +6,8 @@ struct VTX_OUT
     float4 vColor : COLOR;
 };
 
-cbuffer TRANSFORM : register(b2)
-{
-    float4 cbCol;
-};
 
 float4 PS_Test(VTX_OUT _in) : SV_Target
 {
-    return _in.vColor + cbCol;
+    return _in.vColor;
 }

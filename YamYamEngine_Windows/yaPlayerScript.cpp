@@ -35,18 +35,18 @@ namespace ya
 		{
 			GameObject* objecti = object::Instantiate<ya::Bullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
 			Vector2 MPos = Input::GetMouseWorldPosition();
+			MPos.y *= -1;
 
 			Vector2 dir = MPos - pos;
-			dir.y *= -1;
 			dir.normalize();
 
 			dynamic_cast<ya::Bullet*>(objecti)->SetDir(dir);
 		}
 
-		/*if (Input::GetKeyDown(KEY_CODE::RBTN))
+		if (Input::GetKeyDown(KEY_CODE::RBTN))
 		{
-			object::Instantiate<ya::Monster>(LAYER::Monster, GetOwner()->GetComponent<Transform>()->GetPosition() + Vector3(10, 0, 0));
-		}*/
+			object::Instantiate<ya::Monster>(LAYER::Monster, /*GetOwner()->GetComponent<Transform>()->GetPosition() +*/ Vector3(10, 0, 0));
+		}
 
 		tr->SetPosition(pos);
 	}

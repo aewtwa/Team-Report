@@ -16,6 +16,7 @@ namespace ya
 
 		static GameObject* GetTarget() { return mTarget; }
 		static void SetTarget(GameObject* target) { mTarget = target; }
+
 	private:
 		static Vector3 mResolution;
 		static Vector3 mLookPosition;

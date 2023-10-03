@@ -29,11 +29,11 @@ namespace ya
 		GameObject::Update();
 
 		Transform* tr = GetComponent<Transform>();
-		math::Vector2 pos = (Vector2)tr->GetPosition();
+		math::Vector2 pos = (Vector2)tr->GetPosition();		
 
 		pos += mDirection * 10.f * Time::DeltaTime();
 
-		tr->SetPosition(Camera::CalculatePosition((Vector3)pos));
+		tr->SetPosition((Vector3)pos);
 
 		if (pos.x > 16.f || pos.y > 9.f ||
 			pos.x < -16.f || pos.y < -9.f)

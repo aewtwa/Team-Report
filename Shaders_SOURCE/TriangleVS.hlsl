@@ -11,7 +11,7 @@ struct VTX_OUT
     float4 vColor : COLOR;
 };
 
-cbuffer TRANSFORM : register(b0)
+cbuffer Transform : register(b0)
 {
     float3 cbPos;
     int padd1;
