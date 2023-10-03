@@ -1,6 +1,7 @@
 #include "yaBullet.h"
 #include "..\YamYamEngine_SOURCE\yaResources.h"
 #include "..\YamYamEngine_SOURCE\yaTime.h"
+#include "..\YamYamEngine_SOURCE\yaCamera.h"
 #include "..\YamYamEngine_SOURCE\yaTransform.h"
 #include "..\YamYamEngine_SOURCE\yaCollider.h"
 #include "..\YamYamEngine_SOURCE\yaMeshRenderer.h"
@@ -18,7 +19,6 @@ namespace ya
 	{
 		AddComponent<Transform>();
 		AddComponent<Collider>();
-
 		AddComponent<MeshRenderer>();
 
 
