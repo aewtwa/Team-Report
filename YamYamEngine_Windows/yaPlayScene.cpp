@@ -35,9 +35,8 @@ namespace ya
 		}
 
 		// º® »ý¼º
-		{
-			obj = new ya::Wall();
-			GameObject* object = obj;
+		{			
+			GameObject* object = new ya::Wall();
 			AddGameObject(object, LAYER::Wall);
 		}
 	}
