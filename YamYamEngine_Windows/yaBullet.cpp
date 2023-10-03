@@ -19,9 +19,8 @@ namespace ya
 		AddComponent<Transform>();
 		AddComponent<Collider>();
 
-		/*MeshRenderer* meshRenderer = AddComponent<MeshRenderer>();
-		meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
-		meshRenderer->SetShader(Resources::Find<Shader>(L"TriangleShader"));*/
+		AddComponent<MeshRenderer>();
+
 
 		GameObject::Initialize();
 	}
@@ -34,7 +33,7 @@ namespace ya
 
 		pos += mDirection * 10.f * Time::DeltaTime();
 
-		tr->SetPosition((Vector3)pos);
+		tr->SetPosition(Camera::CalculatePosition((Vector3)pos));
 
 		if (pos.x > 16.f || pos.y > 9.f ||
 			pos.x < -16.f || pos.y < -9.f)
