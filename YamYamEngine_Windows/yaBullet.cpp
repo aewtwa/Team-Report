@@ -11,6 +11,7 @@ namespace ya
 {
 	Bullet::Bullet()
 	{
+		SetTag(enums::TAG::Projectile);
 	}
 	Bullet::~Bullet()
 	{
@@ -20,7 +21,6 @@ namespace ya
 		AddComponent<Transform>();
 		AddComponent<Collider>();
 		AddComponent<MeshRenderer>();
-
 
 		GameObject::Initialize();
 	}

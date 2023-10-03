@@ -20,6 +20,16 @@ namespace ya
 
 		std::vector<GameObject*> GetGameObjects() { return mGameObjects; }
 
+		GameObject* GetPlayer() {
+			for (GameObject* obj : mGameObjects)
+			{
+				if (obj->GetTag() == TAG::Player)
+					return obj;
+			}
+
+			return nullptr;
+		}
+
 	private:
 		std::vector<GameObject*> mGameObjects;
 	};

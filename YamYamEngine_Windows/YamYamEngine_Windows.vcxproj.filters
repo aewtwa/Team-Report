@@ -16,7 +16,6 @@
       <Filter>Scens</Filter>
     </ClInclude>
     <ClInclude Include="yaLoadScene.h" />
-    <ClInclude Include="yaPlayerScript.h" />
     <ClInclude Include="yaplayer.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
@@ -25,6 +24,15 @@
     </ClInclude>
     <ClInclude Include="yaBullet.h">
       <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="yaMonster.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="yaMonsterScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="yaPlayerScript.h">
+      <Filter>Scripts</Filter>
     </ClInclude>
     <ClInclude Include="yaMonsterScript.h" />
     <ClInclude Include="yaWall.h">
@@ -35,7 +43,6 @@
     <ClCompile Include="yaPlayScene.cpp">
       <Filter>Scens</Filter>
     </ClCompile>
-    <ClCompile Include="yaPlayerScript.cpp" />
     <ClCompile Include="yaplayer.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
@@ -44,6 +51,15 @@
     </ClCompile>
     <ClCompile Include="yaBullet.cpp">
       <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaMonster.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaMonsterScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaPlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
     <ClCompile Include="yaMonsterScript.cpp" />
     <ClCompile Include="yaWall.cpp">

@@ -22,6 +22,8 @@ namespace ya
 		Layer* GetLayer(UINT index) { return &mLayers[index]; }
 		void AddGameObject(GameObject* gameObject, UINT layerIndex);
 
+		GameObject* GetPlayer() { return mLayers[LAYER::Player].GetPlayer(); }
+
 	private:
 		Layer mLayers[LAYER::End];
 	};

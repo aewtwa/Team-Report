@@ -3,11 +3,11 @@
 
 namespace ya
 {
-	class player : public GameObject
+	class Monster : public GameObject
 	{
 	public:
-		player();
-		~player() override;
+		Monster();
+		~Monster() override;
 
 		void Initialize() override;
 		void Update() override;
