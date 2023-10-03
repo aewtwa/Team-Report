@@ -18,7 +18,9 @@ namespace ya
 	{
 		AddComponent<Transform>();
 		AddComponent<Collider>();
-		AddComponent<MeshRenderer>();
+		MeshRenderer* meshRenderer = AddComponent<MeshRenderer>();
+		meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
+		meshRenderer->SetShader(Resources::Find<Shader>(L"TriangleShader"));
 
 		AddComponent<PlayerScript>();
 		AddComponent<ControllerScript>();
