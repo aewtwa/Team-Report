@@ -10,6 +10,7 @@ namespace ya
 {
 	player::player()
 	{
+		SetTag(enums::TAG::Player);
 	}
 	player::~player()
 	{

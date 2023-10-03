@@ -10,6 +10,16 @@ namespace ya::enums
 		End
 	};
 
+	enum class TAG
+	{
+		None,
+		Player,
+		Monster,
+		Projectile,
+		Wall,
+		End
+	};
+
 	// Common blendmodes used across multiple systems
 	enum BLENDMODE
 	{

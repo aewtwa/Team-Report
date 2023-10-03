@@ -83,6 +83,8 @@ namespace ya
 			return nullptr;
 		}
 
+		virtual enums::TAG GetTag() { return mTag; }
+		virtual void SetTag(enums::TAG tag) { mTag = tag; }
 
 	private:
 		void death() { mState = eState::Dead; }
@@ -91,6 +93,8 @@ namespace ya
 		eState mState;
 		std::vector<Component*> mComponents;
 		std::vector<Script*> mScripts;
+
+		enums::TAG mTag;
 	};
 
 	static __forceinline void Destroy(GameObject* gameObject)

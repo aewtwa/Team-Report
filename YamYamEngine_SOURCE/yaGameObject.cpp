@@ -5,6 +5,7 @@ namespace ya
 {
 	GameObject::GameObject()
 		: mState(eState::Active)
+		, mTag(enums::TAG::None)
 	{
 		mComponents.resize(COMPONENTTYPE::END);
 	}

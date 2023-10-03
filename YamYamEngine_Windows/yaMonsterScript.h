@@ -14,7 +14,12 @@ namespace ya
 		void LateUpdate() override;
 		void Render() override;
 
+		void FindTarget();
+		void MoveToTarget();
+
 	private:
+		GameObject* mTarget;
+		float speed;
 
 	};
 }

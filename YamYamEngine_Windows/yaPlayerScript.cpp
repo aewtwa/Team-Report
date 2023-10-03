@@ -8,6 +8,7 @@
 #include "yaMeshRenderer.h"
 #include "yaResources.h"
 #include "yaBullet.h"
+#include "yaMonster.h"
 
 namespace ya
 {
@@ -30,10 +31,9 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Vector3 pos = tr->GetPosition();
 
-		if (Input::GetKeyDown(KEY_CODE::RBTN))
+		if (Input::GetKeyDown(KEY_CODE::LBTN))
 		{
 			GameObject* objecti = object::Instantiate<ya::Bullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
-			//Transform* tr = objecti->GetComponent<Transform>();
 			Vector2 MPos = Input::GetMouseWorldPosition();
 
 			Vector2 dir = MPos - pos;
@@ -41,9 +41,12 @@ namespace ya
 			dir.normalize();
 
 			dynamic_cast<ya::Bullet*>(objecti)->SetDir(dir);
-
-			//tr->SetPosition(vPos);
 		}
+
+		/*if (Input::GetKeyDown(KEY_CODE::RBTN))
+		{
+			object::Instantiate<ya::Monster>(LAYER::Monster, GetOwner()->GetComponent<Transform>()->GetPosition() + Vector3(10, 0, 0));
+		}*/
 
 		tr->SetPosition(pos);
 	}
