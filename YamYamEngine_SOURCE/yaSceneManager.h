@@ -23,6 +23,9 @@ namespace ya
 
 			T* scene = new T();
 			mScenes.insert(std::make_pair(name, scene));
+
+			if (mActiveScene == nullptr)
+				mActiveScene = scene;
 			scene->Initialize();
 			
 			return true;

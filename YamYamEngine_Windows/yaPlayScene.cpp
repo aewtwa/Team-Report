@@ -36,9 +36,18 @@ namespace ya
 		}
 
 		// º® »ý¼º
-		{			
-			GameObject* object = new ya::Wall();
-			AddGameObject(object, LAYER::Wall);
+		{
+			for (int i = -32; i <= 32; i++)
+			{
+				object::Instantiate<ya::Wall>(LAYER::Wall, Vector3(i, 18, 0));
+				object::Instantiate<ya::Wall>(LAYER::Wall, Vector3(i, -18, 0));
+			}
+
+			for (int i = -18; i <= 18; i++)
+			{
+				object::Instantiate<ya::Wall>(LAYER::Wall, Vector3(32, i, 0));
+				object::Instantiate<ya::Wall>(LAYER::Wall, Vector3(-32, i, 0));
+			}
 		}
 
 		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Wall, true);
