@@ -15,8 +15,6 @@ namespace ya
 	{
 		//mActiveScene = new Scene();
 
-
-
 		//{
 		//	GameObject* object = new GameObject();
 		//	Transform* tr = new Transform();

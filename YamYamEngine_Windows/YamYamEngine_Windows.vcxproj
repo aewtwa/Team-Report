@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="yaBullet.h" />
     <ClInclude Include="yaControllerScript.h" />
+    <ClInclude Include="yaDashScript.h" />
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaMonster.h" />
     <ClInclude Include="yaMonsterScript.h" />
@@ -156,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="yaBullet.cpp" />
     <ClCompile Include="yaControllerScript.cpp" />
+    <ClCompile Include="yaDashScript.cpp" />
     <ClCompile Include="yaMonster.cpp" />
     <ClCompile Include="yaMonsterScript.cpp" />
     <ClCompile Include="yaMonsterSpawnerScript.cpp" />
