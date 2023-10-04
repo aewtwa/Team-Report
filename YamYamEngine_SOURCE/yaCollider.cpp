@@ -4,6 +4,7 @@
 #include "yaTransform.h"
 #include "yaCamera.h"
 #include "yaRenderer.h"
+#include "yaColliderManager.h"
 
 namespace ya
 {
@@ -34,17 +35,20 @@ namespace ya
 	}
 	void Collider::Render()
 	{
-		ConstantBuffer* cb = renderer::constantBuffers[(UINT)graphics::eCBType::Transform];
+		if(ColliderManager::GetRender())
+		{
+			ConstantBuffer* cb = renderer::constantBuffers[(UINT)graphics::eCBType::Transform];
 
-		renderer::TransformCB data = {};
-		data.pos = mPos;
-		data.scale = (Vector3)mSize;
-		cb->SetData(&data);
+			renderer::TransformCB data = {};
+			data.pos = mPos;
+			data.scale = (Vector3)mSize;
+			cb->SetData(&data);
 
-		cb->Bind(graphics::eShaderStage::VS);
+			cb->Bind(graphics::eShaderStage::VS);
 
-		mShader->Update();
-		mMesh->Render();
+			mShader->Update();
+			mMesh->Render();
+		}
 	}
 	void Collider::OnCollisionEnter(Collider* other)
 	{

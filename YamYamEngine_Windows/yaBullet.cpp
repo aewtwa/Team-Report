@@ -1,10 +1,10 @@
 #include "yaBullet.h"
-#include "..\YamYamEngine_SOURCE\yaResources.h"
-#include "..\YamYamEngine_SOURCE\yaTime.h"
-#include "..\YamYamEngine_SOURCE\yaCamera.h"
-#include "..\YamYamEngine_SOURCE\yaTransform.h"
-#include "..\YamYamEngine_SOURCE\yaCollider.h"
-#include "..\YamYamEngine_SOURCE\yaMeshRenderer.h"
+#include "yaResources.h"
+#include "yaTime.h"
+#include "yaCamera.h"
+#include "yaTransform.h"
+#include "yaCollider.h"
+#include "yaMeshRenderer.h"
 #include "yaInput.h"
 
 namespace ya
