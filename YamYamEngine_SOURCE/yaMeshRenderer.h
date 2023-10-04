@@ -22,6 +22,9 @@ namespace ya
 		void SetMesh(Mesh* mesh) { mMesh = mesh; }
 		void SetShader(Shader* shader) { mShader = shader; }
 
+		void SetColor(Vector4 colalpha) { mColor = colalpha; }
+		void SetColor(Vector3 col) { mColor.x = col.x; mColor.y = col.y; mColor.z = col.z; }
+
 	private:
 		Mesh* mMesh;
 		Shader* mShader;

@@ -42,7 +42,7 @@ namespace ya
 		ConstantBuffer* cb = renderer::constantBuffers[(UINT)graphics::eCBType::Color];
 
 		renderer::ColorCB data = {};
-		data.col = mColor;
+		data.col = mColor / 255;
 		cb->SetData(&data);
 
 		cb->Bind(graphics::eShaderStage::PS);
