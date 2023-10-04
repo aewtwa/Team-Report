@@ -19,7 +19,7 @@ namespace ya
 	void Bullet::Initialize()
 	{
 		Transform* tr = AddComponent<Transform>();
-		tr->SetScale(Vector3(0.5f, 0.5f, 0.f));
+		tr->SetScale(Vector3(0.5f, 0.5f, 1.f));
 		AddComponent<Collider>();
 		MeshRenderer* mr = AddComponent<MeshRenderer>();
 		mr->SetColor(Vector4(0.f, 0.f, 255.f, 0.f));

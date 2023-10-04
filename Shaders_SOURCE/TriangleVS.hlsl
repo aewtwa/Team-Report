@@ -26,7 +26,7 @@ VTX_OUT VS_Test(VTX_IN _in)
     output.vPos = float4(_in.vPos + cbPos.xyz, 1.f);
     output.vPos.y /= 9;
     output.vPos.x /= 16;
-    output.vPos.xyz *= cbScale;
+    output.vPos.xy *= cbScale;
     
     output.vColor = _in.vColor;
     

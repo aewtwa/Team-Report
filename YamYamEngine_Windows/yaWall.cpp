@@ -13,7 +13,8 @@ namespace ya
 	}
 	void Wall::Initialize()
 	{
-		AddComponent<Transform>();
+		Transform* tr = AddComponent<Transform>();
+		tr->SetScale(Vector3::One);
 		AddComponent<Collider>();
 		AddComponent<MeshRenderer>();
 
