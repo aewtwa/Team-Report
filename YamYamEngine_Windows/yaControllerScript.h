@@ -14,8 +14,15 @@ namespace ya
 		void LateUpdate() override;
 		void Render() override;
 
-
 	private:
+		Vector2 MoveDirection;
+		bool	canDash;
+		bool	Dashing;
+		float	DashCoolDown;
+		float	PrevDashTime;
+		float	DashDistance;
+		Vector2	DashStartPos;
+		Vector2 DashDirection;
 
 	};
 }

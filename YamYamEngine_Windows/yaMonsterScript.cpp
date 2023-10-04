@@ -46,7 +46,6 @@ namespace ya
 		Vector2 mPos = (Vector2)GetOwner()->GetComponent<Transform>()->GetPosition();
 		
 		Vector2 dir = pPos - mPos;
-		//dir.y *= -1;
 		dir.normalize();
 
 		mPos += dir * speed * Time::DeltaTime();
