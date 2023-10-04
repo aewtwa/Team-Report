@@ -18,9 +18,11 @@ namespace ya
 	}
 	void Bullet::Initialize()
 	{
-		AddComponent<Transform>();
+		Transform* tr = AddComponent<Transform>();
+		tr->SetScale(Vector3(0.5f, 0.5f, 0.f));
 		AddComponent<Collider>();
-		AddComponent<MeshRenderer>();
+		MeshRenderer* mr = AddComponent<MeshRenderer>();
+		mr->SetColor(Vector4(0.f, 0.f, 255.f, 0.f));
 
 		GameObject::Initialize();
 	}

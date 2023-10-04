@@ -29,10 +29,9 @@ namespace ya
 	{
 		// 플레이어 생성
 		{
-			obj = new player();
-			GameObject* object = obj;
-			AddGameObject(object, LAYER::Player);
-			Camera::SetTarget(object);
+			player* play = object::Instantiate<ya::player>(LAYER::Player, Vector3(0, 0, 0));
+			Camera::SetTarget(play);
+			obj = play;
 		}
 
 		// 벽 생성

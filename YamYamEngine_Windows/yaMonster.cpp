@@ -16,7 +16,8 @@ namespace ya
 	{
 		AddComponent<Transform>();
 		AddComponent<Collider>();
-		AddComponent<MeshRenderer>();
+		MeshRenderer* mr = AddComponent<MeshRenderer>();
+		mr->SetColor(Vector4(255.f, 0.f, 0.f, 0.f));
 
 		AddComponent<MonsterScript>();
 

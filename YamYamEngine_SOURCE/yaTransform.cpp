@@ -39,11 +39,8 @@ namespace ya
 	{
 		ConstantBuffer* cb = renderer::constantBuffers[(UINT)graphics::eCBType::Transform];
 
-		/*if (AffectCamera)
-			*/
-
 		renderer::TransformCB data = {};
-		data.pos = mPosition;
+		data.pos = mPosition * (Vector3(1.0f,1.0f,1.0f) / mScale);
 		data.scale = mScale;
 		cb->SetData(&data);
 

@@ -34,6 +34,7 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Vector3 pos = tr->GetPosition();
 
+
 		if (Input::GetKey(KEY_CODE::LBTN) && canShoot)
 		{
 			GameObject* objecti = object::Instantiate<ya::Bullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
@@ -56,7 +57,7 @@ namespace ya
 
 		if (Input::GetKeyDown(KEY_CODE::RBTN))
 		{
-			object::Instantiate<ya::Monster>(LAYER::Monster, /*GetOwner()->GetComponent<Transform>()->GetPosition() +*/ Vector3(10, 0, 0));
+			object::Instantiate<ya::Monster>(LAYER::Monster, Vector3(10, 0, 0));
 		}
 
 		tr->SetPosition(pos);

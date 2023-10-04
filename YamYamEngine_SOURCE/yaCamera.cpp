@@ -11,8 +11,6 @@ namespace ya
 	Vector3 Camera::mResolution = Vector3::Zero;
 	Vector3 Camera::mLookPosition = Vector3::Zero;
 	Vector3 Camera::mDistance = Vector3::Zero;
-	Vector3 Camera::mDistanceApi = Vector3::Zero;
-	Vector3 Camera::mtestResoulution = Vector3::Zero;
 	GameObject* Camera::mTarget = nullptr;
 
 	void Camera::Initialize()
@@ -33,7 +31,6 @@ namespace ya
 		}
 
 		mDistance = mLookPosition;
-		mDistanceApi = mLookPosition - mResolution / 2.f;
 	}
 	void Camera::Clear()
 	{
