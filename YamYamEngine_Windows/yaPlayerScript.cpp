@@ -14,6 +14,9 @@ namespace ya
 {
 
 	PlayerScript::PlayerScript()
+		: canShoot(true)
+		, FireRate(0.15f)
+		, prevShootTime(0)
 	{
 	}
 
@@ -31,7 +34,7 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Vector3 pos = tr->GetPosition();
 
-		if (Input::GetKeyDown(KEY_CODE::LBTN))
+		if (Input::GetKey(KEY_CODE::LBTN) && canShoot)
 		{
 			GameObject* objecti = object::Instantiate<ya::Bullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
 			Vector2 MPos = Input::GetMouseWorldPosition();
@@ -41,6 +44,14 @@ namespace ya
 			dir.normalize();
 
 			dynamic_cast<ya::Bullet*>(objecti)->SetDir(dir);
+
+			canShoot = false;
+			prevShootTime = Time::GetTime();
+		}
+		else if (!canShoot)
+		{
+			if (prevShootTime + FireRate < Time::GetTime())
+				canShoot = true;
 		}
 
 		if (Input::GetKeyDown(KEY_CODE::RBTN))

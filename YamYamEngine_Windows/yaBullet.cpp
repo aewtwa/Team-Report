@@ -49,10 +49,18 @@ namespace ya
 	{
 		GameObject::Render();
 	}
-	void Bullet::OnCollisionEnter(Collider* other)
+	void Bullet::OnCollisionEnter(Collider* other) 
 	{
+		if (other->GetOwner()->GetTag() == TAG::Wall)
+		{
+			Destroy(this);
+		}
+		if (other->GetOwner()->GetTag() == TAG::Monster)
+		{
+			Destroy(this);
+		}
 	}
-	void Bullet::OnCollisionStay(Collider* other)
+	void Bullet::OnCollisionStay(Collider* other) 
 	{
 	}
 	void Bullet::OnCollisionExit(Collider* other)

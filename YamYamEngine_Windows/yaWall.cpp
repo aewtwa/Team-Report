@@ -6,6 +6,7 @@ namespace ya
 {
 	Wall::Wall()
 	{
+		SetTag(TAG::Wall);
 	}
 	Wall::~Wall()
 	{

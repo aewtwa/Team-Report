@@ -1,16 +1,17 @@
 #include "yaPlayScene.h"
 #include "yaResources.h"
-#include "..\YamYamEngine_SOURCE\yaInput.h"
+#include "yaInput.h"
 #include "yaWall.h"
 #include "yaGameObject.h"
 #include "yaTransform.h"
 #include "yaMeshRenderer.h"
 #include "yaRigidbody.h"
 #include "yaPlayerScript.h"
-#include "..\\YamYamEngine_SOURCE\\yaCamera.h"
-#include "..\\YamYamEngine_SOURCE\yaobject.h"
+#include "yaCamera.h"
+#include "yaobject.h"
 #include "yaControllerScript.h"
 #include "yaplayer.h"
+#include "yaColliderManager.h"
 
 namespace ya
 {
@@ -39,6 +40,10 @@ namespace ya
 			GameObject* object = new ya::Wall();
 			AddGameObject(object, LAYER::Wall);
 		}
+
+		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Wall, true);
+		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Wall, true);
+		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Monster, true);
 	}
 
 	void PlayScene::Update()

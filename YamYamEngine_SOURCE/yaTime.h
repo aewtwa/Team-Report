@@ -8,6 +8,7 @@ namespace ya
 	{
 	public:
 		static __forceinline float DeltaTime() { return mDeltaTime; }
+		static __forceinline float GetTime() { return mTime; }
 
 		static void Initialize();
 		static void Update();
@@ -20,5 +21,6 @@ namespace ya
 
 		static float			mDeltaTime;
 		static float			mOneSecond;
+		static float			mTime;
 	};
 }

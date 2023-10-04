@@ -147,6 +147,7 @@
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaMonster.h" />
     <ClInclude Include="yaMonsterScript.h" />
+    <ClInclude Include="yaMonsterSpawnerScript.h" />
     <ClInclude Include="yaplayer.h" />
     <ClInclude Include="yaPlayerScript.h" />
     <ClInclude Include="yaPlayScene.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="yaControllerScript.cpp" />
     <ClCompile Include="yaMonster.cpp" />
     <ClCompile Include="yaMonsterScript.cpp" />
+    <ClCompile Include="yaMonsterSpawnerScript.cpp" />
     <ClCompile Include="yaplayer.cpp" />
     <ClCompile Include="yaPlayerScript.cpp" />
     <ClCompile Include="yaPlayScene.cpp" />

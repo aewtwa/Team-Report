@@ -38,6 +38,9 @@
     <ClInclude Include="yaWall.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="yaMonsterSpawnerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -64,6 +67,9 @@
     <ClCompile Include="yaMonsterScript.cpp" />
     <ClCompile Include="yaWall.cpp">
       <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaMonsterSpawnerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -7,6 +7,7 @@ namespace ya
 {
 	Monster::Monster()
 	{
+		SetTag(enums::TAG::Monster);
 	}
 	Monster::~Monster()
 	{
@@ -35,6 +36,10 @@ namespace ya
 	}
 	void Monster::OnCollisionEnter(Collider* other)
 	{
+		if (other->GetOwner()->GetTag() == TAG::Projectile)
+		{
+			Destroy(this);
+		}
 	}
 	void Monster::OnCollisionStay(Collider* other)
 	{

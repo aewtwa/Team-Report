@@ -9,6 +9,7 @@ namespace ya
     LARGE_INTEGER	Time::mCurFrequency = {};
     float			Time::mDeltaTime = 0.0f;
     float			Time::mOneSecond = 0.0f;
+    float			Time::mTime = 0.0f;
 
     void Time::Initialize()
     {
@@ -28,6 +29,8 @@ namespace ya
 
         mDeltaTime = differenceInFrequancy / static_cast<float>(mCpuFrequency.QuadPart);
         mPrevFrequency.QuadPart = mCurFrequency.QuadPart;
+
+        mTime += mDeltaTime;
     }
 
     void Time::Render()
