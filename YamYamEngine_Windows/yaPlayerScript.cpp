@@ -41,12 +41,7 @@ namespace ya
 			Vector2 MPos = Input::GetMouseWorldPosition();
 			MPos.y *= -1;
 
-			Vector2 dir;
-
-			if(Camera::GetTarget() == GetOwner())
-				dir = MPos - Camera::CalculatePosition(pos);
-			else
-				dir = MPos - pos;
+			Vector2 dir = MPos - Camera::CalculatePosition(pos);
 
 			dir.normalize();
 
