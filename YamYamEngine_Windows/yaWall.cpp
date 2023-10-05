@@ -34,6 +34,11 @@ namespace ya
 	}
 	void Wall::OnCollisionEnter(Collider* other)
 	{
+		if (other->GetOwner()->GetTag() == TAG::Player)
+		{
+			Vector2 MyPos = GetComponent<Transform>()->GetPositionVec2();
+			//Vector2 otherPos = 
+		}
 	}
 	void Wall::OnCollisionStay(Collider* other)
 	{

@@ -27,6 +27,7 @@ namespace ya
 		void SetScale(float x, float y, float z) { mScale = Vector3(x, y, z); }
 
 		Vector3 GetPosition() { return mPosition; }
+		Vector2 GetPositionVec2() { return Vector2(mPosition.x, mPosition.y); }
 		Vector3 GetRotation() { return mRotation; }
 		Vector3 GetScale() { return mScale; }
 
