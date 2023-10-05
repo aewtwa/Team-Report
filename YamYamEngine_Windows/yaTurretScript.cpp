@@ -8,17 +8,18 @@
 #include "yaobject.h"
 #include "yaMeshRenderer.h"
 #include "yaResources.h"
-#include "yaBullet.h"
-#include "yaMonster.h"
+#include "yaMonsterBullet.h"
 
 namespace ya
 {
 	TurretScript::TurretScript() :
-		directions()
+		directions(),
+		cur_index(0),
+		shoot_time(0.1f)
 	{
 		for (int i = 0; i < 12; i++)
 		{
-			directions[i] = 30.0f * i;
+			directions[i] = Vector2(cos(XMConvertToRadians(30*i)),sin(XMConvertToRadians(30 * i)));
 		}
 	}
 	TurretScript::~TurretScript()
@@ -29,7 +30,19 @@ namespace ya
 	}
 	void TurretScript::Update()
 	{
-		object::Instantiate<ya::Monster>(LAYER::Monster, Vector3(10, 0, 0));
+		shoot_time -= Time::DeltaTime();
+		GameObject* obj = GetOwner();
+		Transform* turret_tr = obj->GetComponent<Transform>();
+		if (shoot_time <= 0.0f)
+		{
+			shoot_time = 0.1f;
+			MonsterBullet* monster_bullet = object::Instantiate<ya::MonsterBullet>(LAYER::MonBullet, turret_tr->GetPosition());
+			monster_bullet->SetDir(directions[cur_index]);
+			cur_index++;
+			if (cur_index > 11)
+				cur_index = 0;
+		}
+
 	}
 	void TurretScript::LateUpdate()
 	{

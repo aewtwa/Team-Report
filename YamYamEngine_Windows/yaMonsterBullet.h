@@ -18,6 +18,8 @@ namespace ya
 		void OnCollisionStay(Collider* other) override;
 		void OnCollisionExit(Collider* other) override;
 
+		void SetDir(math::Vector2 dir) { mDirection = dir; }
+
 	private:
 		Vector2 mDirection;
 	};

@@ -7,6 +7,7 @@ namespace ya::enums
 		Wall,
 		Player,
 		Bullet,
+		MonBullet,
 		Monster,
 		End
 	};

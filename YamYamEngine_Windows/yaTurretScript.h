@@ -16,7 +16,9 @@ namespace ya
 		void Render() override;
 
 	private:
-		float directions[12];
+		Vector2 directions[12];
+		int cur_index;
+		float shoot_time;
 	};
 
 }

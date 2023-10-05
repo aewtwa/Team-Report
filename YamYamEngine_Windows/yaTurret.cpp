@@ -2,11 +2,14 @@
 #include "yaMonsterScript.h"
 #include "yaTransform.h"
 #include "yaMeshRenderer.h"
-
+#include "yaTurretScript.h"
 
 namespace ya
 {
-	Turret::Turret()
+	Turret::Turret() :
+		  tr(nullptr)
+		, col(nullptr)
+		, mr(nullptr)
 	{
 		SetTag(enums::TAG::Monster);
 	}
@@ -15,14 +18,14 @@ namespace ya
 	}
 	void Turret::Initialize()
 	{
+
+		GameObject::Initialize();
+
 		tr = AddComponent<Transform>();
 		col = AddComponent<Collider>();
 		mr = AddComponent<MeshRenderer>();
 		mr->SetColor(Vector4(0.f, 255.f, 0.f, 0.f));
-
-		
-
-		GameObject::Initialize();
+		AddComponent<TurretScript>();
 	}
 	void Turret::Update()
 	{
