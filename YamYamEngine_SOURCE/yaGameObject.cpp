@@ -90,11 +90,32 @@ namespace ya
 	}
 	void GameObject::OnCollisionEnter(Collider* other)
 	{
+		for (Script* script : mScripts)
+		{
+			if (script == nullptr)
+				continue;
+
+			script->OnCollisionEnter(other);
+		}
 	}
 	void GameObject::OnCollisionStay(Collider* other)
 	{
+		for (Script* script : mScripts)
+		{
+			if (script == nullptr)
+				continue;
+
+			script->OnCollisionStay(other);
+		}
 	}
 	void GameObject::OnCollisionExit(Collider* other)
 	{
+		for (Script* script : mScripts)
+		{
+			if (script == nullptr)
+				continue;
+
+			script->OnCollisionExit(other);
+		}
 	}
 }

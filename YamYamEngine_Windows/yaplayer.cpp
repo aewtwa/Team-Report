@@ -40,11 +40,14 @@ namespace ya
 	}
 	void player::OnCollisionEnter(Collider* other)
 	{
+		GameObject::OnCollisionEnter(other);
 	}
 	void player::OnCollisionStay(Collider* other)
 	{
+		GameObject::OnCollisionStay(other);
 	}
 	void player::OnCollisionExit(Collider* other)
 	{
+		GameObject::OnCollisionExit(other);
 	}
 }

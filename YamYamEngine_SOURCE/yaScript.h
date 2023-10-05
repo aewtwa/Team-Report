@@ -3,6 +3,7 @@
 #include "yaEnums.h"
 #include "yaEntity.h"
 #include "yaMath.h"
+#include "yaCollider.h"
 
 namespace ya
 {
@@ -19,6 +20,10 @@ namespace ya
 		virtual void Update() = 0;
 		virtual void LateUpdate() = 0;
 		virtual void Render() = 0;
+
+		virtual void OnCollisionEnter(Collider* other);
+		virtual void OnCollisionStay(Collider* other);
+		virtual void OnCollisionExit(Collider* other);
 
 		GameObject* GetOwner() { return mOwner; }
 		void SetOwner(GameObject* obj) { mOwner = obj; }

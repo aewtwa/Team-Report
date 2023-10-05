@@ -36,12 +36,77 @@ namespace ya
 	{
 		if (other->GetOwner()->GetTag() == TAG::Player)
 		{
-			Vector2 MyPos = GetComponent<Transform>()->GetPositionVec2();
-			//Vector2 otherPos = 
+			Vector3 MyPos = GetComponent<Transform>()->GetPosition();
+			Vector3 otherPos = other->GetOwner()->GetComponent<Transform>()->GetPosition();
+
+			float x = MyPos.x - otherPos.x;
+			float y = MyPos.y - otherPos.y;
+
+			if (abs(x) > abs(y))
+			{
+				if (x > 0)
+				{
+					//right
+					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x - (abs(x) * 0.1f), otherPos.y, otherPos.z));
+				}
+				else
+				{
+					//left
+					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x + (abs(x) * 0.1f), otherPos.y, otherPos.z));
+				}
+			}
+			else
+			{
+				if (y > 0)
+				{
+					//top
+					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x, otherPos.y - (abs(x) * 0.1f), otherPos.z));
+				}
+				else
+				{
+					//bottom
+					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x, otherPos.y + (abs(x) * 0.1f), otherPos.z));
+				}
+			}
 		}
 	}
 	void Wall::OnCollisionStay(Collider* other)
 	{
+		if (other->GetOwner()->GetTag() == TAG::Player)
+		{
+			Vector3 MyPos = GetComponent<Transform>()->GetPosition();
+			Vector3 otherPos = other->GetOwner()->GetComponent<Transform>()->GetPosition();
+
+			float x = MyPos.x - otherPos.x;
+			float y = MyPos.y - otherPos.y;
+
+			if (abs(x) > abs(y))
+			{
+				if (x > 0)
+				{
+					//right
+					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x - (abs(x) * 0.1f), otherPos.y, otherPos.z));
+				}
+				else
+				{
+					//left
+					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x + (abs(x) * 0.1f), otherPos.y, otherPos.z));
+				}
+			}
+			else
+			{
+				if (y > 0)
+				{
+					//top
+					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x, otherPos.y - (abs(x) * 0.1f), otherPos.z));
+				}
+				else
+				{
+					//bottom
+					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x, otherPos.y + (abs(x) * 0.1f), otherPos.z));
+				}
+			}
+		}
 	}
 	void Wall::OnCollisionExit(Collider* other)
 	{

@@ -14,6 +14,10 @@ namespace ya
 		void LateUpdate() override;
 		void Render() override;
 
+		void OnCollisionEnter(Collider* other) override;
+		void OnCollisionStay(Collider* other) override;
+		void OnCollisionExit(Collider* other) override;
+
 	private:
 		Vector2 MoveDirection;
 		Vector2 PrevMoveDirection;

@@ -96,4 +96,23 @@ namespace ya
 	void ControllerScript::Render()
 	{
 	}
+	void ControllerScript::OnCollisionEnter(Collider* other)
+	{
+		if (other->GetOwner()->GetTag() == TAG::Wall && Dashing)
+		{
+			Dashing = false;
+			PrevDashTime = Time::GetTime();
+		}
+	}
+	void ControllerScript::OnCollisionStay(Collider* other)
+	{
+		if (other->GetOwner()->GetTag() == TAG::Wall && Dashing)
+		{
+			Dashing = false;
+			PrevDashTime = Time::GetTime();
+		}
+	}
+	void ControllerScript::OnCollisionExit(Collider* other)
+	{
+	}
 }

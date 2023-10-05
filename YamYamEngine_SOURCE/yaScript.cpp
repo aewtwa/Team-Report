@@ -1,4 +1,5 @@
 #include "yaScript.h"
+#include "yaCollider.h"
 
 namespace ya
 {
@@ -10,5 +11,14 @@ namespace ya
 	Script::~Script()
 	{
 
+	}
+	void Script::OnCollisionEnter(Collider* other)
+	{
+	}
+	void Script::OnCollisionStay(Collider* other)
+	{
+	}
+	void Script::OnCollisionExit(Collider* other)
+	{
 	}
 }
