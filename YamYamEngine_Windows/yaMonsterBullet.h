@@ -3,11 +3,11 @@
 
 namespace ya
 {
-	class Monster : public GameObject
+	class MonsterBullet : public GameObject
 	{
 	public:
-		Monster();
-		~Monster() override;
+		MonsterBullet();
+		~MonsterBullet() override;
 
 		void Initialize() override;
 		void Update() override;
@@ -19,6 +19,7 @@ namespace ya
 		void OnCollisionExit(Collider* other) override;
 
 	private:
+		Vector2 mDirection;
 	};
 }
 

@@ -25,6 +25,8 @@ namespace ya
 		void SetColor(Vector4 colalpha) { mColor = colalpha; }
 		void SetColor(Vector3 col) { mColor.x = col.x; mColor.y = col.y; mColor.z = col.z; }
 
+		Vector4 GetColor() { return mColor; }
+
 	private:
 		Mesh* mMesh;
 		Shader* mShader;

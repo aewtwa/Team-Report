@@ -3,11 +3,11 @@
 
 namespace ya
 {
-	class Monster : public GameObject
+	class Turret : public GameObject
 	{
 	public:
-		Monster();
-		~Monster() override;
+		Turret();
+		~Turret() override;
 
 		void Initialize() override;
 		void Update() override;
@@ -19,6 +19,9 @@ namespace ya
 		void OnCollisionExit(Collider* other) override;
 
 	private:
+		class Transform* tr;
+		class MeshRenderer* mr;
+		class Collider* col;
 	};
 }
 
