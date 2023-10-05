@@ -41,6 +41,12 @@
     <ClInclude Include="yaMonsterSpawnerScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="yaPlayerColorChangeScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="yaDoor.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
     <ClInclude Include="yaTurret.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
@@ -79,15 +85,6 @@
     </ClCompile>
     <ClCompile Include="yaMonsterSpawnerScript.cpp">
       <Filter>Scripts</Filter>
-    </ClCompile>
-    <ClCompile Include="yaTurret.cpp">
-      <Filter>GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="yaTurretScript.cpp">
-      <Filter>Scripts</Filter>
-    </ClCompile>
-    <ClCompile Include="yaMonsterBullet.cpp">
-      <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

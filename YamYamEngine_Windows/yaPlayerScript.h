@@ -3,7 +3,6 @@
 
 namespace ya
 {
-
 	class PlayerScript : public Script
 	{
 	public:

@@ -384,12 +384,12 @@ namespace ya::graphics
 
         renderer::lineShader->Update();
         //// Input Assembeler 단계에 버텍스버퍼 정보 지정
-        renderer::triangleMesh->BindBuffer();
+        renderer::squareMesh->BindBuffer();
         Vector4 tpos(0.0f, 0.0f, 0.0f, 0.0f);
         renderer::constantBuffers[(UINT)graphics::eCBType::Transform]->SetData(&tpos);
 
         // Set Inputlayout, shader
-        renderer::triangleShader->Update();
+        renderer::squareShader->Update();
 
 
 

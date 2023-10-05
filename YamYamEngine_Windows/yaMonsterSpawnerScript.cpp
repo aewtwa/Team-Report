@@ -5,6 +5,7 @@ namespace ya
 {
 	MonsterSpawnerScript::MonsterSpawnerScript()
 	{
+		mMonsters = {};
 	}
 	MonsterSpawnerScript::~MonsterSpawnerScript()
 	{

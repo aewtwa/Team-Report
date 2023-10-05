@@ -11,8 +11,10 @@ namespace ya::renderer
 
 	D3D11_INPUT_ELEMENT_DESC InputLayouts[2];
 	Mesh* triangleMesh = nullptr;
+	Mesh* squareMesh = nullptr;
 	Mesh* lineMesh = nullptr;
 	Shader* triangleShader = nullptr;
+	Shader* squareShader = nullptr;
 	Shader* lineShader = nullptr;
 	ConstantBuffer* constantBuffers[(UINT)graphics::eCBType::End];
 
@@ -23,6 +25,33 @@ namespace ya::renderer
 
 	void LoadBuffer()
 	{
+		{
+			std::vector<Vertex> vertexes;
+			vertexes.resize(3);
+			vertexes[0].pos = Vector3(0.f, 0.5f, 0.f);
+			vertexes[0].color = Vector4(0.f, 0.f, 0.f, 1.f);
+
+			vertexes[1].pos = Vector3(0.5f, -0.5f, 0.f);
+			vertexes[1].color = Vector4(0.f, 0.f, 0.f, 1.f);
+
+			vertexes[2].pos = Vector3(-0.5f, -0.5f, 0.f);
+			vertexes[2].color = Vector4(0.f, 0.f, 0.f, 1.f);
+
+			std::vector<UINT> indexes;
+			indexes.push_back(0);
+			indexes.push_back(2);
+			indexes.push_back(3);
+
+			indexes.push_back(0);
+			indexes.push_back(1);
+			indexes.push_back(2);
+
+			// Triangle Vertex Buffer
+			triangleMesh->CreateVertexBuffer(vertexes.data(), 3);
+			triangleMesh->CreateIndexBuffer(indexes.data(), indexes.size());
+			Resources::Insert(L"TriangleMesh", triangleMesh);
+		}
+
 		{
 			std::vector<Vertex> vertexes;
 			vertexes.resize(4);
@@ -48,9 +77,9 @@ namespace ya::renderer
 			indexes.push_back(3);
 
 			// Triangle Vertex Buffer
-			triangleMesh->CreateVertexBuffer(vertexes.data(), 4);
-			triangleMesh->CreateIndexBuffer(indexes.data(), indexes.size());
-			Resources::Insert(L"TriangleMesh", triangleMesh);
+			squareMesh->CreateVertexBuffer(vertexes.data(), 4);
+			squareMesh->CreateIndexBuffer(indexes.data(), indexes.size());
+			Resources::Insert(L"SquareMesh", squareMesh);
 		}
 
 		{
@@ -97,14 +126,14 @@ namespace ya::renderer
 
 	void LoadShader()
 	{
-		triangleShader->Create(eShaderStage::VS, L"TriangleVS.hlsl", "VS_Test");
-		triangleShader->Create(eShaderStage::PS, L"TrianglePS.hlsl", "PS_Test");
+		squareShader->Create(eShaderStage::VS, L"TriangleVS.hlsl", "VS_Test");
+		squareShader->Create(eShaderStage::PS, L"TrianglePS.hlsl", "PS_Test");
 
 		lineShader->Create(eShaderStage::VS, L"TriangleVS.hlsl", "VS_Test");
 		lineShader->Create(eShaderStage::PS, L"TrianglePS.hlsl", "PS_Test");
 		lineShader->SetTopology(D3D11_PRIMITIVE_TOPOLOGY_LINESTRIP);
 
-		Resources::Insert(L"TriangleShader", triangleShader);
+		Resources::Insert(L"SquareShader", squareShader);
 		Resources::Insert(L"LineShader", lineShader);
 		//GetDevice()->CreateShader(eShaderStage::NONE);
 		//GetDevice()->CreateVertexShader();`
@@ -124,16 +153,18 @@ namespace ya::renderer
 		InputLayouts[1].SemanticIndex = 0;
 
 		GetDevice()->CreateInputLayout(InputLayouts, 2,
-			triangleShader->GetVSCode()->GetBufferPointer()
-			, triangleShader->GetVSCode()->GetBufferSize()
-			, triangleShader->GetInputLayoutAddressOf());
+			squareShader->GetVSCode()->GetBufferPointer()
+			, squareShader->GetVSCode()->GetBufferSize()
+			, squareShader->GetInputLayoutAddressOf());
 	}
 
 	void Initialize()
 	{
 		triangleMesh = new Mesh();
+		squareMesh = new Mesh();
 		lineMesh = new Mesh();
 		triangleShader = new Shader();
+		squareShader = new Shader();
 		lineShader = new Shader();
 
 		LoadShader();
@@ -144,8 +175,10 @@ namespace ya::renderer
 	void Release()
 	{
 		delete triangleMesh;
+		delete squareMesh;
 		delete lineMesh;
 		delete triangleShader;
+		delete squareShader;
 		delete lineShader;
 
 		delete constantBuffers[(UINT)graphics::eCBType::Transform];

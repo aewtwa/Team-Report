@@ -12,6 +12,7 @@
 #include "yaControllerScript.h"
 #include "yaplayer.h"
 #include "yaColliderManager.h"
+#include "yaDoor.h"
 
 namespace ya
 {
@@ -47,6 +48,10 @@ namespace ya
 				object::Instantiate<ya::Wall>(LAYER::Wall, Vector3(32, i, 0));
 				object::Instantiate<ya::Wall>(LAYER::Wall, Vector3(-32, i, 0));
 			}
+		}
+
+		{
+			object::Instantiate<Door>(LAYER::Wall, Vector3(1, 1, 1));
 		}
 
 		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Wall, true);
