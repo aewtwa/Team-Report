@@ -24,7 +24,6 @@ namespace ya
 
 	void Transform::Update()
 	{
-		mPosition = Camera::CalculatePosition(mPosition);
 	}
 
 	void Transform::LateUpdate()
@@ -39,11 +38,14 @@ namespace ya
 	{
 		ConstantBuffer* cb = renderer::constantBuffers[(UINT)graphics::eCBType::Transform];
 
-		/*if (AffectCamera)
-			*/
+		Vector3 pos = mPosition;
+
+		if (AffectCamera)
+			pos = Camera::CalculatePosition(pos);
+			
 
 		renderer::TransformCB data = {};
-		data.pos = mPosition;
+		data.pos = pos;
 		data.scale = mScale;
 		cb->SetData(&data);
 

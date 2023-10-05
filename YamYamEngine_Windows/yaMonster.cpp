@@ -36,7 +36,7 @@ namespace ya
 	}
 	void Monster::OnCollisionEnter(Collider* other)
 	{
-		if (other->GetOwner()->GetTag() == TAG::Projectile)
+		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)
 		{
 			Destroy(this);
 		}

@@ -1,10 +1,10 @@
 #include "yaplayer.h"
-#include "..\YamYamEngine_SOURCE\yaResources.h"
+#include "yaResources.h"
 #include "yaPlayerScript.h"
 #include "yaControllerScript.h"
-#include "..\YamYamEngine_SOURCE\yaTransform.h"
-#include "..\YamYamEngine_SOURCE\yaCollider.h"
-#include "..\YamYamEngine_SOURCE\yaMeshRenderer.h"
+#include "yaTransform.h"
+#include "yaCollider.h"
+#include "yaMeshRenderer.h"
 
 namespace ya
 {

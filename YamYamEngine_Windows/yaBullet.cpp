@@ -11,7 +11,7 @@ namespace ya
 {
 	Bullet::Bullet()
 	{
-		SetTag(enums::TAG::Projectile);
+		SetTag(enums::TAG::PlayerBullet);
 	}
 	Bullet::~Bullet()
 	{
