@@ -11,6 +11,8 @@ namespace ya
 		: Component(COMPONENTTYPE::MESH)
 		, mColor(Vector4(0.f, 0.f, 0.f, 1))
 	{
+		SetMesh(Resources::Find<Mesh>(L"SquareMesh"));
+		SetShader(Resources::Find<Shader>(L"SquareShader"));
 	}
 
 	MeshRenderer::~MeshRenderer()
@@ -19,8 +21,6 @@ namespace ya
 
 	void MeshRenderer::Initialize()
 	{
-		SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
-		SetShader(Resources::Find<Shader>(L"TriangleShader"));
 	}
 
 	void MeshRenderer::Update()

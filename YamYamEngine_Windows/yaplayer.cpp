@@ -2,6 +2,7 @@
 #include "yaResources.h"
 #include "yaPlayerScript.h"
 #include "yaControllerScript.h"
+#include "yaPlayerColorChangeScript.h"
 #include "yaTransform.h"
 #include "yaCollider.h"
 #include "yaMeshRenderer.h"
@@ -23,6 +24,7 @@ namespace ya
 
 		AddComponent<PlayerScript>();
 		AddComponent<ControllerScript>();
+		AddComponent<PlayerColorChangeScript>();
 
 		GameObject::Initialize();
 	}

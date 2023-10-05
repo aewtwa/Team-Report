@@ -15,6 +15,7 @@ namespace ya
 		void Render() override;
 
 	private:
+		std::vector<GameObject*> mMonsters;
 
 	};
 }

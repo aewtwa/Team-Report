@@ -16,7 +16,7 @@ namespace ya
 
 	PlayerScript::PlayerScript()
 		: canShoot(true)
-		, FireRate(0.15f)
+		, FireRate(0.3f)
 		, prevShootTime(0)
 	{
 	}

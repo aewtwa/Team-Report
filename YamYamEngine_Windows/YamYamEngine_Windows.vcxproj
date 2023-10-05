@@ -144,11 +144,13 @@
   <ItemGroup>
     <ClInclude Include="yaBullet.h" />
     <ClInclude Include="yaControllerScript.h" />
+    <ClInclude Include="yaDoor.h" />
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaMonster.h" />
     <ClInclude Include="yaMonsterScript.h" />
     <ClInclude Include="yaMonsterSpawnerScript.h" />
     <ClInclude Include="yaplayer.h" />
+    <ClInclude Include="yaPlayerColorChangeScript.h" />
     <ClInclude Include="yaPlayerScript.h" />
     <ClInclude Include="yaPlayScene.h" />
     <ClInclude Include="yaWall.h" />
@@ -156,10 +158,12 @@
   <ItemGroup>
     <ClCompile Include="yaBullet.cpp" />
     <ClCompile Include="yaControllerScript.cpp" />
+    <ClCompile Include="yaDoor.cpp" />
     <ClCompile Include="yaMonster.cpp" />
     <ClCompile Include="yaMonsterScript.cpp" />
     <ClCompile Include="yaMonsterSpawnerScript.cpp" />
     <ClCompile Include="yaplayer.cpp" />
+    <ClCompile Include="yaPlayerColorChangeScript.cpp" />
     <ClCompile Include="yaPlayerScript.cpp" />
     <ClCompile Include="yaPlayScene.cpp" />
     <ClCompile Include="yaWall.cpp" />

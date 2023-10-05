@@ -50,9 +50,9 @@ namespace ya::renderer
 		Vector4 col;
 	};
 
-	extern Mesh* triangleMesh;
+	extern Mesh* squareMesh;
 	extern Mesh* lineMesh;
-	extern Shader* triangleShader;
+	extern Shader* squareShader;
 	extern Shader* lineShader;
 	extern ConstantBuffer* constantBuffers[];
 
