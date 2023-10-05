@@ -16,7 +16,8 @@ namespace ya::enums
 		None,
 		Player,
 		Monster,
-		Projectile,
+		PlayerBullet,
+		MonsterBullet,
 		Wall,
 		End
 	};

@@ -16,6 +16,7 @@ namespace ya
 
 	private:
 		Vector2 MoveDirection;
+		Vector2 PrevMoveDirection;
 		bool	canDash;
 		bool	Dashing;
 		float	DashCoolDown;

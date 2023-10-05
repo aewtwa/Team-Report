@@ -14,7 +14,8 @@ namespace ya
 		, DashDistance(3.f)
 		, DashStartPos(Vector2::Zero)
 		, MoveDirection(Vector2::Zero)
-		, DashDirection(Vector2::Zero)
+		, PrevMoveDirection(Vector2::Zero)
+		, DashDirection(Vector2::One)
 	{
 	}
 	ControllerScript::~ControllerScript()
@@ -55,8 +56,11 @@ namespace ya
 				MoveDirection.x += 1;
 			}
 
-			DashDirection = MoveDirection;
-			DashDirection.normalize();
+			if (PrevMoveDirection != MoveDirection && MoveDirection != Vector2::Zero)
+			{
+				DashDirection = MoveDirection;
+				DashDirection.normalize();
+			}
 		}
 
 		if (Input::GetKeyDown(KEY_CODE::SPACE) && canDash)
