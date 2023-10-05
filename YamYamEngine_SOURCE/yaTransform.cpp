@@ -45,7 +45,7 @@ namespace ya
 			
 
 		renderer::TransformCB data = {};
-		data.pos = mPosition * (Vector3(1.0f,1.0f,1.0f) / mScale);
+		data.pos = pos * (Vector3(1.0f,1.0f,1.0f) / mScale);
 		data.scale = mScale;
 		cb->SetData(&data);
 
