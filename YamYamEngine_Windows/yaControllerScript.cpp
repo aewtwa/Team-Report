@@ -78,7 +78,7 @@ namespace ya
 		}
 		else if (Dashing)
 		{
-			Vector2 length = pos - DashStartPos;
+			Vector2 length = (pos - DashStartPos);
 			if(abs(length.length()) < DashDistance)
 				pos += (Vector3)DashDirection * 10.f * Time::DeltaTime();
 			else

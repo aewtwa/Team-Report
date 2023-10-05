@@ -3,6 +3,7 @@
 #include "yaGameObject.h"
 #include "yaTransform.h"
 #include "yaTime.h"
+#include "yaCamera.h"
 #include "yaInput.h"
 #include "yaobject.h"
 #include "yaMeshRenderer.h"
@@ -34,14 +35,19 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Vector3 pos = tr->GetPosition();
 
-
 		if (Input::GetKey(KEY_CODE::LBTN) && canShoot)
 		{
 			GameObject* objecti = object::Instantiate<ya::Bullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
 			Vector2 MPos = Input::GetMouseWorldPosition();
 			MPos.y *= -1;
 
-			Vector2 dir = MPos - pos;
+			Vector2 dir;
+
+			if(Camera::GetTarget() == GetOwner())
+				dir = MPos - Camera::CalculatePosition(pos);
+			else
+				dir = MPos - pos;
+
 			dir.normalize();
 
 			dynamic_cast<ya::Bullet*>(objecti)->SetDir(dir);

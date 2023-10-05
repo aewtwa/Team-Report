@@ -35,7 +35,6 @@ namespace ya
 	}
 	void GameObject::Update()
 	{
-
 		for (Component* comp : mComponents)
 		{
 			if (comp == nullptr)

@@ -20,7 +20,8 @@ namespace ya
 	{
 		Transform* tr = AddComponent<Transform>();
 		tr->SetScale(Vector3(0.5f, 0.5f, 1.f));
-		AddComponent<Collider>();
+		Collider* col = AddComponent<Collider>();
+		col->SetSize(Vector2(0.5f, 0.5f));
 		MeshRenderer* mr = AddComponent<MeshRenderer>();
 		mr->SetColor(Vector4(0.f, 0.f, 255.f, 0.f));
 
@@ -37,11 +38,11 @@ namespace ya
 
 		tr->SetPosition((Vector3)pos);
 
-		if (pos.x > 16.f || pos.y > 9.f ||
+		/*if (pos.x > 16.f || pos.y > 9.f ||
 			pos.x < -16.f || pos.y < -9.f)
 		{
 			Destroy(this);
-		}
+		}*/
 	}
 	void Bullet::LateUpdate()
 	{
