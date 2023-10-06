@@ -3,11 +3,11 @@
 
 namespace ya
 {
-	class player : public GameObject
+	class ShotgunBullet : public GameObject
 	{
 	public:
-		player();
-		~player() override;
+		ShotgunBullet();
+		~ShotgunBullet() override;
 
 		void Initialize() override;
 		void Update() override;
@@ -18,14 +18,12 @@ namespace ya
 		void OnCollisionStay(Collider* other) override;
 		void OnCollisionExit(Collider* other) override;
 
-		int GetShootType() { return ShootType; }
-		void SetShootType(int input) { ShootType = input; }
+		void SetDir(math::Vector2 dir) { mDirection = dir; }
+
+		void SetPlayerPos(Vector2 pos) { PlayerPos = pos; }
 
 	private:
-		
-		int		ShootType;
-
-
+		Vector2 mDirection;
+		Vector2 PlayerPos;
 	};
 }
-
