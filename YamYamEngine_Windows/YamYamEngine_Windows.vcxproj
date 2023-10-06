@@ -145,6 +145,9 @@
     <ClInclude Include="yaBullet.h" />
     <ClInclude Include="yaControllerScript.h" />
     <ClInclude Include="yaDoor.h" />
+    <ClInclude Include="yaHPBar.h" />
+    <ClInclude Include="yaHPUI.h" />
+    <ClInclude Include="yaHPUIManagerScript.h" />
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaMonster.h" />
     <ClInclude Include="yaMonsterBullet.h" />
@@ -163,6 +166,9 @@
     <ClCompile Include="yaBullet.cpp" />
     <ClCompile Include="yaControllerScript.cpp" />
     <ClCompile Include="yaDoor.cpp" />
+    <ClCompile Include="yaHPBar.cpp" />
+    <ClCompile Include="yaHPUI.cpp" />
+    <ClCompile Include="yaHPUIManagerScript.cpp" />
     <ClCompile Include="yaMonster.cpp" />
     <ClCompile Include="yaMonsterBullet.cpp" />
     <ClCompile Include="yaMonsterScript.cpp" />

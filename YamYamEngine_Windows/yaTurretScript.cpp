@@ -36,7 +36,7 @@ namespace ya
 		if (shoot_time <= 0.0f)
 		{
 			shoot_time = 0.1f;
-			MonsterBullet* monster_bullet = object::Instantiate<ya::MonsterBullet>(LAYER::MonBullet, turret_tr->GetPosition());
+			MonsterBullet* monster_bullet = object::Instantiate<ya::MonsterBullet>(LAYER::Bullet, turret_tr->GetPosition());
 			monster_bullet->SetDir(directions[cur_index]);
 			cur_index++;
 			if (cur_index > 11)

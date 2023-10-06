@@ -55,10 +55,10 @@ namespace ya
 
 	void ColliderManager::LayerCollision(Scene* scene, LAYER left, LAYER right)
 	{
-		Layer* leftLayer = scene->GetLayer(left);
+		Layer* leftLayer = scene->GetLayer((UINT)left);
 		std::vector<GameObject*> leftGobjs = leftLayer->GetGameObjects();
 
-		Layer* rightLayer = scene->GetLayer(right);
+		Layer* rightLayer = scene->GetLayer((UINT)right);
 		std::vector<GameObject*> rightGobjs = rightLayer->GetGameObjects();
 
 		for (GameObject* leftObj : leftGobjs)

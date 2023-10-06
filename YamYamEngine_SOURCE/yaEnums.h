@@ -2,13 +2,13 @@
 
 namespace ya::enums
 {
-	enum LAYER
+	enum class LAYER
 	{
 		Wall,
 		Player,
 		Bullet,
-		MonBullet,
 		Monster,
+		UI,
 		End
 	};
 
@@ -20,6 +20,7 @@ namespace ya::enums
 		PlayerBullet,
 		MonsterBullet,
 		Wall,
+		Ui,
 		End
 	};
 
