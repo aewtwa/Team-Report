@@ -18,7 +18,10 @@ namespace ya
 		void OnCollisionStay(Collider* other) override;
 		void OnCollisionExit(Collider* other) override;
 
+		void SetIsVertical(bool value) { isVertical = value; }
+
 	private:
+		bool isVertical;
 		
 	};
 }

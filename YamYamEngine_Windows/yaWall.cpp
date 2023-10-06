@@ -5,6 +5,7 @@
 namespace ya
 {
 	Wall::Wall()
+		: isVertical(false)
 	{
 		SetTag(TAG::Wall);
 	}
@@ -13,8 +14,7 @@ namespace ya
 	}
 	void Wall::Initialize()
 	{
-		Transform* tr = AddComponent<Transform>();
-		tr->SetScale(Vector3::One);
+		AddComponent<Transform>();
 		AddComponent<Collider>();
 		AddComponent<MeshRenderer>();
 
@@ -42,7 +42,7 @@ namespace ya
 			float x = MyPos.x - otherPos.x;
 			float y = MyPos.y - otherPos.y;
 
-			if (abs(x) > abs(y))
+			if (isVertical)
 			{
 				if (x > 0)
 				{
@@ -60,12 +60,12 @@ namespace ya
 				if (y > 0)
 				{
 					//top
-					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x, otherPos.y - (abs(x) * 0.1f), otherPos.z));
+					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x, otherPos.y - (abs(y) * 0.1f), otherPos.z));
 				}
 				else
 				{
 					//bottom
-					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x, otherPos.y + (abs(x) * 0.1f), otherPos.z));
+					other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector3(otherPos.x, otherPos.y + (abs(y) * 0.1f), otherPos.z));
 				}
 			}
 		}

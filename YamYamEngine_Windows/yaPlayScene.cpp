@@ -39,7 +39,7 @@ namespace ya
 
 		// º® »ý¼º
 		{
-			for (int i = -32; i <= 32; i++)
+			/*for (int i = -32; i <= 32; i++)
 			{
 				object::Instantiate<ya::Wall>(LAYER::Wall, Vector3(i, 18, 0));
 				object::Instantiate<ya::Wall>(LAYER::Wall, Vector3(i, -18, 0));
@@ -49,7 +49,25 @@ namespace ya
 			{
 				object::Instantiate<ya::Wall>(LAYER::Wall, Vector3(32, i, 0));
 				object::Instantiate<ya::Wall>(LAYER::Wall, Vector3(-32, i, 0));
-			}
+			}*/
+
+			Wall* w1 = object::Instantiate<Wall>(LAYER::Wall, Vector3(16, 0, 0));
+			Wall* w2 = object::Instantiate<Wall>(LAYER::Wall, Vector3(0, 16, 0));
+			Wall* w3 = object::Instantiate<Wall>(LAYER::Wall, Vector3(-16, 0, 0));
+			Wall* w4 = object::Instantiate<Wall>(LAYER::Wall, Vector3(0, -16, 0));
+
+			w1->SetIsVertical(true);
+			w3->SetIsVertical(true);
+
+			w1->GetComponent<Transform>()->SetScale(Vector3(1, 31, 1));
+			w2->GetComponent<Transform>()->SetScale(Vector3(33, 1, 1));
+			w3->GetComponent<Transform>()->SetScale(Vector3(1, 31, 1));
+			w4->GetComponent<Transform>()->SetScale(Vector3(33, 1, 1));
+
+			w1->GetComponent<Collider>()->SetSize(Vector2(1, 31));
+			w2->GetComponent<Collider>()->SetSize(Vector2(33, 1));
+			w3->GetComponent<Collider>()->SetSize(Vector2(1, 31));
+			w4->GetComponent<Collider>()->SetSize(Vector2(33, 1));
 		}
 
 		{
