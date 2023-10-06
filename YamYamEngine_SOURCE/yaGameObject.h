@@ -60,6 +60,21 @@ namespace ya
 			return nullptr;
 		}
 
+		template <typename T>
+		T* GetScript()
+		{
+			T* script;
+			for (auto s : mScripts)
+			{
+				script = dynamic_cast<T*>(s);
+
+				if (script != nullptr)
+					return script;
+			}
+
+			return nullptr;
+		}
+
 		virtual void Initialize();
 		virtual void Update();
 		virtual void LateUpdate();

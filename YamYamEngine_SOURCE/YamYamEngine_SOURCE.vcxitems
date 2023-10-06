@@ -46,6 +46,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaRigidbody.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)yaUIObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)yaApplication.cpp" />
@@ -73,5 +74,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)yaTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaRigidbody.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)yaUIObject.cpp" />
   </ItemGroup>
 </Project>

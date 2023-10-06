@@ -22,6 +22,7 @@ namespace ya
 		void SetRotation(Vector3 rotation) { mRotation = rotation; }
 		void SetScale(Vector3 scale) { mScale = scale; }
 
+		void SetPositionVec2(Vector2 position) { mPosition = Vector3(position.x, position.y, mPosition.z); }
 		void SetPosition(float x, float y, float z) { mPosition = Vector3(x,y,z); }
 		void SetRotation(float x, float y, float z) { mRotation = Vector3(x, y, z); }
 		void SetScale(float x, float y, float z) { mScale = Vector3(x, y, z); }

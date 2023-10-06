@@ -122,6 +122,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)yaColliderManager.cpp">
       <Filter>Engine\ColliderManager</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)yaUIObject.cpp">
+      <Filter>Engine\GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)yaApplication.h">
@@ -218,6 +221,9 @@
       <Filter>Engine\ColliderManager</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)yaobject.h">
+      <Filter>Engine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)yaUIObject.h">
       <Filter>Engine\GameObject</Filter>
     </ClInclude>
   </ItemGroup>

@@ -27,9 +27,14 @@ namespace ya
 
 		Vector4 GetColor() { return mColor; }
 
+		void SetAffectCamera(bool value) { affectCamera = value; }
+		bool GetAffectCamera() { return affectCamera; }
+
 	private:
 		Mesh* mMesh;
 		Shader* mShader;
 		Vector4 mColor;
+
+		bool affectCamera;
 	};
 }

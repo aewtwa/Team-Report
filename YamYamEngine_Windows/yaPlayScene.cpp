@@ -14,6 +14,7 @@
 #include "yaColliderManager.h"
 #include "yaDoor.h"
 #include "yaTurret.h"
+#include "yaHPBar.h"
 
 namespace ya
 {
@@ -58,6 +59,10 @@ namespace ya
 		//ÅÍ·¿ »ý¼º
 		{
 			object::Instantiate<Turret>(LAYER::Monster, Vector3(2, 2, 0));
+		}
+
+		{
+			object::Instantiate<HPBar>(LAYER::UI, Vector3(-12, -8, 1));
 		}
 
 		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Wall, true);

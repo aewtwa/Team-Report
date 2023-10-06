@@ -52,7 +52,7 @@ namespace ya
 		{
 			Destroy(this);
 		}
-		if (other->GetOwner()->GetTag() == TAG::Monster)
+		if (other->GetOwner()->GetTag() == TAG::Player)
 		{
 			Destroy(this);
 		}

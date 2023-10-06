@@ -56,6 +56,15 @@
     <ClInclude Include="yaMonsterBullet.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="yaHPUI.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="yaHPUIManagerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="yaHPBar.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -85,6 +94,22 @@
     </ClCompile>
     <ClCompile Include="yaMonsterSpawnerScript.cpp">
       <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaMonsterBullet.cpp" />
+    <ClCompile Include="yaPlayerColorChangeScript.cpp" />
+    <ClCompile Include="yaTurret.cpp" />
+    <ClCompile Include="yaTurretScript.cpp" />
+    <ClCompile Include="yaHPUI.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaDoor.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaHPUIManagerScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaHPBar.cpp">
+      <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
