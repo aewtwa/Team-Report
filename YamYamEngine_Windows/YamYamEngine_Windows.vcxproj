@@ -155,9 +155,8 @@
     <ClInclude Include="yaMonsterSpawnerScript.h" />
     <ClInclude Include="yaplayer.h" />
     <ClInclude Include="yaPlayerColorChangeScript.h" />
+    <ClInclude Include="yaPlayerScript.h" />
     <ClInclude Include="yaPlayScene.h" />
-    <ClInclude Include="yaShield.h" />
-    <ClInclude Include="yaShieldScript.h" />
     <ClInclude Include="yaShotgunBullet.h" />
     <ClInclude Include="yaTurret.h" />
     <ClInclude Include="yaTurretScript.h" />
@@ -178,7 +177,6 @@
     <ClCompile Include="yaPlayerColorChangeScript.cpp" />
     <ClCompile Include="yaPlayerScript.cpp" />
     <ClCompile Include="yaPlayScene.cpp" />
-    <ClCompile Include="yaShield.cpp" />
     <ClCompile Include="yaShotgunBullet.cpp" />
     <ClCompile Include="yaTurret.cpp" />
     <ClCompile Include="yaTurretScript.cpp" />

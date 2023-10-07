@@ -4,11 +4,11 @@ namespace ya::enums
 {
 	enum class LAYER
 	{
-		UI,
 		Wall,
 		Player,
 		Bullet,
 		Monster,
+		UI,
 		End
 	};
 
