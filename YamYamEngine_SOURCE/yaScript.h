@@ -28,8 +28,13 @@ namespace ya
 		GameObject* GetOwner() { return mOwner; }
 		void SetOwner(GameObject* obj) { mOwner = obj; }
 
+		bool GetActivate() { return isActivate; }
+		void SetActivate(bool value) { isActivate = value; }
+
 	private:
 		GameObject* mOwner;
+
+		bool isActivate;
 	};
 }
 

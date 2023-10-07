@@ -19,7 +19,7 @@ namespace ya
 	{
 		for (Component* comp : mComponents)
 		{
-			if (comp == nullptr)
+			if (comp == nullptr || !comp->GetActivate())
 				continue;
 
 			comp->Initialize();
@@ -27,7 +27,7 @@ namespace ya
 
 		for (Script* script : mScripts)
 		{
-			if (script == nullptr)
+			if (script == nullptr || !script->GetActivate())
 				continue;
 
 			script->Initialize();
@@ -37,7 +37,7 @@ namespace ya
 	{
 		for (Component* comp : mComponents)
 		{
-			if (comp == nullptr)
+			if (comp == nullptr || !comp->GetActivate())
 				continue;
 
 			comp->Update();
@@ -45,7 +45,7 @@ namespace ya
 
 		for (Script* script : mScripts)
 		{
-			if (script == nullptr)
+			if (script == nullptr || !script->GetActivate())
 				continue;
 
 			script->Update();
@@ -55,7 +55,7 @@ namespace ya
 	{
 		for (Component* comp : mComponents)
 		{
-			if (comp == nullptr)
+			if (comp == nullptr || !comp->GetActivate())
 				continue;
 
 			comp->LateUpdate();
@@ -63,7 +63,7 @@ namespace ya
 
 		for (Script* script : mScripts)
 		{
-			if (script == nullptr)
+			if (script == nullptr || !script->GetActivate())
 				continue;
 
 			script->LateUpdate();
@@ -74,7 +74,7 @@ namespace ya
 	{
 		for (Component* comp : mComponents)
 		{
-			if (comp == nullptr)
+			if (comp == nullptr || !comp->GetActivate())
 				continue;
 
 			comp->Render();
@@ -82,7 +82,7 @@ namespace ya
 
 		for (Script* script : mScripts)
 		{
-			if (script == nullptr)
+			if (script == nullptr || !script->GetActivate())
 				continue;
 
 			script->Render();
@@ -92,7 +92,7 @@ namespace ya
 	{
 		for (Script* script : mScripts)
 		{
-			if (script == nullptr)
+			if (script == nullptr || !script->GetActivate())
 				continue;
 
 			script->OnCollisionEnter(other);
@@ -102,7 +102,7 @@ namespace ya
 	{
 		for (Script* script : mScripts)
 		{
-			if (script == nullptr)
+			if (script == nullptr || !script->GetActivate())
 				continue;
 
 			script->OnCollisionStay(other);
@@ -112,7 +112,7 @@ namespace ya
 	{
 		for (Script* script : mScripts)
 		{
-			if (script == nullptr)
+			if (script == nullptr || !script->GetActivate())
 				continue;
 
 			script->OnCollisionExit(other);

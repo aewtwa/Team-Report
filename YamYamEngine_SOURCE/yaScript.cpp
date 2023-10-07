@@ -4,6 +4,7 @@
 namespace ya
 {
 	Script::Script()
+		:isActivate(true)
 	{
 
 	}

@@ -1,5 +1,6 @@
 #pragma once
-#include "..\\YamYamEngine_SOURCE\\yaScript.h"
+#include "yaScript.h"
+#include "yaShieldScript.h"
 
 namespace ya
 {
@@ -18,6 +19,8 @@ namespace ya
 		bool	canShoot;
 		float	FireRate;
 		float	prevShootTime;
+
+		ShieldScript* shield;
 	};
 
 }

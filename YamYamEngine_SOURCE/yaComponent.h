@@ -25,8 +25,13 @@ namespace ya
 		GameObject* GetOwner() { return mOwner; }
 		UINT GetUpdateOrder() { return (UINT)mType; }
 
+		bool GetActivate() { return isActivate; }
+		void SetActivate(bool value) { isActivate = value; }
+
 	private:
 		const COMPONENTTYPE mType;
 		GameObject* mOwner;
+
+		bool isActivate;
 	};
 }

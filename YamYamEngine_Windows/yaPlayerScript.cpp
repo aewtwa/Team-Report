@@ -12,6 +12,7 @@
 #include "yaMonster.h"
 #include "yaplayer.h"
 #include "yaShotgunBullet.h"
+#include "yaShield.h"
 
 namespace ya
 {
@@ -20,6 +21,7 @@ namespace ya
 		: canShoot(true)
 		, FireRate(0.3f)
 		, prevShootTime(0)
+		, shield(nullptr)
 	{
 	}
 
@@ -29,6 +31,8 @@ namespace ya
 
 	void PlayerScript::Initialize()
 	{
+		shield = object::Instantiate<Shield>(enums::LAYER::Player)->GetScript<ShieldScript>();
+		shield->SetShieldTarget(GetOwner());
 	}
 
 	void PlayerScript::Update()
@@ -40,7 +44,7 @@ namespace ya
 
 		player* cur_player = dynamic_cast<player*>(obj);
 
-		if (Input::GetKey(KEY_CODE::LBTN) && canShoot)
+		if (Input::GetKey(KEY_CODE::LBTN) && canShoot && !Input::GetKey(KEY_CODE::RBTN))
 		{
 			Vector2 MPos = Input::GetMouseWorldPosition();
 			MPos.y *= -1;
@@ -94,9 +98,15 @@ namespace ya
 				canShoot = true;
 		}
 
-		if (Input::GetKeyDown(KEY_CODE::RBTN))
+		if (Input::GetKey(KEY_CODE::RBTN))
 		{
-			object::Instantiate<ya::Monster>(LAYER::Monster, Vector3(10, 0, 0));
+			//object::Instantiate<ya::Monster>(LAYER::Monster, Vector3(10, 0, 0)); // spawn monster
+
+			shield->SetActive(true);
+		}
+		else if (!Input::GetKey(KEY_CODE::RBTN))
+		{
+			shield->SetActive(false);
 		}
 
 		tr->SetPosition(pos);
