@@ -9,7 +9,8 @@ namespace ya
 		enum class ShootType
 		{
 			basic,
-			shotgun
+			shotgun,
+			rpg
 		};
 
 		player();

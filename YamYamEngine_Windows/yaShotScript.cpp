@@ -13,6 +13,7 @@
 #include "yaplayer.h"
 #include "yaShotgunBullet.h"
 #include "yaShield.h"
+#include "yaRpgBullet.h"
 
 namespace ya
 {
@@ -62,8 +63,6 @@ namespace ya
 				prevShootTime = Time::GetTime();
 				break;
 			case 1:
-				MPos = Input::GetMouseWorldPosition();
-				MPos.y *= -1;
 				dir = MPos - Camera::CalculatePosition(pos);
 				dir.normalize();
 
@@ -85,6 +84,16 @@ namespace ya
 				prevShootTime = Time::GetTime();
 				break;
 			case 2:
+				objecti = object::Instantiate<ya::RpgBullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
+				dir = MPos - Camera::CalculatePosition(pos);
+				dir.normalize();
+
+				dynamic_cast<ya::RpgBullet*>(objecti)->SetDir(dir);
+				dynamic_cast<ya::RpgBullet*>(objecti)->SetMaxDistance(Vector2(5.f,5.f));
+				dynamic_cast<ya::RpgBullet*>(objecti)->SetStartPos(Vector2(pos));
+				
+				canShoot = false;
+				prevShootTime = Time::GetTime();
 				break;
 			default:
 				break;

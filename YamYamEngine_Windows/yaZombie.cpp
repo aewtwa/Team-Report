@@ -7,6 +7,7 @@ namespace ya
 {
 	Zombie::Zombie()
 	{
+		SetHp(2);
 	}
 
 	Zombie::~Zombie()
@@ -26,6 +27,8 @@ namespace ya
 
 	void Zombie::Update()
 	{
+		if (GetHp() == 0)
+			Destroy(this);
 		GameObject::Update();
 	}
 
@@ -43,7 +46,9 @@ namespace ya
 	{
 		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)
 		{
-			Destroy(this);
+			int hp = GetHp();
+			hp--;
+			SetHp(hp);
 		}
 	}
 

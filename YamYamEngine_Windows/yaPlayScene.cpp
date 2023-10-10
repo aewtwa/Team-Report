@@ -86,7 +86,9 @@ namespace ya
 		}
 
 		//자폭병 생성
-		object::Instantiate<Bomber>(LAYER::Monster, Vector3(5, 5, 0));
+		{
+			object::Instantiate<Bomber>(LAYER::Monster, Vector3(5, 5, 0));
+		}
 
 
 		{

@@ -34,11 +34,11 @@ namespace ya
 			cur_player->SetShootType(player::ShootType::shotgun);
 		}
 
-		//if (Input::GetKeyDown(KEY_CODE::N_3))
-		//{
-		//	mr->SetColor(Vector3(0, 0, 0));		// °ËÁ¤
-		//	cur_player->SetShootType(2);
-		//}
+		if (Input::GetKeyDown(KEY_CODE::N_3))
+		{
+			mr->SetColor(Vector3(0xff, 0, 0xff));		// ¸¶Á¨Å¸
+			cur_player->SetShootType(player::ShootType::rpg);
+		}
 	}
 	void PlayerColorChangeScript::LateUpdate()
 	{

@@ -18,6 +18,8 @@ namespace ya
 		virtual void OnCollisionStay(Collider* other) override;
 		virtual void OnCollisionExit(Collider* other) override;
 
+		virtual void SetHp(int hp) { HP = hp; }
+		virtual int GetHp() { return HP; }
 	private:
 		float HP;
 

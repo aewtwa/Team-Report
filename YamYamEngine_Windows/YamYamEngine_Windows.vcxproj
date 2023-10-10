@@ -153,6 +153,7 @@
     <ClInclude Include="yaMonsterBullet.h" />
     <ClInclude Include="yaplayer.h" />
     <ClInclude Include="yaPlayerColorChangeScript.h" />
+    <ClInclude Include="yaRpgBullet.h" />
     <ClInclude Include="yaShotScript.h" />
     <ClInclude Include="yaPlayScene.h" />
     <ClInclude Include="yaShield.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="yaMonsterBullet.cpp" />
     <ClCompile Include="yaplayer.cpp" />
     <ClCompile Include="yaPlayerColorChangeScript.cpp" />
+    <ClCompile Include="yaRpgBullet.cpp" />
     <ClCompile Include="yaShotScript.cpp" />
     <ClCompile Include="yaPlayScene.cpp" />
     <ClCompile Include="yaShield.cpp" />

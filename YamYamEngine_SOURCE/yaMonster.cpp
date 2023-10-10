@@ -13,6 +13,10 @@ namespace ya
 	}
 	void Monster::OnCollisionEnter(Collider* other)
 	{
+		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)
+		{
+			HP--;
+		}
 		GameObject::OnCollisionEnter(other);
 	}
 	void Monster::OnCollisionStay(Collider* other)

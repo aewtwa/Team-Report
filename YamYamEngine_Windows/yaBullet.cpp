@@ -12,6 +12,8 @@ namespace ya
 	Bullet::Bullet()
 	{
 		SetTag(enums::TAG::PlayerBullet);
+		startPos = Vector2::Zero;
+		maxDistance = Vector2::Zero;
 	}
 	Bullet::~Bullet()
 	{
@@ -29,20 +31,25 @@ namespace ya
 	}
 	void Bullet::Update()
 	{
-		GameObject::Update();
+
 
 		Transform* tr = GetComponent<Transform>();
-		math::Vector2 pos = (Vector2)tr->GetPosition();		
+		math::Vector2 pos = (Vector2)tr->GetPosition();	
+
+		if (maxDistance != Vector2::Zero)
+		{
+			if (abs(startPos.x - pos.x) > maxDistance.x ||
+				abs(startPos.y - pos.y) > maxDistance.y)
+			{
+				Destroy(this);
+			}
+		}
 
 		pos += mDirection * 10.f * Time::DeltaTime();
 
 		tr->SetPosition((Vector3)pos);
+		GameObject::Update();
 
-		/*if (pos.x > 16.f || pos.y > 9.f ||
-			pos.x < -16.f || pos.y < -9.f)
-		{
-			Destroy(this);
-		}*/
 	}
 	void Bullet::LateUpdate()
 	{
