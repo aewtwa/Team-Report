@@ -1,4 +1,4 @@
-#include "WaveManager.h"
+#include "yaWaveManager.h"
 #include <cmath>
 #include <cstdlib>
 #include "yaobject.h"
@@ -21,8 +21,19 @@ namespace ya
 
 	std::vector<std::wstring> WaveManager::monsters = {};
 
+	WaveButton* WaveManager::StartButton = nullptr;
+	WaveButton* WaveManager::GiveUpButton = nullptr;
+
 	void WaveManager::Initialize()
 	{
+		//button spawn
+		StartButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 5, 0));
+		GiveUpButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 10, 0));
+
+		GiveUpButton->SetType(WaveButton::WaveButtonType::giveup);
+		StartButton->SetType(WaveButton::WaveButtonType::start);
+
+		//monster types initialize
 		monsters.push_back(L"zombie");
 		monsters.push_back(L"turret");
 		monsters.push_back(L"bomber");
@@ -46,6 +57,9 @@ namespace ya
 		{
 			isClear = true;
 			inWave = false;
+
+			StartButton->Activate();
+			GiveUpButton->Activate();
 		}
 	}
 	void WaveManager::LateUpdate()
@@ -55,6 +69,8 @@ namespace ya
 	void WaveManager::WaveStart()
 	{
 		StartCall = true;
+		StartButton->Pause();
+		GiveUpButton->Pause();
 	}
 	void WaveManager::SpawnMonster()
 	{

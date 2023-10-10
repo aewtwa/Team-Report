@@ -1,7 +1,7 @@
 #include "yaPlayScene.h"
 #include "yaResources.h"
 #include "yaInput.h"
-#include "WaveManager.h"
+#include "yaWaveManager.h"
 #include "yaWall.h"
 #include "yaGameObject.h"
 #include "yaTransform.h"
@@ -110,11 +110,6 @@ namespace ya
 				Camera::SetTarget(obj);
 			else
 				Camera::SetTarget(nullptr);
-		}
-
-		if (Input::GetKeyDown(KEY_CODE::E))
-		{
-			WaveManager::WaveStart();
 		}
 	}
 

@@ -27,6 +27,9 @@ namespace ya
 	{
 		for (GameObject* gameObject : mGameObjects)
 		{
+			if (gameObject->GetState() == GameObject::eState::Paused)
+				continue;
+
 			gameObject->Update();
 		}
 	}
@@ -35,6 +38,9 @@ namespace ya
 	{
 		for (GameObject* gameObject : mGameObjects)
 		{
+			if (gameObject->GetState() == GameObject::eState::Paused)
+				continue;
+
 			gameObject->LateUpdate();
 		}
 	}
@@ -43,6 +49,9 @@ namespace ya
 	{
 		for (GameObject* gameObject : mGameObjects)
 		{
+			if (gameObject->GetState() == GameObject::eState::Paused)
+				continue;
+
 			gameObject->Render();
 		}
 	}
