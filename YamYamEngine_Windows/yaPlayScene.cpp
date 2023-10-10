@@ -15,6 +15,7 @@
 #include "yaTurret.h"
 #include "yaHPBar.h"
 #include "yaZombie.h"
+#include "yaBomber.h"
 
 namespace ya
 {
@@ -84,6 +85,9 @@ namespace ya
 				object::Instantiate<Zombie>(LAYER::Monster, Vector3(2, i * 3, 0));
 			}	
 		}
+
+		//ÀÚÆøº´ »ý¼º
+		object::Instantiate<Bomber>(LAYER::Monster, Vector3(5, 5, 0));
 
 
 		{

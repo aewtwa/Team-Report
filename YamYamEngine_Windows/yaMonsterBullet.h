@@ -18,10 +18,14 @@ namespace ya
 		void OnCollisionStay(Collider* other) override;
 		void OnCollisionExit(Collider* other) override;
 
-		void SetDir(math::Vector2 dir) { mDirection = dir; }
+		void SetDir(Vector2 dir) { mDirection = dir; }
+		void SetStartPos(Vector2 pos) { startPos = pos; }
+		void SetMaxDistance(Vector2 pos) { maxDistance = pos; }
 
 	private:
 		Vector2 mDirection;
+		Vector2 startPos;
+		Vector2 maxDistance;
 	};
 }
 

@@ -13,6 +13,8 @@ namespace ya
 	MonsterBullet::MonsterBullet()
 	{
 		SetTag(enums::TAG::MonsterBullet);
+		startPos = Vector2::Zero;
+		maxDistance = Vector2::Zero;
 	}
 	MonsterBullet::~MonsterBullet()
 	{
@@ -32,7 +34,15 @@ namespace ya
 	{
 		GameObject::Update();
 		Transform* tr = GetComponent<Transform>();
-		math::Vector2 pos = (Vector2)tr->GetPosition();
+		Vector2 pos = (Vector2)tr->GetPosition();
+		if (maxDistance != Vector2::Zero)
+		{
+			if (abs(startPos.x - pos.x) > maxDistance.x ||
+				abs(startPos.y - pos.y) > maxDistance.y)
+			{
+				Destroy(this);
+			}
+		}
 
 		pos += mDirection * 10.f * Time::DeltaTime();
 
