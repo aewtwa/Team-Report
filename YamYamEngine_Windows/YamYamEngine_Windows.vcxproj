@@ -144,7 +144,6 @@
   <ItemGroup>
     <ClInclude Include="yaBullet.h" />
     <ClInclude Include="yaControllerScript.h" />
-    <ClInclude Include="yaDoor.h" />
     <ClInclude Include="yaHPBar.h" />
     <ClInclude Include="yaHPUI.h" />
     <ClInclude Include="yaHPUIManagerScript.h" />
@@ -152,7 +151,6 @@
     <ClInclude Include="yaMonster.h" />
     <ClInclude Include="yaMonsterBullet.h" />
     <ClInclude Include="yaMonsterScript.h" />
-    <ClInclude Include="yaMonsterSpawnerScript.h" />
     <ClInclude Include="yaplayer.h" />
     <ClInclude Include="yaPlayerColorChangeScript.h" />
     <ClInclude Include="yaPlayerScript.h" />
@@ -163,19 +161,18 @@
     <ClInclude Include="yaTurret.h" />
     <ClInclude Include="yaTurretScript.h" />
     <ClInclude Include="yaWall.h" />
+    <ClInclude Include="yaWaveButtonScript.h" />
     <ClInclude Include="yaWaveManagerScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaBullet.cpp" />
     <ClCompile Include="yaControllerScript.cpp" />
-    <ClCompile Include="yaDoor.cpp" />
     <ClCompile Include="yaHPBar.cpp" />
     <ClCompile Include="yaHPUI.cpp" />
     <ClCompile Include="yaHPUIManagerScript.cpp" />
     <ClCompile Include="yaMonster.cpp" />
     <ClCompile Include="yaMonsterBullet.cpp" />
     <ClCompile Include="yaMonsterScript.cpp" />
-    <ClCompile Include="yaMonsterSpawnerScript.cpp" />
     <ClCompile Include="yaplayer.cpp" />
     <ClCompile Include="yaPlayerColorChangeScript.cpp" />
     <ClCompile Include="yaPlayerScript.cpp" />
@@ -186,6 +183,7 @@
     <ClCompile Include="yaTurret.cpp" />
     <ClCompile Include="yaTurretScript.cpp" />
     <ClCompile Include="yaWall.cpp" />
+    <ClCompile Include="yaWaveButtonScript.cpp" />
     <ClCompile Include="yaWaveManagerScript.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

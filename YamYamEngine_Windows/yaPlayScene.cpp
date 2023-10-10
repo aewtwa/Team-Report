@@ -12,7 +12,6 @@
 #include "yaControllerScript.h"
 #include "yaplayer.h"
 #include "yaColliderManager.h"
-#include "yaDoor.h"
 #include "yaTurret.h"
 #include "yaHPBar.h"
 
@@ -30,6 +29,8 @@ namespace ya
 
 	void PlayScene::Initialize()
 	{
+		//ColliderManager::SetRender(true);
+
 		// 敲饭捞绢 积己
 		{
 			player* play = object::Instantiate<ya::player>(LAYER::Player, Vector3(0, 0, 0));
@@ -68,10 +69,6 @@ namespace ya
 			w2->GetComponent<Collider>()->SetSize(Vector2(33, 1));
 			w3->GetComponent<Collider>()->SetSize(Vector2(1, 31));
 			w4->GetComponent<Collider>()->SetSize(Vector2(33, 1));
-		}
-
-		{
-			object::Instantiate<Door>(LAYER::Wall, Vector3(1, 1, 1));
 		}
 
 		//磐房 积己

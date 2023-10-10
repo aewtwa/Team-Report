@@ -18,14 +18,13 @@ namespace ya
 	}
 	void Turret::Initialize()
 	{
-
-		GameObject::Initialize();
-
 		tr = AddComponent<Transform>();
 		col = AddComponent<Collider>();
 		mr = AddComponent<MeshRenderer>();
 		mr->SetColor(Vector4(0.f, 255.f, 0.f, 0.f));
 		AddComponent<TurretScript>();
+
+		GameObject::Initialize();
 	}
 	void Turret::Update()
 	{
