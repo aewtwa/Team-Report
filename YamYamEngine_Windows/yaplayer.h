@@ -6,6 +6,12 @@ namespace ya
 	class player : public GameObject
 	{
 	public:
+		enum class ShootType
+		{
+			basic,
+			shotgun
+		};
+
 		player();
 		~player() override;
 
@@ -18,13 +24,21 @@ namespace ya
 		void OnCollisionStay(Collider* other) override;
 		void OnCollisionExit(Collider* other) override;
 
-		int GetShootType() { return ShootType; }
-		void SetShootType(int input) { ShootType = input; }
+		ShootType GetShootType() { return ShootType; }
+		void SetShootType(ShootType input) { ShootType = input; }
 
-	private:
-		
-		int		ShootType;
+		float GetFireRate() { return FireRate; }
+		void SetFireRate(float fr) { FireRate = fr; }
 
+		float GetMoveSpeed() { return MoveSpeed; }
+		void SetMoveSpeed(float speed) { MoveSpeed = speed; }
+
+	private:		
+		ShootType	ShootType;
+
+		int HP;
+		float FireRate;
+		float MoveSpeed;
 
 	};
 }

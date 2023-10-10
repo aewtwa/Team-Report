@@ -1,4 +1,4 @@
-#include "yaPlayerScript.h"
+#include "yaShotScript.h"
 #include "yaTransform.h"
 #include "yaGameObject.h"
 #include "yaTransform.h"
@@ -17,25 +17,24 @@
 namespace ya
 {
 
-	PlayerScript::PlayerScript()
+	ShotScript::ShotScript()
 		: canShoot(true)
-		, FireRate(0.3f)
 		, prevShootTime(0)
 		//, shield(nullptr)
 	{
 	}
 
-	PlayerScript::~PlayerScript()
+	ShotScript::~ShotScript()
 	{
 	}
 
-	void PlayerScript::Initialize()
+	void ShotScript::Initialize()
 	{
 		//shield = object::Instantiate<Shield>(enums::LAYER::Player)->GetScript<ShieldScript>();
 		//shield->SetShieldTarget(GetOwner());
 	}
 
-	void PlayerScript::Update()
+	void ShotScript::Update()
 	{
 		GameObject* obj = GetOwner();
 		Transform* tr = obj->GetComponent<Transform>();
@@ -51,7 +50,7 @@ namespace ya
 			Vector2 dir = MPos - Camera::CalculatePosition(pos);
 			float cur_radian = 0.f;
 
-			switch (cur_player->GetShootType())
+			switch ((int)cur_player->GetShootType())
 			{
 			case 0:
 				objecti = object::Instantiate<ya::Bullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
@@ -94,7 +93,7 @@ namespace ya
 		}
 		else if (!canShoot)
 		{
-			if (prevShootTime + FireRate < Time::GetTime())
+			if (prevShootTime + dynamic_cast<player*>(GetOwner())->GetFireRate() < Time::GetTime())
 				canShoot = true;
 		}
 
@@ -112,11 +111,11 @@ namespace ya
 		tr->SetPosition(pos);
 	}
 
-	void PlayerScript::LateUpdate()
+	void ShotScript::LateUpdate()
 	{
 	}
 
-	void PlayerScript::Render()
+	void ShotScript::Render()
 	{
 	}
 

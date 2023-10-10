@@ -1,8 +1,9 @@
 #include "yaControllerScript.h"
-#include "..\\YamYamEngine_SOURCE\yaInput.h"
-#include "..\\YamYamEngine_SOURCE\yaGameObject.h"
-#include "..\\YamYamEngine_SOURCE\yaTransform.h"
-#include "..\\YamYamEngine_SOURCE\yaTime.h"
+#include "yaInput.h"
+#include "yaGameObject.h"
+#include "yaTransform.h"
+#include "yaTime.h"
+#include "yaplayer.h"
 
 namespace ya
 {
@@ -30,29 +31,31 @@ namespace ya
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		math::Vector3 pos = tr->GetPosition();
 		
+		float speed = dynamic_cast<player*>(GetOwner())->GetMoveSpeed();
+
 		if (!Dashing)
 		{
 			if (Input::GetKey(KEY_CODE::W))
 			{
-				pos.y += 3.f * Time::DeltaTime();
+				pos.y += speed * Time::DeltaTime();
 				MoveDirection.y += 1;
 			}
 
 			if (Input::GetKey(KEY_CODE::A))
 			{
-				pos.x -= 3.f * Time::DeltaTime();
+				pos.x -= speed * Time::DeltaTime();
 				MoveDirection.x -= 1;
 			}
 
 			if (Input::GetKey(KEY_CODE::S))
 			{
-				pos.y -= 3.f * Time::DeltaTime();
+				pos.y -= speed * Time::DeltaTime();
 				MoveDirection.y -= 1;
 			}
 
 			if (Input::GetKey(KEY_CODE::D))
 			{
-				pos.x += 3.f * Time::DeltaTime();
+				pos.x += speed * Time::DeltaTime();
 				MoveDirection.x += 1;
 			}
 

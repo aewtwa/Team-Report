@@ -25,7 +25,7 @@
     <ClInclude Include="yaBullet.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="yaPlayerScript.h">
+    <ClInclude Include="yaShotScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
     <ClInclude Include="yaWall.h">
@@ -76,7 +76,7 @@
     <ClCompile Include="yaBullet.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="yaPlayerScript.cpp">
+    <ClCompile Include="yaShotScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
     <ClCompile Include="yaWall.cpp">
