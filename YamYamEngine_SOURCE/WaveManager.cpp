@@ -21,9 +21,21 @@ namespace ya
 	{
 		if (StartCall)
 		{
-			WaveStart();
+			waveCount++;
+			prevMonsterCount = WaveMonsterCount;
+			WaveMonsterCount = (prevMonsterCount + 3) * ceil(waveCount % 10);
+			isClear = false;
+			inWave = true;
+
 			SpawnMonster();
+
 			StartCall = false;
+		}
+
+		if (curMonsterCount == 0)
+		{
+			isClear = true;
+			inWave = false;
 		}
 	}
 	void WaveManager::LateUpdate()
@@ -32,10 +44,7 @@ namespace ya
 
 	void WaveManager::WaveStart()
 	{
-		waveCount++;
-		prevMonsterCount = WaveMonsterCount;
-		WaveMonsterCount = (prevMonsterCount + 3) * ceil(waveCount % 10);
-		inWave = true;
+		StartCall = true;
 	}
 	void WaveManager::SpawnMonster()
 	{

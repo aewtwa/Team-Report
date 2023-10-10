@@ -9,5 +9,6 @@ namespace ya
 	}
 	Monster::~Monster()
 	{
+		WaveManager::MonsterCountDown();
 	}
 }
