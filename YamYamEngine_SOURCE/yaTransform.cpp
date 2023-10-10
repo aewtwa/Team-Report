@@ -43,7 +43,6 @@ namespace ya
 		if (AffectCamera)
 			pos = Camera::CalculatePosition(pos);
 			
-
 		renderer::TransformCB data = {};
 		data.pos = pos * (Vector3(1.0f,1.0f,1.0f) / mScale);
 		data.scale = mScale;

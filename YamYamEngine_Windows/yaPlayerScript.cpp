@@ -21,7 +21,7 @@ namespace ya
 		: canShoot(true)
 		, FireRate(0.3f)
 		, prevShootTime(0)
-		, shield(nullptr)
+		//, shield(nullptr)
 	{
 	}
 
@@ -98,16 +98,16 @@ namespace ya
 				canShoot = true;
 		}
 
-		if (Input::GetKey(KEY_CODE::RBTN))
-		{
-			//object::Instantiate<ya::Monster>(LAYER::Monster, Vector3(10, 0, 0)); // spawn monster
+		//if (Input::GetKey(KEY_CODE::RBTN))
+		//{
+		//	//object::Instantiate<ya::Monster>(LAYER::Monster, Vector3(10, 0, 0)); // spawn monster
 
-			shield->SetActive(true);
-		}
-		else if (!Input::GetKey(KEY_CODE::RBTN))
-		{
-			shield->SetActive(false);
-		}
+		//	shield->SetActive(true);
+		//}
+		//else if (!Input::GetKey(KEY_CODE::RBTN))
+		//{
+		//	shield->SetActive(false);
+		//}
 
 		tr->SetPosition(pos);
 	}

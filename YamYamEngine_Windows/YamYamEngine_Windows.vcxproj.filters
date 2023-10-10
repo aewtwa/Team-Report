@@ -68,6 +68,11 @@
     <ClInclude Include="yaShotgunBullet.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="yaShield.h" />
+    <ClInclude Include="yaShieldScript.h" />
+    <ClInclude Include="yaWaveManagerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -121,6 +126,11 @@
     <ClCompile Include="yaTurretScript.cpp" />
     <ClCompile Include="yaShotgunBullet.cpp">
       <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaShield.cpp" />
+    <ClCompile Include="yaShieldScript.cpp" />
+    <ClCompile Include="yaWaveManagerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
