@@ -1,5 +1,5 @@
 #include "yaMonster.h"
-#include "WaveManager.h"
+#include "yaWaveManager.h"
 
 namespace ya
 {

@@ -8,7 +8,7 @@
 #include "yaSceneManager.h"
 #include "yaColliderManager.h"
 #include "yaCamera.h"
-#include "WaveManager.h"
+#include "yaWaveManager.h"
 #include "..\\YamYamEngine_Windows\yaLoadScene.h"
 
 using namespace ya::graphics;

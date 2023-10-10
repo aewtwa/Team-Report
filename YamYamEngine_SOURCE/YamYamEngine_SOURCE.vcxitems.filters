@@ -125,7 +125,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)yaUIObject.cpp">
       <Filter>Engine\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)WaveManager.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)yaWaveManager.cpp">
       <Filter>Engine\WaveManager</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)yaMonster.cpp">
@@ -232,7 +232,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaUIObject.h">
       <Filter>Engine\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)WaveManager.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)yaWaveManager.h">
       <Filter>Engine\WaveManager</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)yaMonster.h">

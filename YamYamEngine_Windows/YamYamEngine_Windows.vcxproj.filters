@@ -57,11 +57,13 @@
     </ClInclude>
     <ClInclude Include="yaShield.h" />
     <ClInclude Include="yaShieldScript.h" />
-    <ClInclude Include="yaWaveButtonScript.h" />
     <ClInclude Include="yaZombie.h" />
     <ClInclude Include="yaZombieScript.h" />
     <ClInclude Include="yaBomber.h" />
     <ClInclude Include="yaBomberScript.h" />
+    <ClInclude Include="yaWaveButton.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -104,10 +106,12 @@
     </ClCompile>
     <ClCompile Include="yaShield.cpp" />
     <ClCompile Include="yaShieldScript.cpp" />
-    <ClCompile Include="yaWaveButtonScript.cpp" />
     <ClCompile Include="yaZombie.cpp" />
     <ClCompile Include="yaZombieScript.cpp" />
     <ClCompile Include="yaBomber.cpp" />
     <ClCompile Include="yaBomberScript.cpp" />
+    <ClCompile Include="yaWaveButton.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
+#include "..\YamYamEngine_Windows\yaWaveButton.h"
 
 namespace ya
 {
@@ -27,5 +28,8 @@ namespace ya
 		static unsigned int prevMonsterCount;
 
 		static std::vector<std::wstring> monsters;
+
+		static WaveButton* StartButton;
+		static WaveButton* GiveUpButton;
 	};
 }

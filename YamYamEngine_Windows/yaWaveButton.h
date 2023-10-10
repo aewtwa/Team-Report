@@ -1,13 +1,20 @@
 #pragma once
-#include "yaScript.h"
+#include "yaGameObject.h"
 
 namespace ya
 {
-	class WaveButtonScript : public Script
+	class WaveButton : public GameObject
 	{
 	public:
-		WaveButtonScript();
-		~WaveButtonScript() override;
+		enum class WaveButtonType
+		{
+			start,
+			giveup,
+			none,
+		};
+
+		WaveButton();
+		~WaveButton() override;
 
 		void Initialize() override;
 		void Update() override;
@@ -18,8 +25,10 @@ namespace ya
 		void OnCollisionStay(Collider* other) override;
 		void OnCollisionExit(Collider* other) override;
 
+		void SetType(WaveButtonType type) { mType = type; }
+
 	private:
-		bool isActivate;
+		WaveButtonType mType;
 
 	};
 }

@@ -86,6 +86,7 @@ namespace ya
 
 		eState GetState() { return mState; }
 		void Pause() { mState = eState::Paused; }
+		void Activate() { mState = eState::Active; }
 
 		virtual Collider* GetCollider() {
 			for (Component* comp : mComponents)
