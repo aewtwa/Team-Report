@@ -1,6 +1,7 @@
 #include "yaPlayScene.h"
 #include "yaResources.h"
 #include "yaInput.h"
+#include "WaveManager.h"
 #include "yaWall.h"
 #include "yaGameObject.h"
 #include "yaTransform.h"
@@ -74,19 +75,19 @@ namespace ya
 
 		//磐房 积己
 		{
-			object::Instantiate<Turret>(LAYER::Monster, Vector3(2, 2, 0));
+			//object::Instantiate<Turret>(LAYER::Monster, Vector3(2, 2, 0));
 		}
 
 		//粱厚 积己
 		{
 			for (int i = 0; i < 5; i++)
 			{
-				object::Instantiate<Zombie>(LAYER::Monster, Vector3(2, i * 3, 0));
+				//object::Instantiate<Zombie>(LAYER::Monster, Vector3(2, i * 3, 0));
 			}	
 		}
 
 		//磊气捍 积己
-		object::Instantiate<Bomber>(LAYER::Monster, Vector3(5, 5, 0));
+		//object::Instantiate<Bomber>(LAYER::Monster, Vector3(5, 5, 0));
 
 
 		{
@@ -109,6 +110,11 @@ namespace ya
 				Camera::SetTarget(obj);
 			else
 				Camera::SetTarget(nullptr);
+		}
+
+		if (Input::GetKeyDown(KEY_CODE::E))
+		{
+			WaveManager::WaveStart();
 		}
 	}
 

@@ -25,5 +25,7 @@ namespace ya
 		static unsigned int WaveMonsterCount;
 		static unsigned int curMonsterCount;
 		static unsigned int prevMonsterCount;
+
+		static std::vector<std::wstring> monsters;
 	};
 }
