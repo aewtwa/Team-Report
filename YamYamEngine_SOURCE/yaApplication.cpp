@@ -7,7 +7,8 @@
 #include "yaRenderer.h"
 #include "yaSceneManager.h"
 #include "yaColliderManager.h"
-#include "..\\YamYamEngine_SOURCE\\yaCamera.h"
+#include "yaCamera.h"
+#include "WaveManager.h"
 #include "..\\YamYamEngine_Windows\yaLoadScene.h"
 
 using namespace ya::graphics;
@@ -36,6 +37,7 @@ namespace ya
 		ya::InitializeScenes();
 		SceneManager::Initialize();
 		ColliderManager::CollisionLayerCheck(enums::LAYER::Monster, enums::LAYER::Player, true);
+		WaveManager::Initialize();
 	}
 
 	void Application::Update()
@@ -44,6 +46,7 @@ namespace ya
 		Input::Update();
 
 		SceneManager::Update();
+		WaveManager::Update();
 		ColliderManager::Update();
 	}
 
