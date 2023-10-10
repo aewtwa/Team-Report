@@ -20,6 +20,7 @@ namespace ya
 		static bool isClear;
 
 		static unsigned int waveCount;
+		static unsigned int WaveMonsterCount;
 		static unsigned int curMonsterCount;
 		static unsigned int prevMonsterCount;
 	};

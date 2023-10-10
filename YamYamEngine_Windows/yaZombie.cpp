@@ -7,7 +7,6 @@ namespace ya
 {
 	Zombie::Zombie()
 	{
-		SetTag(enums::TAG::Monster);
 	}
 
 	Zombie::~Zombie()

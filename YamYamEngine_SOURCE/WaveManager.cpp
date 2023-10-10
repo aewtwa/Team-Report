@@ -10,6 +10,7 @@ namespace ya
 	bool WaveManager::isClear = false;
 
 	unsigned int WaveManager::waveCount = 0;
+	unsigned int WaveManager::WaveMonsterCount = 0;
 	unsigned int WaveManager::curMonsterCount = 0;
 	unsigned int WaveManager::prevMonsterCount = 0;
 
@@ -32,15 +33,16 @@ namespace ya
 	void WaveManager::WaveStart()
 	{
 		waveCount++;
-		prevMonsterCount = curMonsterCount;
-		curMonsterCount = (prevMonsterCount + 3) * ceil(waveCount % 10);
+		prevMonsterCount = WaveMonsterCount;
+		WaveMonsterCount = (prevMonsterCount + 3) * ceil(waveCount % 10);
 		inWave = true;
 	}
 	void WaveManager::SpawnMonster()
 	{
-		for (int i = 0; i < curMonsterCount; i++)
+		for (int i = 0; i < WaveMonsterCount; i++)
 		{
 			//ya::object::Instantiate<>(enums::LAYER::Monster, );
+			curMonsterCount++;
 		}
 	}
 	void WaveManager::GiveUp()

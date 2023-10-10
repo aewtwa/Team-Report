@@ -1,4 +1,5 @@
 #include "yaMonster.h"
+#include "WaveManager.h"
 
 namespace ya
 {
@@ -8,6 +9,5 @@ namespace ya
 	}
 	Monster::~Monster()
 	{
-
 	}
 }

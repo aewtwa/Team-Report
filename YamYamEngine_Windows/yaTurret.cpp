@@ -1,5 +1,4 @@
 #include "yaTurret.h"
-#include "yaMonsterScript.h"
 #include "yaTransform.h"
 #include "yaMeshRenderer.h"
 #include "yaTurretScript.h"
@@ -11,7 +10,6 @@ namespace ya
 		, col(nullptr)
 		, mr(nullptr)
 	{
-		SetTag(enums::TAG::Monster);
 	}
 	Turret::~Turret()
 	{

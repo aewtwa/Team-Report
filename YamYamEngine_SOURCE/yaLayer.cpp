@@ -53,6 +53,7 @@ namespace ya
 		{
 			if ((*iter)->GetState() == GameObject::eState::Dead)
 			{
+				delete (*iter);
 				iter = mGameObjects.erase(iter);
 			}
 			else
