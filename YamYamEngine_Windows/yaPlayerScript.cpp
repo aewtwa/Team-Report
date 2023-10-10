@@ -31,8 +31,8 @@ namespace ya
 
 	void PlayerScript::Initialize()
 	{
-		shield = object::Instantiate<Shield>(enums::LAYER::Player)->GetScript<ShieldScript>();
-		shield->SetShieldTarget(GetOwner());
+		//shield = object::Instantiate<Shield>(enums::LAYER::Player)->GetScript<ShieldScript>();
+		//shield->SetShieldTarget(GetOwner());
 	}
 
 	void PlayerScript::Update()

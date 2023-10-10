@@ -164,6 +164,8 @@
     <ClInclude Include="yaTurretScript.h" />
     <ClInclude Include="yaWall.h" />
     <ClInclude Include="yaWaveManagerScript.h" />
+    <ClInclude Include="yaZombie.h" />
+    <ClInclude Include="yaZombieScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaBullet.cpp" />
@@ -187,6 +189,8 @@
     <ClCompile Include="yaTurretScript.cpp" />
     <ClCompile Include="yaWall.cpp" />
     <ClCompile Include="yaWaveManagerScript.cpp" />
+    <ClCompile Include="yaZombie.cpp" />
+    <ClCompile Include="yaZombieScript.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
