@@ -1,13 +1,13 @@
 #pragma once
-#include "yaGameObject.h"
+#include "yaScript.h"
 
 namespace ya
 {
-	class Door : public GameObject
+	class WaveButtonScript : public Script
 	{
 	public:
-		Door();
-		~Door() override;
+		WaveButtonScript();
+		~WaveButtonScript() override;
 
 		void Initialize() override;
 		void Update() override;
@@ -19,6 +19,7 @@ namespace ya
 		void OnCollisionExit(Collider* other) override;
 
 	private:
+		bool isActivate;
 
 	};
 }
