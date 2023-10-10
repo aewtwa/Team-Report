@@ -125,6 +125,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)yaUIObject.cpp">
       <Filter>Engine\GameObject</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)WaveManager.cpp">
+      <Filter>Engine\WaveManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)yaApplication.h">
@@ -226,6 +229,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaUIObject.h">
       <Filter>Engine\GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)WaveManager.h">
+      <Filter>Engine\WaveManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">
@@ -313,6 +319,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaRigidbody.h" />
     <Filter Include="Engine\ColliderManager">
       <UniqueIdentifier>{3c55472c-082e-4008-8f67-ddc7c5f0c626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\WaveManager">
+      <UniqueIdentifier>{06f6e2c9-dfcb-4ca3-b885-ed07adb4f454}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
