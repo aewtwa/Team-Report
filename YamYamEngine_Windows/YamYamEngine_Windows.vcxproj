@@ -160,7 +160,6 @@
     <ClInclude Include="yaTurretScript.h" />
     <ClInclude Include="yaWall.h" />
     <ClInclude Include="yaWaveButtonScript.h" />
-    <ClInclude Include="yaWaveManagerScript.h" />
     <ClInclude Include="yaZombie.h" />
     <ClInclude Include="yaZombieScript.h" />
   </ItemGroup>
@@ -182,7 +181,6 @@
     <ClCompile Include="yaTurretScript.cpp" />
     <ClCompile Include="yaWall.cpp" />
     <ClCompile Include="yaWaveButtonScript.cpp" />
-    <ClCompile Include="yaWaveManagerScript.cpp" />
     <ClCompile Include="yaZombie.cpp" />
     <ClCompile Include="yaZombieScript.cpp" />
   </ItemGroup>
