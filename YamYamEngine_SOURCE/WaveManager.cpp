@@ -75,7 +75,7 @@ namespace ya
 			int r = rand();
 			r %= 3;
 
-			curPos.x += i - ((i / 5) * 5);
+			curPos.x += (i - ((i / 5) * 5)) * 2;
 			curPos.y += i / 5;
 
 			if (monsters[r] == L"zombie")
