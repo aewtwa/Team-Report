@@ -4,11 +4,11 @@
 
 namespace ya
 {
-	class PlayerScript : public Script
+	class ShotScript : public Script
 	{
 	public:
-		PlayerScript();
-		virtual ~PlayerScript();
+		ShotScript();
+		virtual ~ShotScript();
 
 		void Initialize() override;
 		void Update() override;
@@ -17,10 +17,9 @@ namespace ya
 
 	private:
 		bool	canShoot;
-		float	FireRate;
 		float	prevShootTime;
 
-		ShieldScript* shield;
+		//ShieldScript* shield;
 	};
 
 }

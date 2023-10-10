@@ -1,6 +1,6 @@
 #include "yaplayer.h"
 #include "yaResources.h"
-#include "yaPlayerScript.h"
+#include "yaShotScript.h"
 #include "yaControllerScript.h"
 #include "yaPlayerColorChangeScript.h"
 #include "yaTransform.h"
@@ -10,6 +10,9 @@
 namespace ya
 {
 	player::player()
+		: HP(3)
+		, FireRate(0.3f)
+		, MoveSpeed(3.f)
 	{
 		SetTag(enums::TAG::Player);
 	}
@@ -22,7 +25,7 @@ namespace ya
 		AddComponent<Collider>();
 		AddComponent<MeshRenderer>();
 
-		AddComponent<PlayerScript>();
+		AddComponent<ShotScript>();
 		AddComponent<ControllerScript>();
 		AddComponent<PlayerColorChangeScript>();
 

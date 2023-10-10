@@ -14,7 +14,13 @@ namespace ya
 		virtual void LateUpdate() = 0;
 		virtual void Render() = 0;
 
+		virtual void OnCollisionEnter(Collider* other) override;
+		virtual void OnCollisionStay(Collider* other) override;
+		virtual void OnCollisionExit(Collider* other) override;
+
 	private:
+		float HP;
+
 
 	};
 }

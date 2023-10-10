@@ -25,10 +25,9 @@
     <ClInclude Include="yaBullet.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="yaPlayerScript.h">
+    <ClInclude Include="yaShotScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="yaMonsterScript.h" />
     <ClInclude Include="yaWall.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
@@ -75,10 +74,9 @@
     <ClCompile Include="yaBullet.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="yaPlayerScript.cpp">
+    <ClCompile Include="yaShotScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
-    <ClCompile Include="yaMonsterScript.cpp" />
     <ClCompile Include="yaWall.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
@@ -95,7 +93,6 @@
     <ClCompile Include="yaHPBar.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="yaDoor.cpp" />
     <ClCompile Include="yaMonsterBullet.cpp" />
     <ClCompile Include="yaPlayerColorChangeScript.cpp" />
     <ClCompile Include="yaTurret.cpp" />

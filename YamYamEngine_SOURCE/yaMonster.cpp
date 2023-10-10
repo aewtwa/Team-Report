@@ -11,4 +11,16 @@ namespace ya
 	{
 		WaveManager::MonsterCountDown();
 	}
+	void Monster::OnCollisionEnter(Collider* other)
+	{
+		GameObject::OnCollisionEnter(other);
+	}
+	void Monster::OnCollisionStay(Collider* other)
+	{
+		GameObject::OnCollisionStay(other);
+	}
+	void Monster::OnCollisionExit(Collider* other)
+	{
+		GameObject::OnCollisionExit(other);
+	}
 }
