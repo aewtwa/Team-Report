@@ -6,7 +6,6 @@
 #include "yaTransform.h"
 #include "yaMeshRenderer.h"
 #include "yaRigidbody.h"
-#include "yaPlayerScript.h"
 #include "yaCamera.h"
 #include "yaobject.h"
 #include "yaControllerScript.h"
