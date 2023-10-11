@@ -11,8 +11,8 @@ namespace ya
 {
 	ZombieScript::ZombieScript() :
 		  mTarget(nullptr)
-		, speed(3.f)
-		, shot_time(0.5f)
+		, speed(2.f)
+		, shot_time(1.5f)
 	{
 	}
 	ZombieScript::~ZombieScript()
@@ -27,7 +27,7 @@ namespace ya
 		if (shot_time <= 0.f)
 		{
 			Shoot();
-			shot_time = 0.5f;
+			shot_time = 1.5f;
 		}
 		if (mTarget == nullptr)
 			FindTarget();

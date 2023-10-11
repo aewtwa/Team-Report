@@ -10,6 +10,7 @@ namespace ya
 		, col(nullptr)
 		, mr(nullptr)
 	{
+		SetTag(TAG::Monster);
 	}
 	Turret::~Turret()
 	{

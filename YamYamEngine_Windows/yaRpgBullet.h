@@ -26,6 +26,6 @@ namespace ya
 		Vector2 mDirection;
 		Vector2 startPos;
 		Vector2 maxDistance;
-		Vector2 explode_directions[30];
+		Vector2 explode_directions[15];
 	};
 }

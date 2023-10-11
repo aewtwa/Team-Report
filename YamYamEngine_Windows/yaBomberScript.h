@@ -23,6 +23,6 @@ namespace ya
 		GameObject* mTarget;
 		float speed;
 		float explode_time;
-		Vector2 directions[30];
+		Vector2 directions[12];
 	};
 }

@@ -15,9 +15,9 @@ namespace ya
 	{
 		startPos = Vector2::Zero;
 		maxDistance = Vector2::Zero;
-		for (int i = 0; i < 30; i++)
+		for (int i = 0; i < 15; i++)
 		{
-			explode_directions[i] = Vector2(cos(XMConvertToRadians(12 * i)), sin(XMConvertToRadians(12 * i)));
+			explode_directions[i] = Vector2(cos(XMConvertToRadians(24 * i)), sin(XMConvertToRadians(24 * i)));
 		}
 	}
 
@@ -56,7 +56,7 @@ namespace ya
 			if (abs(startPos.x - pos.x) > maxDistance.x ||
 				abs(startPos.y - pos.y) > maxDistance.y)
 			{
-				for (int i = 0; i < 20; i++)
+				for (int i = 0; i < 15; i++)
 				{
 					Bullet* bulletObj = object::Instantiate<Bullet>(LAYER::Bullet, cur_pos);
 					bulletObj->SetDir(explode_directions[i]);
