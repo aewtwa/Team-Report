@@ -10,10 +10,11 @@
 namespace ya
 {
 	Bullet::Bullet()
+		: startPos(Vector2::Zero)
+		, maxDistance(Vector2::Zero)
+		, Damage(1.f)
 	{
 		SetTag(enums::TAG::PlayerBullet);
-		startPos = Vector2::Zero;
-		maxDistance = Vector2::Zero;
 	}
 	Bullet::~Bullet()
 	{
@@ -31,8 +32,6 @@ namespace ya
 	}
 	void Bullet::Update()
 	{
-
-
 		Transform* tr = GetComponent<Transform>();
 		math::Vector2 pos = (Vector2)tr->GetPosition();	
 

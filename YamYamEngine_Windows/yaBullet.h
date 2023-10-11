@@ -9,21 +9,26 @@ namespace ya
 		Bullet();
 		~Bullet() override;
 
-		void Initialize() override;
-		void Update() override;
-		void LateUpdate() override;
-		void Render() override;
+		virtual void Initialize() override;
+		virtual void Update() override;
+		virtual void LateUpdate() override;
+		virtual void Render() override;
 
-		void OnCollisionEnter(Collider* other) override;
-		void OnCollisionStay(Collider* other) override;
-		void OnCollisionExit(Collider* other) override;
+		virtual void OnCollisionEnter(Collider* other) override;
+		virtual void OnCollisionStay(Collider* other) override;
+		virtual void OnCollisionExit(Collider* other) override;
 
-		void SetDir(math::Vector2 dir) { mDirection = dir; }
-		void SetStartPos(Vector2 pos) { startPos = pos; }
-		void SetMaxDistance(Vector2 pos) { maxDistance = pos; }
-	private:
+		virtual void SetDir(math::Vector2 dir) { mDirection = dir; }
+		virtual void SetStartPos(Vector2 pos) { startPos = pos; }
+		virtual void SetMaxDistance(Vector2 pos) { maxDistance = pos; }
+
+		virtual float GetDamage() { return Damage; }
+
+	protected:
 		Vector2 mDirection;
 		Vector2 startPos;
 		Vector2 maxDistance;
+
+		float Damage;
 	};
 }
