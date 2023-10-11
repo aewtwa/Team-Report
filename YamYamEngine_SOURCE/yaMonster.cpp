@@ -3,7 +3,8 @@
 
 namespace ya
 {
-	Monster::Monster()
+	Monster::Monster(float hp)
+		: HP(hp)
 	{
 		SetTag(enums::TAG::Monster);
 	}

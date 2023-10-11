@@ -6,7 +6,7 @@ namespace ya
 	class Monster : public GameObject
 	{
 	public:
-		Monster();
+		Monster(float hp);
 		virtual ~Monster() override;
 
 		virtual void Initialize() = 0;

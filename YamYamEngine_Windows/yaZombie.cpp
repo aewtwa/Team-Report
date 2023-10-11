@@ -5,7 +5,7 @@
 
 namespace ya
 {
-	Zombie::Zombie()
+	Zombie::Zombie() : Monster(3)
 	{
 		SetHp(2);
 	}

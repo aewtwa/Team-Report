@@ -5,8 +5,8 @@
 
 namespace ya
 {
-	Turret::Turret() :
-		  tr(nullptr)
+	Turret::Turret() : Monster(3)
+		, tr(nullptr)
 		, col(nullptr)
 		, mr(nullptr)
 	{

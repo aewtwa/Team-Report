@@ -6,7 +6,7 @@
 
 namespace ya
 {
-	Bomber::Bomber()
+	Bomber::Bomber() : Monster(5)
 	{
 	}
 	Bomber::~Bomber()
