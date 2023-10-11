@@ -9,7 +9,7 @@ namespace ya
 	}
 	Monster::~Monster()
 	{
-		WaveManager::MonsterCountDown();
+		WaveManager::MonsterCountDecrease();
 	}
 	void Monster::OnCollisionEnter(Collider* other)
 	{

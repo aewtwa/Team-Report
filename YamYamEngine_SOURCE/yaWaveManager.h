@@ -15,7 +15,7 @@ namespace ya
 		static void SpawnMonster();
 		static void GiveUp();
 
-		static void MonsterCountDown() { curMonsterCount -= 1; }
+		static void MonsterCountDecrease() { curMonsterCount -= 1; }
 
 	private:
 		static bool StartCall;
