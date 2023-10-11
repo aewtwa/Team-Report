@@ -10,13 +10,13 @@ namespace ya
 {
 	BomberScript::BomberScript() :
 		  mTarget(nullptr)
-		, speed(6.f)
-		, explode_time(2.0f)
+		, speed(8.f)
+		, explode_time(1.5f)
 		, ownObj(nullptr)
 	{
-		for (int i = 0; i < 30; i++)
+		for (int i = 0; i < 12; i++)
 		{
-			directions[i] = Vector2(cos(XMConvertToRadians(12 * i)), sin(XMConvertToRadians(12 * i)));
+			directions[i] = Vector2(cos(XMConvertToRadians(30 * i)), sin(XMConvertToRadians(30 * i)));
 		}
 	}
 	BomberScript::~BomberScript()
@@ -68,7 +68,7 @@ namespace ya
 	void BomberScript::Explode()
 	{
 		Vector3 cur_pos = ownObj->GetComponent<Transform>()->GetPosition();
-		for (int i = 0; i < 30; i++)
+		for (int i = 0; i < 12; i++)
 		{
 			MonsterBullet* monBullet = object::Instantiate<MonsterBullet>(LAYER::Bullet,cur_pos);
 			monBullet->SetDir(directions[i]);

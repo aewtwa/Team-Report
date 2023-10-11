@@ -18,7 +18,7 @@ namespace ya
 		AddComponent<Transform>();
 		AddComponent<Collider>();
 		MeshRenderer* mr = AddComponent<MeshRenderer>();
-		mr->SetColor(Vector4(255.f, 0.f, 0.f, 0.f));
+		mr->SetColor(Vector4(96, 0x4b, 0x00, 0.f));
 
 		AddComponent<ZombieScript>();
 		GameObject::Initialize();

@@ -38,15 +38,18 @@ namespace ya
 			shoot_time = 0.1f;
 			MonsterBullet* monster_bullet = object::Instantiate<ya::MonsterBullet>(LAYER::Bullet, turret_tr->GetPosition());
 			monster_bullet->SetDir(directions[cur_index]);
+			monster_bullet->SetColor(Vector3(0xff, 0, 0xff));
 			cur_index++;
 			if (cur_index > 11)
 				cur_index = 0;
 		}
 
 	}
+
 	void TurretScript::LateUpdate()
 	{
 	}
+
 	void TurretScript::Render()
 	{
 	}
