@@ -55,14 +55,35 @@
     <ClInclude Include="yaShotgunBullet.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="yaShield.h" />
-    <ClInclude Include="yaShieldScript.h" />
-    <ClInclude Include="yaZombie.h" />
-    <ClInclude Include="yaZombieScript.h" />
-    <ClInclude Include="yaBomber.h" />
-    <ClInclude Include="yaBomberScript.h" />
     <ClInclude Include="yaWaveButton.h">
       <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="yaBomber.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="yaShield.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="yaRpgBullet.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="yaZombie.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="yaBomberScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="yaShieldScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="yaZombieScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="yaSoldier.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="yaSoldierScript.h">
+      <Filter>Scripts</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -84,10 +105,6 @@
     <ClCompile Include="yaWall.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="yaMonsterBullet.cpp" />
-    <ClCompile Include="yaPlayerColorChangeScript.cpp" />
-    <ClCompile Include="yaTurret.cpp" />
-    <ClCompile Include="yaTurretScript.cpp" />
     <ClCompile Include="yaHPUI.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
@@ -104,14 +121,47 @@
     <ClCompile Include="yaShotgunBullet.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="yaShield.cpp" />
-    <ClCompile Include="yaShieldScript.cpp" />
-    <ClCompile Include="yaZombie.cpp" />
-    <ClCompile Include="yaZombieScript.cpp" />
-    <ClCompile Include="yaBomber.cpp" />
-    <ClCompile Include="yaBomberScript.cpp" />
     <ClCompile Include="yaWaveButton.cpp">
       <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaBomber.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaShield.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaTurret.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaRpgBullet.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaMonsterBullet.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaZombie.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaBomberScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaTurretScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaZombieScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaShieldScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaPlayerColorChangeScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaSoldier.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="yaSoldierScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

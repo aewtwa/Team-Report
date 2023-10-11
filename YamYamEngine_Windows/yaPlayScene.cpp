@@ -16,6 +16,7 @@
 #include "yaHPBar.h"
 #include "yaZombie.h"
 #include "yaBomber.h"
+#include "yaSoldier.h"
 
 namespace ya
 {
@@ -89,6 +90,9 @@ namespace ya
 		//자폭병 생성
 		//object::Instantiate<Bomber>(LAYER::Monster, Vector3(5, 5, 0));
 
+
+		//군인 배치(테스트)
+		object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
 
 		{
 			object::Instantiate<HPBar>(LAYER::UI, Vector3(-12, -8, 1));
