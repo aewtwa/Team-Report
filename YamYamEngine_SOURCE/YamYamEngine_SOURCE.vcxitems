@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)yaMonster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaWaveManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaCamera.h" />
@@ -34,7 +35,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaMesh.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaMeshRenderer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)yaMonster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YamYamEngine.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaobject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaRenderer.h" />
@@ -51,6 +51,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaUIObject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)yaMonster.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaWaveManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaCamera.cpp" />
@@ -66,7 +67,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)yaMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaMesh.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaMeshRenderer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)yaMonster.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaMaterial.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaResource.cpp" />

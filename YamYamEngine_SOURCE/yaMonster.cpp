@@ -1,5 +1,6 @@
 #include "yaMonster.h"
 #include "yaWaveManager.h"
+#include "..\YamYamEngine_Windows\yaBullet.h"
 
 namespace ya
 {
@@ -16,7 +17,7 @@ namespace ya
 	{
 		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)
 		{
-			HP--;
+			HP -= dynamic_cast<Bullet*>(other->GetOwner())->GetDamage();
 		}
 		GameObject::OnCollisionEnter(other);
 	}

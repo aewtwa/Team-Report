@@ -77,16 +77,5 @@ namespace ya
 	void RpgBullet::Render()
 	{
 		GameObject::Render();
-	}
-
-
-	void RpgBullet::OnCollisionEnter(Collider* other)
-	{
-	}
-	void RpgBullet::OnCollisionStay(Collider* other)
-	{
-	}
-	void RpgBullet::OnCollisionExit(Collider* other)
-	{
-	}
+	}	
 }
