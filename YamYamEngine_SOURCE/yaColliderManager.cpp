@@ -113,6 +113,7 @@ namespace ya
 			}
 
 			iter->second = false;
+			return;
 		}
 
 		if (Intersect(left, right))
