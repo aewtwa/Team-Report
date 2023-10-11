@@ -97,6 +97,7 @@ namespace ya
 		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Wall, true);
 		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Wall, true);
 		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Monster, true);
+		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Player, true);
 	}
 
 	void PlayScene::Update()

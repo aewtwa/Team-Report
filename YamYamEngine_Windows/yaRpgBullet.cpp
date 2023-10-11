@@ -58,10 +58,10 @@ namespace ya
 			{
 				for (int i = 0; i < 20; i++)
 				{
-					//Bullet* bulletObj = object::Instantiate<Bullet>(LAYER::Bullet, cur_pos);
-					//bulletObj->SetDir(explode_directions[i]);
-					//bulletObj->SetStartPos((Vector2)cur_pos);
-					//bulletObj->SetMaxDistance((Vector2)(3.f));
+					Bullet* bulletObj = object::Instantiate<Bullet>(LAYER::Bullet, cur_pos);
+					bulletObj->SetDir(explode_directions[i]);
+					bulletObj->SetStartPos((Vector2)cur_pos);
+					bulletObj->SetMaxDistance((Vector2)(3.f));
 				}
 				Destroy(this);
 			}

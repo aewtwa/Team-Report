@@ -27,7 +27,7 @@ namespace ya
 
 	void Zombie::Update()
 	{
-		if (GetHp() == 0)
+		if (GetHp() <= 0)
 			Destroy(this);
 		GameObject::Update();
 	}

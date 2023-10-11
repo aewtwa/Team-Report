@@ -22,10 +22,15 @@ namespace ya
 		void SetStartPos(Vector2 pos) { startPos = pos; }
 		void SetMaxDistance(Vector2 pos) { maxDistance = pos; }
 
+		void SetColor(Vector3 input) { ColorPalette = input; }
+		Vector3 GetColor() { return ColorPalette; }
+
 	private:
 		Vector2 mDirection;
 		Vector2 startPos;
 		Vector2 maxDistance;
+		Vector3 ColorPalette;
+		bool isColorSet;
 	};
 }
 

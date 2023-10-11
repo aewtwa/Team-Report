@@ -15,12 +15,15 @@ namespace ya
 		SetTag(enums::TAG::MonsterBullet);
 		startPos = Vector2::Zero;
 		maxDistance = Vector2::Zero;
+		isColorSet = false;
+		ColorPalette = Vector3::Zero;
 	}
 	MonsterBullet::~MonsterBullet()
 	{
 	}
 	void MonsterBullet::Initialize()
 	{
+		SetTag(enums::TAG::MonsterBullet);
 		Transform* tr = AddComponent<Transform>();
 		tr->SetScale(Vector3(0.5f, 0.5f, 1.f));
 		Collider* col = AddComponent<Collider>();
@@ -32,6 +35,13 @@ namespace ya
 	}
 	void MonsterBullet::Update()
 	{
+		if (ColorPalette != Vector3::Zero && !isColorSet)
+		{
+			MeshRenderer* mr = AddComponent<MeshRenderer>();
+			mr->SetColor(Vector4(ColorPalette.x, ColorPalette.y, ColorPalette.z, 0.f));
+			isColorSet = true;
+		}
+
 		GameObject::Update();
 		Transform* tr = GetComponent<Transform>();
 		Vector2 pos = (Vector2)tr->GetPosition();
@@ -59,10 +69,6 @@ namespace ya
 	void MonsterBullet::OnCollisionEnter(Collider* other)
 	{
 		if (other->GetOwner()->GetTag() == TAG::Wall)
-		{
-			Destroy(this);
-		}
-		if (other->GetOwner()->GetTag() == TAG::Player)
 		{
 			Destroy(this);
 		}

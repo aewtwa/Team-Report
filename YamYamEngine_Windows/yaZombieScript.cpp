@@ -71,6 +71,7 @@ namespace ya
 
 		MonsterBullet* monsterBullet = object::Instantiate<MonsterBullet>(LAYER::Bullet, mPos);
 		monsterBullet->SetDir(dir);
+		monsterBullet->SetColor(Vector3(255, 165, 0));
 
 	}
 }

@@ -34,6 +34,9 @@ namespace ya
 		float GetMoveSpeed() { return MoveSpeed; }
 		void SetMoveSpeed(float speed) { MoveSpeed = speed; }
 
+		Vector3 GetPlayerColor() { return PlayerColor; }
+		void SetPlayerColor(Vector3 input) { PlayerColor = input; }
+
 	private:		
 		ShootType	ShootType;
 
@@ -41,6 +44,7 @@ namespace ya
 		float FireRate;
 		float MoveSpeed;
 
+		Vector3 PlayerColor;
 	};
 }
 
