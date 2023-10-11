@@ -7,7 +7,6 @@ namespace ya
 {
 	Zombie::Zombie() : Monster(3)
 	{
-		SetHp(2);
 	}
 
 	Zombie::~Zombie()

@@ -44,7 +44,7 @@ namespace ya
 		{
 			waveCount++;
 			prevMonsterCount = WaveMonsterCount;
-			WaveMonsterCount = (prevMonsterCount + 3) * ceil(waveCount % 10);
+			WaveMonsterCount = (prevMonsterCount + 3) /** ceil(waveCount % 10)*/;
 			isClear = false;
 			inWave = true;
 
@@ -74,14 +74,7 @@ namespace ya
 	}
 	void WaveManager::SpawnMonster()
 	{
-		Vector3 startPos = Vector3(9, 8, 0);
-
-		int line = WaveMonsterCount / 5;
-
-		if (WaveMonsterCount % 5 != 0)
-		{
-			line++;
-		}
+		Vector3 startPos = Vector3(-3, 8, 0);
 
 		for (int i = 0; i < WaveMonsterCount; i++)
 		{

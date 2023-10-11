@@ -94,11 +94,25 @@ namespace ya
 		}
 
 		std::map<UINT64, bool>::iterator iter = mCollisionMap.find(id.id);
-
 		if (iter == mCollisionMap.end())
 		{
 			mCollisionMap.insert(std::make_pair(id.id, false));
 			iter = mCollisionMap.find(id.id);
+		}
+
+
+		if (left->GetOwner()->GetState() == GameObject::eState::Paused
+			|| right->GetOwner()->GetState() == GameObject::eState::Paused
+			|| left->GetOwner()->GetState() == GameObject::eState::Dead
+			|| right->GetOwner()->GetState() == GameObject::eState::Dead)
+		{
+			if (iter->second == true)
+			{
+				left->OnCollisionExit(right);
+				right->OnCollisionExit(left);
+			}
+
+			iter->second = false;
 		}
 
 		if (Intersect(left, right))

@@ -73,7 +73,7 @@ namespace ya
 			MonsterBullet* monBullet = object::Instantiate<MonsterBullet>(LAYER::Bullet,cur_pos);
 			monBullet->SetDir(directions[i]);
 			monBullet->SetStartPos((Vector2)cur_pos);
-			monBullet->SetMaxDistance((Vector2)(1.f));
+			monBullet->SetMaxDistance((Vector2)(5.f));
 		}
 	}
 }
