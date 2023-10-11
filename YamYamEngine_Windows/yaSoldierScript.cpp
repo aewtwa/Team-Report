@@ -12,10 +12,18 @@ namespace ya
 		mTarget(nullptr)
 		, shot_time(1.f)
 		, speed(2.f)
+		, round_attack_time(0.3f)
 		, origin_pos(Vector3::Zero)
 		, move_time(3.f)
 		, is_left(true)
+		, cur_state(SoldierState::Following)
+		, directions{}
+		, round_attack_count(0)
 	{
+		for (int i = 0; i < 8; i++)
+		{
+			directions[i] = Vector2(cos(XMConvertToRadians(i * 45)),sin(XMConvertToRadians(i * 45)));
+		}
 	}
 	SoldierScript::~SoldierScript()
 	{
@@ -28,31 +36,32 @@ namespace ya
 		if (mTarget == nullptr)
 			FindTarget();
 
-		if (move_time >= 0.f)
+		switch (cur_state)
 		{
-			shot_time = 1.f;
-			move_time -= Time::DeltaTime();
+		case ya::SoldierState::Following:
 			MoveToTarget();
-		}
-		else
-		{
-			shot_time -= Time::DeltaTime();
+			break;
+		case ya::SoldierState::Attack:
 			MoveAround();
 			Shoot();
-		}
-		if (shot_time <= 0.f)
-		{
-			is_left = !is_left;
-			move_time = 3.f;
+			break;
+		case ya::SoldierState::RoundAttack:
+			RoundShoot();
+			break;
+		default:
+			break;
 		}
 
 	}
+
 	void SoldierScript::LateUpdate()
 	{
 	}
+
 	void SoldierScript::Render()
 	{
 	}
+
 	void SoldierScript::FindTarget()
 	{
 		GameObject* player = SceneManager::GetActiveScene()->GetPlayer();
@@ -62,6 +71,7 @@ namespace ya
 			return;
 		}
 	}
+
 	void SoldierScript::MoveToTarget()
 	{
 		Vector2 pPos = (Vector2)mTarget->GetComponent<Transform>()->GetPosition(); //player Position
@@ -73,6 +83,14 @@ namespace ya
 		mPos += dir * speed * Time::DeltaTime();
 		GetOwner()->GetComponent<Transform>()->SetPosition((Vector3)mPos);
 		origin_pos = GetOwner()->GetComponent<Transform>()->GetPosition();
+
+		move_time -= Time::DeltaTime();
+		if (move_time <= 0.f)
+		{
+			move_time = 3.f;
+			cur_state = SoldierState::Attack;
+			is_left = !is_left;
+		}
 	}
 	void SoldierScript::Shoot()
 	{
@@ -86,9 +104,12 @@ namespace ya
 		monsterBullet->SetDir(dir);
 		monsterBullet->SetColor(Vector3(255, 165, 0));
 	}
+
 	void SoldierScript::MoveAround()
 	{
 		Vector3 cur_pos = GetOwner()->GetComponent<Transform>()->GetPosition();
+		shot_time -= Time::DeltaTime();
+
 		if (is_left)
 		{
 			cur_pos.x -= 10.f * Time::DeltaTime();
@@ -100,5 +121,38 @@ namespace ya
 		
 		GetOwner()->GetComponent<Transform>()->SetPosition(cur_pos);
 
+		if (shot_time <= 0.f)
+		{
+			shot_time= 1.f;
+			cur_state = SoldierState::RoundAttack;
+		}
+	}
+
+
+	void SoldierScript::RoundShoot()
+	{
+		if (round_attack_time <= 0.f)
+		{
+			Vector3 cur_pos = GetOwner()->GetComponent<Transform>()->GetPosition();
+			for (int i = 0; i < 8; i++)
+			{
+				MonsterBullet* monBullet = object::Instantiate<MonsterBullet>(LAYER::Bullet, cur_pos);
+				monBullet->SetDir(directions[i]);
+				monBullet->SetColor(Vector3(0xff,0x00,0xff));
+			}
+			round_attack_time = 0.3f;
+			round_attack_count++;
+		}
+
+		else
+		{
+			round_attack_time -= Time::DeltaTime();
+		}
+
+		if (round_attack_count > 5)
+		{
+			round_attack_count = 0;
+			cur_state = SoldierState::Following;
+		}
 	}
 }
