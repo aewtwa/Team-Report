@@ -76,7 +76,7 @@ namespace ya
 					GameObject* shotgun_bullet = object::Instantiate<ya::ShotgunBullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
 					ShotgunBullet* cur_bullet = dynamic_cast<ya::ShotgunBullet*>(shotgun_bullet);
 					cur_bullet->SetDir(cur_dir);
-					cur_bullet->SetPlayerPos(obj->GetComponent<Transform>()->GetPositionVec2());
+					cur_bullet->SetStartPos(obj->GetComponent<Transform>()->GetPositionVec2());
 					cur_radian += 0.26;
 				}
 
