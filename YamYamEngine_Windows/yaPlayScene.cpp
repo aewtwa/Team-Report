@@ -76,7 +76,7 @@ namespace ya
 
 		//磐房 积己
 		{
-			//object::Instantiate<Turret>(LAYER::Monster, Vector3(2, 2, 0));
+			object::Instantiate<Turret>(LAYER::Monster, Vector3(2, 2, 0));
 		}
 
 		//粱厚 积己

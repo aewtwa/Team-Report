@@ -19,6 +19,9 @@ namespace ya
 		Vector2 directions[12];
 		int cur_index;
 		float shoot_time;
+		float change_time;
+		Vector3 color_palette[3];
+		int palette_index;
 	};
 
 }
