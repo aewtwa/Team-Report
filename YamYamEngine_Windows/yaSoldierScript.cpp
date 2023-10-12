@@ -19,10 +19,18 @@ namespace ya
 		, cur_state(SoldierState::Following)
 		, directions{}
 		, round_attack_count(0)
+		, switch_attack(false)
+		, special_attack_direction(0.f)
+		, right_angles{}
+		, special_attack_time(1.5f)
 	{
 		for (int i = 0; i < 8; i++)
 		{
 			directions[i] = Vector2(cos(XMConvertToRadians(i * 45)),sin(XMConvertToRadians(i * 45)));
+		}
+		for (int i = 0; i < 4; i++)
+		{
+			right_angles[i] = Vector2(cos(XMConvertToRadians(i * 90)), sin(XMConvertToRadians(i * 90)));
 		}
 	}
 	SoldierScript::~SoldierScript()
@@ -48,7 +56,8 @@ namespace ya
 		case ya::SoldierState::RoundAttack:
 			RoundShoot();
 			break;
-		default:
+		case ya::SoldierState::SpecialAttack:
+			SpecialAttack();
 			break;
 		}
 
@@ -102,7 +111,8 @@ namespace ya
 
 		MonsterBullet* monsterBullet = object::Instantiate<MonsterBullet>(LAYER::Bullet, mPos);
 		monsterBullet->SetDir(dir);
-		monsterBullet->SetColor(Vector3(255, 165, 0));
+		
+		is_left ? monsterBullet->SetColor(Vector3(255, 165, 0)) : monsterBullet->SetColor(Vector3(0xff, 0x00, 0xff));
 	}
 
 	void SoldierScript::MoveAround()
@@ -138,9 +148,17 @@ namespace ya
 			{
 				MonsterBullet* monBullet = object::Instantiate<MonsterBullet>(LAYER::Bullet, cur_pos);
 				monBullet->SetDir(directions[i]);
-				monBullet->SetColor(Vector3(0xff,0x00,0xff));
+				if (switch_attack)
+				{
+					monBullet->SetColor(Vector3(0xff, 0x00, 0xff));
+				}
+				else
+				{
+					monBullet->SetColor(Vector3(255, 165, 00));
+				}
 			}
 			round_attack_time = 0.3f;
+			switch_attack = !switch_attack;
 			round_attack_count++;
 		}
 
@@ -152,7 +170,38 @@ namespace ya
 		if (round_attack_count > 5)
 		{
 			round_attack_count = 0;
+			cur_state = SoldierState::SpecialAttack;
+		}
+	}
+	void SoldierScript::SpecialAttack()
+	{
+		bool is_facing_down = false;
+		
+		if (special_attack_time >= 0.f)
+		{
+			Vector3 cur_pos = GetOwner()->GetComponent<Transform>()->GetPosition();
+			Vector3 player_pos = mTarget->GetComponent<Transform>()->GetPosition();
+			cur_pos.y - player_pos.y > 0.f ? is_facing_down = true : is_facing_down = false;
+
+			is_facing_down ? special_attack_direction -= 3.f * Time::DeltaTime() : special_attack_direction += 3.f * Time::DeltaTime();
+			for (int i = 0; i < 4; i++)
+			{
+				MonsterBullet* monBullet = object::Instantiate<MonsterBullet>(LAYER::Bullet, cur_pos);
+				Vector2 cur_dir = right_angles[i];
+				cur_dir.x += special_attack_direction;
+				cur_dir.y += special_attack_direction;
+				cur_dir = cur_dir.normalize();
+				monBullet->SetDir(cur_dir);
+				special_attack_time >= 0.7f ? monBullet->SetColor(Vector3(255,165,0)) : monBullet->SetColor(Vector3(0xff, 0x00, 0xff));
+			}
+			special_attack_time -= Time::DeltaTime();
+		}
+		else
+		{
+			special_attack_time = 1.5f;
+			special_attack_direction = 0.f;
 			cur_state = SoldierState::Following;
 		}
+
 	}
 }

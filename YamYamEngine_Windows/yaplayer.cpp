@@ -14,7 +14,7 @@ namespace ya
 		: HP(3)
 		, FireRate(0.3f)
 		, MoveSpeed(3.f)
-		, PlayerColor(Vector3::Zero)
+		, PlayerColor(Vector3(0.f,255.f,0.f))
 		, ShootType(ShootType::basic)
 	{
 		SetTag(enums::TAG::Player);
@@ -26,8 +26,8 @@ namespace ya
 	{
 		AddComponent<Transform>();
 		Collider* col = AddComponent<Collider>();
-		AddComponent<MeshRenderer>();
-
+		MeshRenderer* mr = AddComponent<MeshRenderer>();
+		mr->SetColor(PlayerColor);
 		AddComponent<ShotScript>();
 		AddComponent<ControllerScript>();
 		AddComponent<PlayerColorChangeScript>();
