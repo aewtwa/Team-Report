@@ -29,7 +29,6 @@ namespace ya
 	{
 		RewardBox::Render();
 	}
-
 	void HealBox::OnCollisionEnter(Collider* other)
 	{
 		RewardBox::OnCollisionEnter(other);
