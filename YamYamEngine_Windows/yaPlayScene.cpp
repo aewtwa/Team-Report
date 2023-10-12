@@ -33,6 +33,7 @@ namespace ya
 	void PlayScene::Initialize()
 	{
 		//ColliderManager::SetRender(true);
+		WaveManager::SetActivate(true);
 
 		// 플레이어 생성
 		{
