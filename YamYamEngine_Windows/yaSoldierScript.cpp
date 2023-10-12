@@ -147,13 +147,15 @@ namespace ya
 			for (int i = 0; i < 8; i++)
 			{
 				MonsterBullet* monBullet = object::Instantiate<MonsterBullet>(LAYER::Bullet, cur_pos);
-				monBullet->SetDir(directions[i]);
+
 				if (switch_attack)
 				{
+					monBullet->SetDir(Vector2(directions[i].x + 0.3f, directions[i].y + 0.3f).normalize());
 					monBullet->SetColor(Vector3(0xff, 0x00, 0xff));
 				}
 				else
 				{
+					monBullet->SetDir(directions[i]);
 					monBullet->SetColor(Vector3(255, 165, 00));
 				}
 			}
