@@ -8,7 +8,7 @@ namespace ya
 		Following,
 		Attack,
 		RoundAttack,
-
+		SpecialAttack,
 	};
 
 
@@ -28,18 +28,32 @@ namespace ya
 		void Shoot();
 		void MoveAround();
 		void RoundShoot();
+		void SpecialAttack();
 
 	private:
+		//따라 다닐 오브젝트
 		GameObject* mTarget;
+
+		//무브 phase 와 기본 슈팅 phase
 		float shot_time;
 		float move_time;
-		float round_attack_time;
-		float speed;
 		bool is_left;
-		int round_attack_count;
-		SoldierState cur_state;
 		Vector3 origin_pos;
+
+		//8방향 쏘는 phase
+		float round_attack_time;
+		bool switch_attack;
+		int round_attack_count;
 		Vector2 directions[8];
+
+		//스페셜 어택
+		float special_attack_direction;
+		Vector2 right_angles[4];
+		float special_attack_time;
+
+		//기본 status
+		SoldierState cur_state;
+		float speed;
 	};
 
 }

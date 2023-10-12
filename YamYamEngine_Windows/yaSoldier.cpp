@@ -5,7 +5,7 @@
 
 namespace ya
 {
-	Soldier::Soldier() : Monster(3)
+	Soldier::Soldier() : Monster(30)
 	{
 		SetTag(TAG::Monster);
 	}
@@ -26,6 +26,7 @@ namespace ya
 	void Soldier::Update()
 	{
 		GameObject::Update();
+		Monster::Update();
 	}
 	void Soldier::LateUpdate()
 	{
@@ -37,6 +38,7 @@ namespace ya
 	}
 	void Soldier::OnCollisionEnter(Collider* other)
 	{
+		Monster::OnCollisionEnter(other);
 	}
 	void Soldier::OnCollisionStay(Collider* other)
 	{
