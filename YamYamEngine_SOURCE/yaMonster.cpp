@@ -13,6 +13,13 @@ namespace ya
 	{
 		WaveManager::MonsterCountDecrease();
 	}
+	void Monster::Update()
+	{
+		if (HP <= 0.f)
+		{
+			Destroy(this);
+		}
+	}
 	void Monster::OnCollisionEnter(Collider* other)
 	{
 		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)

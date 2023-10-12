@@ -26,8 +26,7 @@ namespace ya
 
 	void Zombie::Update()
 	{
-		if (GetHp() <= 0)
-			Destroy(this);
+		Monster::Update();
 		GameObject::Update();
 	}
 
@@ -43,12 +42,7 @@ namespace ya
 
 	void Zombie::OnCollisionEnter(Collider* other)
 	{
-		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)
-		{
-			int hp = GetHp();
-			hp--;
-			SetHp(hp);
-		}
+		Monster::OnCollisionEnter(other);
 	}
 
 	void Zombie::OnCollisionStay(Collider* other)

@@ -29,6 +29,7 @@ namespace ya
 	{
 		if (GetHp() <= 0)
 			Destroy(this);
+		Monster::Update();
 		GameObject::Update();
 	}
 	void Turret::LateUpdate()
@@ -41,12 +42,7 @@ namespace ya
 	}
 	void Turret::OnCollisionEnter(Collider* other)
 	{
-		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)
-		{
-			int hp = GetHp();
-			hp--;
-			SetHp(hp);
-		}
+		Monster::OnCollisionEnter(other);
 	}
 	void Turret::OnCollisionStay(Collider* other)
 	{

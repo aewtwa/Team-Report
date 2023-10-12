@@ -6,7 +6,7 @@
 
 namespace ya
 {
-	Bomber::Bomber() : Monster(5)
+	Bomber::Bomber() : Monster(1)
 	{
 	}
 	Bomber::~Bomber()
@@ -24,6 +24,7 @@ namespace ya
 	}
 	void Bomber::Update()
 	{
+		Monster::Update();
 		GameObject::Update();
 	}
 	void Bomber::LateUpdate()
@@ -36,10 +37,7 @@ namespace ya
 	}
 	void Bomber::OnCollisionEnter(Collider* other)
 	{
-		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)
-		{
-			Destroy(this);
-		}
+		Monster::OnCollisionEnter(other);
 	}
 	void Bomber::OnCollisionStay(Collider* other)
 	{

@@ -12,6 +12,7 @@ namespace ya
 {
 	ShotgunBullet::ShotgunBullet()
 	{
+		Damage = 1.f;
 	}
 	ShotgunBullet::~ShotgunBullet()
 	{
