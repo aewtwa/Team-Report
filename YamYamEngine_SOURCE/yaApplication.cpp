@@ -37,7 +37,6 @@ namespace ya
 		ya::InitializeScenes();
 		SceneManager::Initialize();
 		ColliderManager::CollisionLayerCheck(enums::LAYER::Monster, enums::LAYER::Player, true);
-		WaveManager::Initialize();
 	}
 
 	void Application::Update()
@@ -45,8 +44,8 @@ namespace ya
 		Time::Update();
 		Input::Update();
 		Camera::Update();
-		SceneManager::Update();
 		WaveManager::Update();
+		SceneManager::Update();
 		ColliderManager::Update();
 	}
 

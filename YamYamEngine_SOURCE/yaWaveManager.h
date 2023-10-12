@@ -7,7 +7,9 @@ namespace ya
 	class WaveManager
 	{
 	public:
-		static void Initialize();
+		static void SetActivate(bool value) { isActivate = value; Setting(); }
+
+		static void Setting();
 		static void Update();
 		static void LateUpdate();
 
@@ -19,6 +21,8 @@ namespace ya
 
 
 	private:
+		static bool isActivate;
+
 		static bool StartCall;
 		static bool inWave;
 		static bool isClear;

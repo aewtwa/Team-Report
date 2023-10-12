@@ -10,6 +10,8 @@
 
 namespace ya
 {
+	bool WaveManager::isActivate = false;
+
 	bool WaveManager::StartCall = false;
 	bool WaveManager::inWave = false;
 	bool WaveManager::isClear = false;
@@ -24,7 +26,7 @@ namespace ya
 	WaveButton* WaveManager::StartButton = nullptr;
 	WaveButton* WaveManager::GiveUpButton = nullptr;
 
-	void WaveManager::Initialize()
+	void WaveManager::Setting()
 	{
 		//button spawn
 		StartButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 5, 0));
@@ -40,26 +42,29 @@ namespace ya
 	}
 	void WaveManager::Update()
 	{
-		if (StartCall)
+		if (isActivate)
 		{
-			waveCount++;
-			prevMonsterCount = WaveMonsterCount;
-			WaveMonsterCount = (prevMonsterCount + 3) /** ceil(waveCount % 10)*/;
-			isClear = false;
-			inWave = true;
+			if (StartCall)
+			{
+				waveCount++;
+				prevMonsterCount = WaveMonsterCount;
+				WaveMonsterCount = (prevMonsterCount + 3) /** ceil(waveCount % 10)*/;
+				isClear = false;
+				inWave = true;
 
-			SpawnMonster();
+				SpawnMonster();
 
-			StartCall = false;
-		}
+				StartCall = false;
+			}
 
-		if (curMonsterCount == 0 && inWave)
-		{
-			isClear = true;
-			inWave = false;
+			if (curMonsterCount == 0 && inWave)
+			{
+				isClear = true;
+				inWave = false;
 
-			StartButton->Activate();
-			GiveUpButton->Activate();
+				StartButton->Activate();
+				GiveUpButton->Activate();
+			}
 		}
 	}
 	void WaveManager::LateUpdate()
