@@ -28,6 +28,9 @@
     <Filter Include="Scripts\UI">
       <UniqueIdentifier>{9234004a-1c27-4f9e-9ca0-14132a15460c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObjects\Reward">
+      <UniqueIdentifier>{3dae7968-20eb-4378-8635-41c22ef4c440}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="yaPlayScene.h">
@@ -117,14 +120,20 @@
     <ClInclude Include="yaSoldier.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="yaSoldierScript.h">
-      <Filter>Scripts</Filter>
-    </ClInclude>
     <ClInclude Include="yaTitleScene.h">
       <Filter>Scens</Filter>
     </ClInclude>
     <ClInclude Include="yaGameStartButton.h">
       <Filter>GameObjects\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="yaRewardBox.h">
+      <Filter>GameObjects\Reward</Filter>
+    </ClInclude>
+    <ClInclude Include="yaSoldierScript.h">
+      <Filter>Scripts\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="yaSpeedUpBox.h">
+      <Filter>GameObjects\Reward</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -193,9 +202,6 @@
     <ClCompile Include="yaMonsterBullet.cpp">
       <Filter>Bullets</Filter>
     </ClCompile>
-    <ClCompile Include="yaSoldierScript.cpp">
-      <Filter>Scripts</Filter>
-    </ClCompile>
     <ClCompile Include="yaSoldier.cpp" />
     <ClCompile Include="yaTitleScene.cpp">
       <Filter>Scens</Filter>
@@ -205,6 +211,15 @@
     </ClCompile>
     <ClCompile Include="yaPlayerColorChangeScript.cpp">
       <Filter>Scripts\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="yaRewardBox.cpp">
+      <Filter>GameObjects\Reward</Filter>
+    </ClCompile>
+    <ClCompile Include="yaSoldierScript.cpp">
+      <Filter>Scripts\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="yaSpeedUpBox.cpp">
+      <Filter>GameObjects\Reward</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

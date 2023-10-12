@@ -37,6 +37,8 @@ namespace ya
 		Vector3 GetPlayerColor() { return PlayerColor; }
 		void SetPlayerColor(Vector3 input) { PlayerColor = input; }
 
+		void Heal() { HP++; }
+
 	private:		
 		ShootType	ShootType;
 
