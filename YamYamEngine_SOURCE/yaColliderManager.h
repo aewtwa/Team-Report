@@ -30,11 +30,16 @@ namespace ya
 		static void ColliderCollision(Collider* left, Collider* right);
 		static bool Intersect(Collider* left, Collider* right);
 
+		static void MouseCollisionLayerCheck(enums::LAYER layer, bool enable) { mMouseLayerMap[(UINT)layer] = enable; }
+		static void MouseLayerCollision(class Scene* scene, enums::LAYER layer);
+		static void MouseIntersect(Collider* collider);
+
 		static void SetRender(bool value) { render = value; }
 		static bool GetRender() { return render; }
 
 	private:
 		static std::map<UINT64, bool> mCollisionMap;
+		static std::bitset<(UINT)LAYER::End>  mMouseLayerMap[(UINT)enums::LAYER::End];
 		static std::bitset<(UINT)enums::LAYER::End> mLayerMatrix[(UINT)enums::LAYER::End];
 		static bool render;
 	};

@@ -19,6 +19,7 @@ namespace ya
 		void OnCollisionEnter(Collider* other);
 		void OnCollisionStay(Collider* other);
 		void OnCollisionExit(Collider* other);
+		void OnClick();
 
 		bool GetCollision() { return isCollision; }
 

@@ -83,6 +83,7 @@ namespace ya
 		virtual void OnCollisionEnter(Collider* other);
 		virtual void OnCollisionStay(Collider* other);
 		virtual void OnCollisionExit(Collider* other);
+		virtual void OnClick();
 
 		eState GetState() { return mState; }
 		void Pause() { mState = eState::Paused; }

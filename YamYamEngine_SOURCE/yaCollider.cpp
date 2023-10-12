@@ -64,4 +64,8 @@ namespace ya
 		GetOwner()->OnCollisionExit(other);
 		isCollision = false;
 	}
+	void Collider::OnClick()
+	{
+		GetOwner()->OnClick();
+	}
 }

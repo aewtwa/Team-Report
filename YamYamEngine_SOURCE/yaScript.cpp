@@ -22,4 +22,7 @@ namespace ya
 	void Script::OnCollisionExit(Collider* other)
 	{
 	}
+	void Script::OnClick()
+	{
+	}
 }
