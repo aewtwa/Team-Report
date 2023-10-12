@@ -17,6 +17,10 @@
 #include "yaZombie.h"
 #include "yaBomber.h"
 #include "yaSoldier.h"
+#include "yaDamageUpBox.h"
+#include "yaFireRateUpBox.h"
+#include "yaIncreaseProjectileBox.h"
+#include "yaKing.h"
 
 namespace ya
 {
@@ -76,28 +80,55 @@ namespace ya
 		}
 
 		//터렛 생성
-		{
+		/*{
 			object::Instantiate<Turret>(LAYER::Monster, Vector3(2, 2, 0));
-		}
+		}*/
 
 		//좀비 생성
-		{
-			for (int i = 0; i < 5; i++)
-			{
-				//object::Instantiate<Zombie>(LAYER::Monster, Vector3(2, i * 3, 0));
-			}	
-		}
+		//{
+		//	for (int i = 0; i < 5; i++)
+		//	{
+		//		//object::Instantiate<Zombie>(LAYER::Monster, Vector3(2, i * 3, 0));
+		//	}	
+		//}
 
 		//자폭병 생성
 		//object::Instantiate<Bomber>(LAYER::Monster, Vector3(5, 5, 0));
 
 
 		//군인 배치(테스트)
-		object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
+		//object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
+
+
+		//테스트용 리워드
+	/*	{
+			for (int i = 0; i < 5; i++)
+			{
+				object::Instantiate<IncreaseProjectileBox>(LAYER::Monster, Vector3(5, i, 0));
+			}
+
+			for (int i = 0; i < 5; i++)
+			{
+				object::Instantiate<FireRateUpBox>(LAYER::Monster, Vector3(-5, i, 0));
+			}
+
+			for (int i = 0; i < 5; i++)
+			{
+				object::Instantiate<DamageUpBox>(LAYER::Monster, Vector3(0, i, 0));
+			}
+		
+		}*/
+
+		{
+			object::Instantiate<King>(LAYER::Monster, Vector3(1, 1, 0));
+		}
+
 
 		{
 			object::Instantiate<HPBar>(LAYER::UI, Vector3(-12, -8, 1));
 		}
+
+
 
 		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Wall, true);
 		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Wall, true);

@@ -44,6 +44,6 @@ namespace ya
 
 	void DamageUpBox::ReturnReward(player* target)
 	{
-
+		target->SetAdditionalDamage(target->GetAdditionalDamage() + 0.3f);
 	}
 }

@@ -23,6 +23,7 @@ namespace ya
 		virtual void SetMaxDistance(Vector2 pos) { maxDistance = pos; }
 
 		virtual float GetDamage() { return Damage; }
+		virtual void SetDamage(float input) { Damage = input; }
 
 	protected:
 		Vector2 mDirection;

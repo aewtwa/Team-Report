@@ -18,8 +18,6 @@ namespace ya
 	private:
 		bool	canShoot;
 		float	prevShootTime;
-
-		//ShieldScript* shield;
 	};
 
 }

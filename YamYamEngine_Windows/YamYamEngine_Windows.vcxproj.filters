@@ -135,6 +135,16 @@
     <ClInclude Include="yaSpeedUpBox.h">
       <Filter>GameObjects\Reward</Filter>
     </ClInclude>
+    <ClInclude Include="yaDamageUpBox.h" />
+    <ClInclude Include="yaFireRateUpBox.h" />
+    <ClInclude Include="yaHealBox.h" />
+    <ClInclude Include="yaIncreaseProjectileBox.h" />
+    <ClInclude Include="yaKing.h">
+      <Filter>GameObjects\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="yaKingScript.h">
+      <Filter>Scripts\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -220,6 +230,16 @@
     </ClCompile>
     <ClCompile Include="yaSpeedUpBox.cpp">
       <Filter>GameObjects\Reward</Filter>
+    </ClCompile>
+    <ClCompile Include="yaDamageUpBox.cpp" />
+    <ClCompile Include="yaFireRateUpBox.cpp" />
+    <ClCompile Include="yaHealBox.cpp" />
+    <ClCompile Include="yaIncreaseProjectileBox.cpp" />
+    <ClCompile Include="yaKing.cpp">
+      <Filter>GameObjects\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="yaKingScript.cpp">
+      <Filter>Scripts\Monster</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

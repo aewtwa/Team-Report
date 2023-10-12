@@ -39,12 +39,24 @@ namespace ya
 
 		void Heal() { HP++; }
 
+		void SetAdditionalFireRate(float fr) { Additional_Fire_Rate = fr; }
+		float GetAdditionalFireRate() { return Additional_Fire_Rate; }
+
+		void SetProjectile_Level(int level) { Projectile_Level = level; }
+		int GetProjectile_Level() { return Projectile_Level; }
+
+		void SetAdditionalDamage(float damage) { Additional_Damage = damage; }
+		float GetAdditionalDamage() { return Additional_Damage; }
+
 	private:		
 		ShootType	ShootType;
 
 		int HP;
 		float FireRate;
 		float MoveSpeed;
+		float Additional_Fire_Rate;
+		int Projectile_Level;
+		float Additional_Damage;
 
 		Vector3 PlayerColor;
 	};

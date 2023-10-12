@@ -16,6 +16,9 @@ namespace ya
 		, MoveSpeed(3.f)
 		, PlayerColor(Vector3(0.f,255.f,0.f))
 		, ShootType(ShootType::basic)
+		, Additional_Fire_Rate(0.f)
+		, Projectile_Level(0)
+		, Additional_Damage(0.f)
 	{
 		SetTag(enums::TAG::Player);
 	}

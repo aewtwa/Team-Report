@@ -13,7 +13,7 @@ namespace ya
 {
 	RpgBullet::RpgBullet()
 	{
-		Damage = 1.f;
+		Damage = 3.f;
 		startPos = Vector2::Zero;
 		maxDistance = Vector2::Zero;
 		for (int i = 0; i < 15; i++)

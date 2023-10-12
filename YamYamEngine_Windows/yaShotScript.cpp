@@ -21,7 +21,6 @@ namespace ya
 	ShotScript::ShotScript()
 		: canShoot(true)
 		, prevShootTime(0)
-		//, shield(nullptr)
 	{
 	}
 
@@ -31,8 +30,7 @@ namespace ya
 
 	void ShotScript::Initialize()
 	{
-		//shield = object::Instantiate<Shield>(enums::LAYER::Player)->GetScript<ShieldScript>();
-		//shield->SetShieldTarget(GetOwner());
+
 	}
 
 	void ShotScript::Update()
@@ -43,8 +41,10 @@ namespace ya
 		GameObject* objecti = nullptr;
 
 		player* cur_player = dynamic_cast<player*>(obj);
+		float additional_damage = cur_player->GetAdditionalDamage();
+		int proj_level = cur_player->GetProjectile_Level();
 
-		if (Input::GetKey(KEY_CODE::LBTN) && canShoot && !Input::GetKey(KEY_CODE::RBTN))
+		if (Input::GetKey(KEY_CODE::LBTN) && canShoot)
 		{
 			Vector2 MPos = Input::GetMouseWorldPosition();
 			MPos.y *= -1;
@@ -58,7 +58,7 @@ namespace ya
 				dir.normalize();
 
 				dynamic_cast<ya::Bullet*>(objecti)->SetDir(dir);
-
+				dynamic_cast<ya::Bullet*>(objecti)->SetDamage(dynamic_cast<ya::Bullet*>(objecti)->GetDamage() + additional_damage);
 				canShoot = false;
 				prevShootTime = Time::GetTime();
 				break;
@@ -70,14 +70,15 @@ namespace ya
 
 				cur_radian -= 0.26;
 
-				for (int i = 0; i < 3; i++)
+				for (int i = 0; i < 3 + proj_level; i++)
 				{
 					Vector2 cur_dir = Vector2(cos(cur_radian), sin(cur_radian));
 					GameObject* shotgun_bullet = object::Instantiate<ya::ShotgunBullet>(LAYER::Bullet, GetOwner()->GetComponent<Transform>()->GetPosition());
 					ShotgunBullet* cur_bullet = dynamic_cast<ya::ShotgunBullet*>(shotgun_bullet);
 					cur_bullet->SetDir(cur_dir);
 					cur_bullet->SetStartPos(obj->GetComponent<Transform>()->GetPositionVec2());
-					cur_radian += 0.26;
+					cur_bullet->SetDamage(cur_bullet->GetDamage() + additional_damage);
+					cur_radian += 0.16;
 				}
 
 				canShoot = false;
@@ -89,8 +90,9 @@ namespace ya
 				dir.normalize();
 
 				dynamic_cast<ya::RpgBullet*>(objecti)->SetDir(dir);
-				dynamic_cast<ya::RpgBullet*>(objecti)->SetMaxDistance(Vector2(5.f,5.f));
+				dynamic_cast<ya::RpgBullet*>(objecti)->SetMaxDistance(Vector2(5.f + proj_level,5.f + proj_level));
 				dynamic_cast<ya::RpgBullet*>(objecti)->SetStartPos(Vector2(pos));
+				dynamic_cast<ya::RpgBullet*>(objecti)->SetDamage(dynamic_cast<ya::RpgBullet*>(objecti)->GetDamage() + additional_damage);
 				
 				canShoot = false;
 				prevShootTime = Time::GetTime();
@@ -105,17 +107,6 @@ namespace ya
 			if (prevShootTime + dynamic_cast<player*>(GetOwner())->GetFireRate() < Time::GetTime())
 				canShoot = true;
 		}
-
-		//if (Input::GetKey(KEY_CODE::RBTN))
-		//{
-		//	//object::Instantiate<ya::Monster>(LAYER::Monster, Vector3(10, 0, 0)); // spawn monster
-
-		//	shield->SetActive(true);
-		//}
-		//else if (!Input::GetKey(KEY_CODE::RBTN))
-		//{
-		//	shield->SetActive(false);
-		//}
 
 		tr->SetPosition(pos);
 	}

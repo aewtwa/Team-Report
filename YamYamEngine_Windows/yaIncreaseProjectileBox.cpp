@@ -44,5 +44,6 @@ namespace ya
 
 	void IncreaseProjectileBox::ReturnReward(player* target)
 	{
+		target->SetProjectile_Level(target->GetProjectile_Level() + 1);
 	}
 }

@@ -44,6 +44,6 @@ namespace ya
 
 	void FireRateUpBox::ReturnReward(player* target)
 	{
-		target->SetFireRate(target->GetFireRate() + 0.1f);
+		target->SetAdditionalFireRate(target->GetAdditionalFireRate() - 0.05f);
 	}
 }
