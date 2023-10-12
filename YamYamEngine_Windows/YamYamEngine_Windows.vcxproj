@@ -147,6 +147,7 @@
     <ClInclude Include="yaBullet.h" />
     <ClInclude Include="yaControllerScript.h" />
     <ClInclude Include="yaGameStartButton.h" />
+    <ClInclude Include="yaHealBox.h" />
     <ClInclude Include="yaHPBar.h" />
     <ClInclude Include="yaHPUI.h" />
     <ClInclude Include="yaHPUIManagerScript.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="yaBullet.cpp" />
     <ClCompile Include="yaControllerScript.cpp" />
     <ClCompile Include="yaGameStartButton.cpp" />
+    <ClCompile Include="yaHealBox.cpp" />
     <ClCompile Include="yaHPBar.cpp" />
     <ClCompile Include="yaHPUI.cpp" />
     <ClCompile Include="yaHPUIManagerScript.cpp" />
