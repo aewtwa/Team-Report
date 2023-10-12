@@ -107,7 +107,6 @@ namespace ya
 	void PlayScene::Update()
 	{
 		Scene::Update();
-		Camera::Update();
 
 		if (Input::GetKeyDown(KEY_CODE::N))
 		{

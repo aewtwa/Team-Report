@@ -17,6 +17,7 @@ namespace ya
 
 		static void MonsterCountDecrease() { curMonsterCount -= 1; }
 
+
 	private:
 		static bool StartCall;
 		static bool inWave;
@@ -28,6 +29,7 @@ namespace ya
 		static unsigned int prevMonsterCount;
 
 		static std::vector<std::wstring> monsters;
+		static std::vector<std::wstring> rewards;
 
 		static WaveButton* StartButton;
 		static WaveButton* GiveUpButton;

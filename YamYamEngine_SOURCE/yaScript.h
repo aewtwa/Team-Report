@@ -24,6 +24,7 @@ namespace ya
 		virtual void OnCollisionEnter(Collider* other);
 		virtual void OnCollisionStay(Collider* other);
 		virtual void OnCollisionExit(Collider* other);
+		virtual void OnClick();
 
 		GameObject* GetOwner() { return mOwner; }
 		void SetOwner(GameObject* obj) { mOwner = obj; }

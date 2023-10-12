@@ -146,6 +146,7 @@
     <ClInclude Include="yaBomberScript.h" />
     <ClInclude Include="yaBullet.h" />
     <ClInclude Include="yaControllerScript.h" />
+    <ClInclude Include="yaGameStartButton.h" />
     <ClInclude Include="yaHPBar.h" />
     <ClInclude Include="yaHPUI.h" />
     <ClInclude Include="yaHPUIManagerScript.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="yaShotgunBullet.h" />
     <ClInclude Include="yaSoldierScript.h" />
     <ClInclude Include="yaSoldier.h" />
+    <ClInclude Include="yaTitleScene.h" />
     <ClInclude Include="yaTurret.h" />
     <ClInclude Include="yaTurretScript.h" />
     <ClInclude Include="yaWall.h" />
@@ -173,6 +175,7 @@
     <ClCompile Include="yaBomberScript.cpp" />
     <ClCompile Include="yaBullet.cpp" />
     <ClCompile Include="yaControllerScript.cpp" />
+    <ClCompile Include="yaGameStartButton.cpp" />
     <ClCompile Include="yaHPBar.cpp" />
     <ClCompile Include="yaHPUI.cpp" />
     <ClCompile Include="yaHPUIManagerScript.cpp" />
@@ -187,6 +190,7 @@
     <ClCompile Include="yaShotgunBullet.cpp" />
     <ClCompile Include="yaSoldierScript.cpp" />
     <ClCompile Include="yaSoldier.cpp" />
+    <ClCompile Include="yaTitleScene.cpp" />
     <ClCompile Include="yaTurret.cpp" />
     <ClCompile Include="yaTurretScript.cpp" />
     <ClCompile Include="yaWall.cpp" />

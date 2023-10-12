@@ -44,7 +44,7 @@ namespace ya
 	{
 		Time::Update();
 		Input::Update();
-
+		Camera::Update();
 		SceneManager::Update();
 		WaveManager::Update();
 		ColliderManager::Update();

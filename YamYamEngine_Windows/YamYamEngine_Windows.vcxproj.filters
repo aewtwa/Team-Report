@@ -120,6 +120,12 @@
     <ClInclude Include="yaSoldierScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="yaTitleScene.h">
+      <Filter>Scens</Filter>
+    </ClInclude>
+    <ClInclude Include="yaGameStartButton.h">
+      <Filter>GameObjects\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -132,7 +138,6 @@
       <Filter>GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="yaMonsterBullet.cpp" />
-    <ClCompile Include="yaPlayerColorChangeScript.cpp" />
     <ClCompile Include="yaTurret.cpp" />
     <ClCompile Include="yaTurretScript.cpp" />
     <ClCompile Include="yaShield.cpp" />
@@ -190,6 +195,16 @@
     </ClCompile>
     <ClCompile Include="yaSoldierScript.cpp">
       <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaSoldier.cpp" />
+    <ClCompile Include="yaTitleScene.cpp">
+      <Filter>Scens</Filter>
+    </ClCompile>
+    <ClCompile Include="yaGameStartButton.cpp">
+      <Filter>GameObjects\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="yaPlayerColorChangeScript.cpp">
+      <Filter>Scripts\Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

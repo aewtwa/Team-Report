@@ -118,4 +118,14 @@ namespace ya
 			script->OnCollisionExit(other);
 		}
 	}
+	void GameObject::OnClick()
+	{
+		for (Script* script : mScripts)
+		{
+			if (script == nullptr || !script->GetActivate())
+				continue;
+
+			script->OnClick();
+		}
+	}
 }

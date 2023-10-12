@@ -1,9 +1,12 @@
 #include "yaColliderManager.h"
 #include "yaSceneManager.h"
+#include "yaInput.h"
+#include "yaCamera.h"
 
 namespace ya
 {
 	std::map<UINT64, bool>  ColliderManager::mCollisionMap = {};
+	std::bitset<(UINT)LAYER::End>  ColliderManager::mMouseLayerMap[(UINT)LAYER::End] = {};
 	std::bitset<(UINT)LAYER::End>  ColliderManager::mLayerMatrix[(UINT)LAYER::End] = {};
 	bool ColliderManager::render = false;
 
@@ -21,6 +24,16 @@ namespace ya
 				if (mLayerMatrix[row][column] == true)
 				{
 					LayerCollision(curScene, (LAYER)row, (LAYER)column);
+				}
+
+				if (mMouseLayerMap[row] == true)
+				{
+					MouseLayerCollision(curScene, (LAYER)row);
+				}
+
+				if (mMouseLayerMap[column] == true)
+				{
+					MouseLayerCollision(curScene, (LAYER)column);
 				}
 			}
 		}
@@ -100,7 +113,6 @@ namespace ya
 			iter = mCollisionMap.find(id.id);
 		}
 
-
 		if (left->GetOwner()->GetState() == GameObject::eState::Paused
 			|| right->GetOwner()->GetState() == GameObject::eState::Paused
 			|| left->GetOwner()->GetState() == GameObject::eState::Dead
@@ -158,5 +170,40 @@ namespace ya
 		}
 
 		return false;
+	}
+
+	void ColliderManager::MouseLayerCollision(Scene* scene, enums::LAYER layer)
+	{
+		Layer* tLayer = scene->GetLayer((UINT)layer);
+		std::vector<GameObject*> tObjs = tLayer->GetGameObjects();
+
+		for (GameObject* tObj : tObjs)
+		{
+			Collider* col = tObj->GetCollider();
+			if (col == nullptr)
+				continue;
+
+			MouseIntersect(col);
+		}
+	}
+	void ColliderManager::MouseIntersect(Collider* collider)
+	{
+		math::Vector3 leftPos = dynamic_cast<Collider*>(collider)->GetPos();
+		math::Vector2 leftSize = dynamic_cast<Collider*>(collider)->GetSize();
+
+		math::Vector2 mPos = Input::GetMouseWorldPosition();
+		mPos.y *= -1;
+
+		leftPos = Camera::CalculatePosition(leftPos);
+
+		Vector2 startPos = leftPos - leftSize / 2;
+		Vector2 endPos = leftPos + leftSize / 2;
+
+		if (Input::GetKey(KEY_CODE::LBTN)
+			&& (startPos.x < mPos.x && endPos.x > mPos.x)
+			&& (startPos.y < mPos.y && endPos.y > mPos.y))
+		{
+			collider->OnClick();
+		}
 	}
 }

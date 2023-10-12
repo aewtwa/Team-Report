@@ -1,6 +1,7 @@
 #pragma once
-#include "..\\YamYamEngine_SOURCE\\yaSceneManager.h"
+#include "yaSceneManager.h"
 #include "yaPlayScene.h"
+#include "yaTitleScene.h"
 
 
 //#ifdef  _DEBUG
@@ -14,7 +15,8 @@ namespace ya
 	 void InitializeScenes()
 	{
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
+		SceneManager::CreateScene<TitleScene>(L"TitleScene");
 
-		SceneManager::LoadScene(L"PlayScene");
+		SceneManager::LoadScene(L"TitleScene");
 	}
 }
