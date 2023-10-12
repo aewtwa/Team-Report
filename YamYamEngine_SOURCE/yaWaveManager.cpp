@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include "yaobject.h"
 #include "yaTime.h"
+#include "yaSceneManager.h"
 
 #include "..\YamYamEngine_Windows\yaZombie.h"
 #include "..\YamYamEngine_Windows\yaTurret.h"
@@ -39,6 +40,7 @@ namespace ya
 		monsters.push_back(L"zombie");
 		monsters.push_back(L"turret");
 		monsters.push_back(L"bomber");
+		monsters.push_back(L"soldier");
 	}
 	void WaveManager::Update()
 	{
@@ -104,6 +106,7 @@ namespace ya
 	}
 	void WaveManager::GiveUp()
 	{
-
+		SceneManager::LoadScene(L"TitleScene");
+		// 여기서 점수관련 작업
 	}
 }
