@@ -153,6 +153,7 @@
     <ClInclude Include="yaHPBar.h" />
     <ClInclude Include="yaHPUI.h" />
     <ClInclude Include="yaHPUIManagerScript.h" />
+    <ClInclude Include="yaIncreaseProjectileBox.h" />
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaMonsterBullet.h" />
     <ClInclude Include="yaplayer.h" />
@@ -187,6 +188,7 @@
     <ClCompile Include="yaHPBar.cpp" />
     <ClCompile Include="yaHPUI.cpp" />
     <ClCompile Include="yaHPUIManagerScript.cpp" />
+    <ClCompile Include="yaIncreaseProjectileBox.cpp" />
     <ClCompile Include="yaMonsterBullet.cpp" />
     <ClCompile Include="yaplayer.cpp" />
     <ClCompile Include="yaPlayerColorChangeScript.cpp" />
