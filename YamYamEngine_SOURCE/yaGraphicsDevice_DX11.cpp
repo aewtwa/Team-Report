@@ -4,6 +4,7 @@
 #include "yaMesh.h"
 #include "yaShader.h"
 #include "yaConstantBuffer.h"
+#include "yaTextManager.h"
 
 extern ya::Application application;
 
@@ -55,7 +56,6 @@ namespace ya::graphics
         hr = mDevice->CreateRenderTargetView(mFrameBuffer.Get(), nullptr, mRenderTargetView.GetAddressOf());
         
 
-
         // DepthStencilTexture
         D3D11_TEXTURE2D_DESC texdesc = {};
 
@@ -79,6 +79,7 @@ namespace ya::graphics
             return;
 
 
+        TextManager::Initialize(mDevice, mContext);
         //RECT winRect;
         //GetClientRect(application.GetHwnd(), &winRect);
         //mViewPort = { 0.0f, 0.0f, (FLOAT)(winRect.right - winRect.left), (FLOAT)(winRect.bottom - winRect.top)};
