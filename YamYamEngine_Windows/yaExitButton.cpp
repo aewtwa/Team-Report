@@ -18,10 +18,7 @@ namespace ya
 	{
 		Button::Initialize();
 
-		Transform* tr = GetComponent<Transform>();
-		tr->SetScale(Vector3(3, 2, 1));
-		tr->SetPositionVec2(Vector2(0, -3));
-		GetComponent<Collider>()->SetSize(Vector2(3, 2));
+		GetComponent<Collider>()->SetSize(Vector2(3, 1));
 		Text* text = GetComponent<Text>();
 		text->SetText(L"Exit");
 		text->SetStatic();
@@ -53,6 +50,7 @@ namespace ya
 	void ExitButton::OnClick()
 	{
 		Button::OnClick();
+
 		SendMessage(application.GetHwnd(), WM_CLOSE, 0, 0);
 	}
 }

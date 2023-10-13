@@ -59,7 +59,7 @@ namespace ya
 		if (iter == mScenes.end())
 			return nullptr;
 
-		//카메라 초기화 해주기
+		Camera::Clear();
 
 		mActiveScene = iter->second;
 		return iter->second;

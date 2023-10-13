@@ -6,7 +6,7 @@
 namespace ya
 {
 	std::map<UINT64, bool>  ColliderManager::mCollisionMap = {};
-	std::bitset<(UINT)LAYER::End>  ColliderManager::mMouseLayerMap[(UINT)LAYER::End] = {};
+	std::bitset<(UINT)LAYER::End>  ColliderManager::mMouseLayerMap = {};
 	std::bitset<(UINT)LAYER::End>  ColliderManager::mLayerMatrix[(UINT)LAYER::End] = {};
 	bool ColliderManager::render = false;
 

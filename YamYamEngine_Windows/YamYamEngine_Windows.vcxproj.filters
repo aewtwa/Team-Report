@@ -31,6 +31,9 @@
     <Filter Include="GameObjects\Bullets">
       <UniqueIdentifier>{f51dfc73-6854-427f-9492-66694ffb176c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObjects\Button">
+      <UniqueIdentifier>{430d31b1-d6c5-4c8d-a834-823e2aa1b22f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="yaPlayScene.h">
@@ -45,9 +48,6 @@
     </ClInclude>
     <ClInclude Include="yaShield.h" />
     <ClInclude Include="yaShieldScript.h" />
-    <ClInclude Include="yaWaveButton.h">
-      <Filter>GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="yaShotgunBullet.h">
       <Filter>GameObjects\Bullets</Filter>
     </ClInclude>
@@ -117,14 +117,8 @@
     <ClInclude Include="yaZombieScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="yaSoldier.h">
-      <Filter>GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="yaTitleScene.h">
       <Filter>Scens</Filter>
-    </ClInclude>
-    <ClInclude Include="yaGameStartButton.h">
-      <Filter>GameObjects\UI</Filter>
     </ClInclude>
     <ClInclude Include="yaRewardBox.h">
       <Filter>GameObjects\Reward</Filter>
@@ -165,6 +159,21 @@
     <ClInclude Include="yaExtraDamageUI.h">
       <Filter>GameObjects\UI</Filter>
     </ClInclude>
+    <ClInclude Include="yaWaveButton.h">
+      <Filter>GameObjects\Reward</Filter>
+    </ClInclude>
+    <ClInclude Include="yaGameStartButton.h">
+      <Filter>GameObjects\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="yaButton.h">
+      <Filter>GameObjects\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="yaExitButton.h">
+      <Filter>GameObjects\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="yaSoldier.h">
+      <Filter>GameObjects\Monsters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -176,14 +185,8 @@
     <ClCompile Include="yaWall.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="yaMonsterBullet.cpp" />
-    <ClCompile Include="yaTurret.cpp" />
-    <ClCompile Include="yaTurretScript.cpp" />
     <ClCompile Include="yaShield.cpp" />
     <ClCompile Include="yaShieldScript.cpp" />
-    <ClCompile Include="yaWaveButton.cpp">
-      <Filter>GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="yaShotgunBullet.cpp">
       <Filter>GameObjects\Bullets</Filter>
     </ClCompile>
@@ -232,12 +235,8 @@
     <ClCompile Include="yaMonsterBullet.cpp">
       <Filter>Bullets</Filter>
     </ClCompile>
-    <ClCompile Include="yaSoldier.cpp" />
     <ClCompile Include="yaTitleScene.cpp">
       <Filter>Scens</Filter>
-    </ClCompile>
-    <ClCompile Include="yaGameStartButton.cpp">
-      <Filter>GameObjects\UI</Filter>
     </ClCompile>
     <ClCompile Include="yaPlayerColorChangeScript.cpp">
       <Filter>Scripts\Player</Filter>
@@ -280,6 +279,30 @@
     </ClCompile>
     <ClCompile Include="yaExtraDamageUI.cpp">
       <Filter>GameObjects\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="yaWaveButton.cpp">
+      <Filter>GameObjects\Reward</Filter>
+    </ClCompile>
+    <ClCompile Include="yaGameStartButton.cpp">
+      <Filter>GameObjects\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="yaButton.cpp">
+      <Filter>GameObjects\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="yaExitButton.cpp">
+      <Filter>GameObjects\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="yaSoldier.cpp">
+      <Filter>GameObjects\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="yaTurret.cpp">
+      <Filter>GameObjects\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="yaTurretScript.cpp">
+      <Filter>Scripts\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="yaMonsterBullet.cpp">
+      <Filter>GameObjects\Monsters</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

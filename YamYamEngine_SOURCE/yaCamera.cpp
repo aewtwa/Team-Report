@@ -27,15 +27,17 @@ namespace ya
 		{
 			Transform* tr = mTarget->GetComponent<Transform>();
 			mLookPosition = tr->GetPosition();
+			mDistance = mLookPosition;
 		}
 
-		mDistance = mLookPosition;
 		mDistanceApi = mLookPosition - (mResolution / 2);
 	}
 	void Camera::Clear()
 	{
 		mResolution.x = application.GetWidth();
 		mResolution.y = application.GetHeight();
-		mLookPosition = (Vector3)mResolution / 2.0f;
+		mLookPosition = Vector3::Zero;
+		mTarget = nullptr;
+		mDistance = Vector3::Zero;
 	}
 }

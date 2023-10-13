@@ -17,6 +17,7 @@ namespace ya
 		AddComponent<Transform>();
 		AddComponent<Collider>();
 		AddComponent<Text>();
+
 		GameObject::Initialize();
 	}
 	void Button::Update()

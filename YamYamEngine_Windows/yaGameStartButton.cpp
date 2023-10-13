@@ -16,8 +16,8 @@ namespace ya
 	{
 		Button::Initialize();
 
-		GetComponent<Transform>()->SetScale(Vector3(3, 2, 1));;
-		GetComponent<Collider>()->SetSize(Vector2(3, 2));
+		///GetComponent<Transform>()->SetScale(Vector3(3, 1, 1));;
+		GetComponent<Collider>()->SetSize(Vector2(3, 1));
 		Text* text = GetComponent<Text>();
 		text->SetText(L"Play");
 		text->SetStatic();

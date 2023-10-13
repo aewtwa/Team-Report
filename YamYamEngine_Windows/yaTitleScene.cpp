@@ -2,6 +2,10 @@
 #include "yaColliderManager.h"
 #include "yaobject.h"
 #include "yaGameStartButton.h"
+#include "yaExitButton.h"
+#include "yaTransform.h"
+#include "yaMeshRenderer.h"
+#include "yaText.h"
 
 namespace ya
 {
@@ -14,8 +18,14 @@ namespace ya
 
 	void TitleScene::Initialize()
 	{
-		GameStartButton* obj = new GameStartButton();
-		AddGameObject(obj, (UINT)LAYER::UI);
+		GameStartButton* sbtn = new GameStartButton();
+		AddGameObject(sbtn, (UINT)LAYER::UI);
+
+		ExitButton* ebtn = new ExitButton();
+		AddGameObject(ebtn, (UINT)LAYER::UI);
+		ebtn->GetComponent<Transform>()->SetPositionVec2(Vector2(0, -4));
+		ebtn->AddComponent<MeshRenderer>();
+		//ebtn->GetComponent<Text>()->SetOffset(Vector2(0, 50));
 
 		ColliderManager::MouseCollisionLayerCheck(LAYER::UI, true);
 	}
