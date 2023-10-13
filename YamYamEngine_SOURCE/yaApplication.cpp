@@ -1,6 +1,7 @@
 #include "yaApplication.h"
 #include <WinUser.h>
 #include "yaGraphicsDevice_DX11.h"
+#include "yaTextManager.h"
 #include "yaScene.h"
 #include "yaInput.h"
 #include "yaTime.h"
@@ -61,6 +62,7 @@ namespace ya
 
 		Time::Render();
 		SceneManager::Render();
+		TextManager::Render();
 
 		//graphicsDevice->Render();
 		graphicsDevice->Present();

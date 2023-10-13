@@ -43,6 +43,7 @@ namespace ya
 		static std::random_device rd;   // non-deterministic generator
 
 		static std::vector<std::wstring> monsters;
+		static std::vector<std::wstring> bosses;
 		static std::vector<std::wstring> rewards;
 		static std::vector<Vector3> rewardSpawnPos;
 

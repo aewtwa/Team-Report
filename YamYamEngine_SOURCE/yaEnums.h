@@ -155,6 +155,7 @@ namespace ya::enums
 
 		//render
 		MESH,
+		TEXT,
 		TILE,
 		PARTICLE,
 		SKYBOX,

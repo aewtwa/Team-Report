@@ -10,9 +10,6 @@
     <Filter Include="GameObjects">
       <UniqueIdentifier>{ddf577a3-351d-416f-92c0-6086e4c11f0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Bullets">
-      <UniqueIdentifier>{f51dfc73-6854-427f-9492-66694ffb176c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObjects\UI">
       <UniqueIdentifier>{693cfbb6-ccf7-4af6-bfc3-3ebff1cb3ac8}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,9 @@
     </Filter>
     <Filter Include="GameObjects\Reward">
       <UniqueIdentifier>{3dae7968-20eb-4378-8635-41c22ef4c440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Bullets">
+      <UniqueIdentifier>{f51dfc73-6854-427f-9492-66694ffb176c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,13 +49,13 @@
       <Filter>GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="yaShotgunBullet.h">
-      <Filter>Bullets</Filter>
+      <Filter>GameObjects\Bullets</Filter>
     </ClInclude>
     <ClInclude Include="yaBullet.h">
-      <Filter>Bullets</Filter>
+      <Filter>GameObjects\Bullets</Filter>
     </ClInclude>
     <ClInclude Include="yaRpgBullet.h">
-      <Filter>Bullets</Filter>
+      <Filter>GameObjects\Bullets</Filter>
     </ClInclude>
     <ClInclude Include="yaHPBar.h">
       <Filter>GameObjects\UI</Filter>
@@ -64,7 +64,7 @@
       <Filter>GameObjects\UI</Filter>
     </ClInclude>
     <ClInclude Include="yaMonsterBullet.h">
-      <Filter>Bullets</Filter>
+      <Filter>GameObjects\Bullets</Filter>
     </ClInclude>
     <ClInclude Include="yaZombie.h">
       <Filter>GameObjects\Monsters</Filter>
@@ -145,6 +145,7 @@
     <ClInclude Include="yaKingScript.h">
       <Filter>Scripts\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="yaGameOverScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -165,13 +166,13 @@
       <Filter>GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="yaShotgunBullet.cpp">
-      <Filter>Bullets</Filter>
+      <Filter>GameObjects\Bullets</Filter>
     </ClCompile>
     <ClCompile Include="yaBullet.cpp">
-      <Filter>Bullets</Filter>
+      <Filter>GameObjects\Bullets</Filter>
     </ClCompile>
     <ClCompile Include="yaRpgBullet.cpp">
-      <Filter>Bullets</Filter>
+      <Filter>GameObjects\Bullets</Filter>
     </ClCompile>
     <ClCompile Include="yaHPBar.cpp">
       <Filter>GameObjects\UI</Filter>
@@ -241,5 +242,6 @@
     <ClCompile Include="yaKingScript.cpp">
       <Filter>Scripts\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="yaGameOverScene.cpp" />
   </ItemGroup>
 </Project>

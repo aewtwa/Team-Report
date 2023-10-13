@@ -131,6 +131,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)yaMonster.cpp">
       <Filter>Engine\GameObject</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)yaText.cpp">
+      <Filter>Engine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)yaTextManager.cpp">
+      <Filter>Engine\TextManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)yaApplication.h">
@@ -238,6 +244,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaMonster.h">
       <Filter>Engine\GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)yaText.h">
+      <Filter>Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)yaTextManager.h">
+      <Filter>Engine\TextManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">
@@ -328,6 +340,9 @@
     </Filter>
     <Filter Include="Engine\WaveManager">
       <UniqueIdentifier>{06f6e2c9-dfcb-4ca3-b885-ed07adb4f454}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\TextManager">
+      <UniqueIdentifier>{dba0f91e-011c-4b51-a28b-f6009df0b664}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

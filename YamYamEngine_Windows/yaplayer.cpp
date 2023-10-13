@@ -6,6 +6,7 @@
 #include "yaTransform.h"
 #include "yaCollider.h"
 #include "yaMeshRenderer.h"
+#include "yaText.h"
 #include "yaMonsterBullet.h"
 
 namespace ya
@@ -34,6 +35,8 @@ namespace ya
 		AddComponent<ShotScript>();
 		AddComponent<ControllerScript>();
 		AddComponent<PlayerColorChangeScript>();
+		Text* text = AddComponent<Text>();
+		text->SetText(L"HELLO WORLD");
 
 		col->SetSize(Vector2(1.f, 1.f));
 

@@ -33,6 +33,7 @@ namespace ya
 	std::random_device WaveManager::rd;
 
 	std::vector<std::wstring> WaveManager::monsters = {};
+	std::vector<std::wstring> WaveManager::bosses = {};
 	std::vector<std::wstring> WaveManager::rewards = {};
 	std::vector<Vector3> WaveManager::rewardSpawnPos = {};
 
@@ -55,6 +56,7 @@ namespace ya
 		GiveUpButton->SetType(WaveButton::WaveButtonType::giveup);
 		StartButton->SetType(WaveButton::WaveButtonType::start);
 
+		//reward
 		rewardSpawnPos.resize(3);
 		rewardSpawnPos[0] = Vector3(-5, 5, 0);
 		rewardSpawnPos[1] = Vector3(0, 5, 0);
@@ -70,7 +72,9 @@ namespace ya
 		monsters.push_back(L"zombie");
 		monsters.push_back(L"turret");
 		monsters.push_back(L"bomber");
-		monsters.push_back(L"soldier");
+
+		bosses.push_back(L"soldier");
+		bosses.push_back(L"king");
 	}
 	void WaveManager::Update()
 	{
@@ -117,31 +121,38 @@ namespace ya
 	}
 	void WaveManager::SpawnMonster()
 	{
-		Vector3 startPos = Vector3(-3, 8, 0);
+		if (waveCount % 10 == 0)
+		{
+			
+		}
+		else
+		{
+			Vector3 startPos = Vector3(-3, 8, 0);
 
-		for (int i = 0; i < WaveMonsterCount; i++)
-		{			
-			std::mt19937 gen(rd());  // to seed mersenne twister.
-									 // replace the call to rd() with a
-									 // constant value to get repeatable
-									 // results.
+			for (int i = 0; i < WaveMonsterCount; i++)
+			{			
+				std::mt19937 gen(rd());  // to seed mersenne twister.
+										 // replace the call to rd() with a
+										 // constant value to get repeatable
+										 // results.
 
-			Vector3 curPos = startPos;
+				Vector3 curPos = startPos;
 
-			unsigned int r = gen();
-			r %= 3;
+				unsigned int r = gen();
+				r %= 3;
 
-			curPos.x += (i - ((i / 5) * 5)) * 2;
-			curPos.y += i / 5;
+				curPos.x += (i - ((i / 5) * 5)) * 2;
+				curPos.y += i / 5;
 
-			if (monsters[r] == L"zombie")
-				ya::object::Instantiate<Zombie>(enums::LAYER::Monster, curPos);
-			else if (monsters[r] == L"turret")
-				ya::object::Instantiate<Turret>(enums::LAYER::Monster, curPos);
-			else if (monsters[r] == L"bomber")
-				ya::object::Instantiate<Bomber>(enums::LAYER::Monster, curPos);
+				if (monsters[r] == L"zombie")
+					ya::object::Instantiate<Zombie>(enums::LAYER::Monster, curPos);
+				else if (monsters[r] == L"turret")
+					ya::object::Instantiate<Turret>(enums::LAYER::Monster, curPos);
+				else if (monsters[r] == L"bomber")
+					ya::object::Instantiate<Bomber>(enums::LAYER::Monster, curPos);
 
-			curMonsterCount++;
+				curMonsterCount++;
+			}
 		}
 	}
 	void WaveManager::SpawnReward()

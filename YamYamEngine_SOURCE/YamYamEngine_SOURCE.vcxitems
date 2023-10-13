@@ -15,7 +15,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)yaText.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaMonster.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)yaTextManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaWaveManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaCamera.h" />
@@ -51,7 +53,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaUIObject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)yaText.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaMonster.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)yaTextManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaWaveManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)yaCamera.cpp" />

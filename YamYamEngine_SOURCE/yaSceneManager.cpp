@@ -1,6 +1,7 @@
 #include "yaSceneManager.h"
 
 #include "yaResources.h"
+#include "yaCamera.h"
 
 #include "yaGameObject.h"
 #include "yaTransform.h"
