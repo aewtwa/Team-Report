@@ -101,14 +101,14 @@ namespace ya
 
 
 		/*테스트용 리워드*/
-	/*	{
-			for (int i = 0; i < 5; i++)
-			{
-				object::Instantiate<IncreaseProjectileBox>(LAYER::Monster, Vector3(5, i, 0));
-			}
+		//{
+		//	for (int i = 0; i < 5; i++)
+		//	{
+		//		object::Instantiate<IncreaseProjectileBox>(LAYER::Monster, Vector3(5, i, 0));
+		//	}
 
-		
-		}
+		//
+		//}
 
 		{
 			object::Instantiate<King>(LAYER::Monster, Vector3(1, 1, 0));
@@ -119,7 +119,7 @@ namespace ya
 
 		{
 			object::Instantiate<HPBar>(LAYER::UI, Vector3(-12, -8, 1));
-		}*/
+		}
 
 
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "yaScript.h"
-#define KING_SPEED 3.0f
+#define KING_SPEED 2.0f
 #define KING_MOVE_TIME 2.0f
 #define KING_SHOT_TIME 5.0f
 #define KING_COLOR_CHANGE_TIME 1.0f
@@ -53,6 +53,8 @@ namespace ya
 		//동그랗게 도는 phase
 		float round_distance;
 		bool is_left;
+
+
 
 		//현재 컬러 인덱스
 		int cur_color_index;

@@ -93,6 +93,7 @@ namespace ya
 		{
 			move_time = KING_MOVE_TIME;
 			cur_state = KingState::RoundMoving;
+			cur_degree = XMConvertToDegrees(atan2(dir.y, dir.x));
 		}
 
 
@@ -133,21 +134,30 @@ namespace ya
 		cur_degree = 0;
 		for (int i = 0; i < 4; i++)
 		{
+
 			cur_degree += i * 90;
 		}
 	}
 
 	void KingScript::SecondAttack()
 	{
+
 	}
 
 	void KingScript::RoundMoving()
 	{
-		Vector3 cur_pos = origin_pos;
-		is_left ? round_distance += 3.f * Time::DeltaTime() : round_distance -= 3.f * Time::DeltaTime();
-		cur_degree += 100.f * Time::DeltaTime();
+		Vector3 pPos = mTarget->GetComponent<Transform>()->GetPosition();
+		Vector3 mPos = GetOwner()->GetComponent<Transform>()->GetPosition(); //monster Position
+
+		/*round_distance = 3.f * Time::DeltaTime();*/
+		round_distance = sqrt(pow(abs(pPos.x - mPos.x) , 2) + pow(abs(pPos.y - mPos.y),2));
 
 		move_time -= Time::DeltaTime();
+
+
+		mPos.x = pPos.x + cos(XMConvertToRadians(cur_degree)) * round_distance;
+		mPos.y = pPos.y + sin(XMConvertToRadians(cur_degree)) * round_distance;
+
 
 		if (cur_degree >= 360.f)
 		{
@@ -158,10 +168,9 @@ namespace ya
 			cur_degree = 360.f;
 		}
 
-		cur_pos.x += cos(XMConvertToRadians(cur_degree)) * round_distance;
-		cur_pos.y += sin(XMConvertToRadians(cur_degree)) * round_distance;
+		GetOwner()->GetComponent<Transform>()->SetPosition(mPos);
 
-		GetOwner()->GetComponent<Transform>()->SetPosition(cur_pos);
+		is_left ? cur_degree += 120.f * Time::DeltaTime() : cur_degree -= 120.f * Time::DeltaTime();
 
 		if (move_time <= 0.f)
 		{
