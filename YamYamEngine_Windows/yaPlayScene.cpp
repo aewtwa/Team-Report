@@ -117,6 +117,8 @@ namespace ya
 		//군인 배치(테스트)
 		//object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
 
+		object::Instantiate<King>(LAYER::Monster, Vector3(5, 5, 0));
+
 		{
 			HPBar* hb = object::Instantiate<HPBar>(LAYER::UI, Vector3(-12, -8, 1));
 			hb->SetTarget(dynamic_cast<player*>(obj));

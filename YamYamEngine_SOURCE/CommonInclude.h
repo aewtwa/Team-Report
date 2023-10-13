@@ -9,6 +9,7 @@
 #include <bitset>
 #include <fstream>
 #include <iostream>
+#include <random>
 #include "yaMath.h"
 
 #define arraysize(a) (sizeof(a) / sizeof(a[0]))

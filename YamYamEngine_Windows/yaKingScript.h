@@ -3,7 +3,10 @@
 #define KING_SPEED 2.0f
 #define KING_MOVE_TIME 2.0f
 #define KING_SHOT_TIME 5.0f
-#define KING_COLOR_CHANGE_TIME 1.0f
+#define FIRST_ATTACK_TIME 5.0f
+#define SECOND_ATTACK_TIME 3.0f
+#define SECOND_ATTACK_COUNT 10
+#define SECOND_ITER_TIME 0.3f
 
 namespace ya
 {
@@ -13,7 +16,6 @@ namespace ya
 		RoundMoving,
 		FirstAttack,
 		SecondAttack,
-		MapAttack,
 		Freeze
 	};
 
@@ -32,7 +34,9 @@ namespace ya
 		void FindTarget();
 		void MoveToTarget();
 		void Shoot();
+		void ManualShoot(Vector2 dir, Vector3 color);
 		void RoundShoot();
+		void ShotgunShoot();
 		void FirstAttack();
 		void SecondAttack();
 		void RoundMoving();
@@ -54,7 +58,15 @@ namespace ya
 		float round_distance;
 		bool is_left;
 
+		//first attack
+		int first_bullet_index;
+		float first_attack_time;
+		float first_attacak_degree;
 
+		//second attack
+		float second_attack_time;
+		float second_iter_time;
+		int second_attack_count;
 
 		//현재 컬러 인덱스
 		int cur_color_index;
@@ -62,11 +74,11 @@ namespace ya
 		//컬러 팔레트
 		Vector3 Color_Palette[3];
 
-		//일정 시간마다 컬러 바뀔수 있도록 통제하는 변수
-		float color_change_time;
 
 		//각도 저장용 변수
 		float cur_degree;
+
+		
 	};
 
 }
