@@ -1,4 +1,5 @@
 #include "yaRewardBox.h"
+#include "yaWaveManager.h"
 #include "yaTransform.h"
 #include "yaCollider.h"
 #include "yaMeshRenderer.h"
@@ -24,6 +25,9 @@ namespace ya
 	void RewardBox::Update()
 	{
 		GameObject::Update();
+
+		if (WaveManager::IsRewardSelected())
+			Destroy(this);
 	}
 	void RewardBox::LateUpdate()
 	{
@@ -40,6 +44,7 @@ namespace ya
 		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)
 		{
 			ReturnReward(dynamic_cast<player*>(SceneManager::GetActiveScene()->GetPlayer()));
+			WaveManager::ChooseReward();
 			Destroy(this);
 		}
 	}

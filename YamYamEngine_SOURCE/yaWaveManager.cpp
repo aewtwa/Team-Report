@@ -1,13 +1,20 @@
 #include "yaWaveManager.h"
+#include <iostream>
 #include <cmath>
-#include <cstdlib>
 #include "yaobject.h"
 #include "yaTime.h"
 #include "yaSceneManager.h"
+#include "yaColliderManager.h"
 
 #include "..\YamYamEngine_Windows\yaZombie.h"
 #include "..\YamYamEngine_Windows\yaTurret.h"
 #include "..\YamYamEngine_Windows\yaBomber.h"
+
+#include "..\YamYamEngine_Windows\yaHealBox.h"
+#include "..\YamYamEngine_Windows\yaSpeedUpBox.h"
+#include "..\YamYamEngine_Windows\yaFireRateUpBox.h"
+#include "..\YamYamEngine_Windows\yaDamageUpBox.h"
+#include "..\YamYamEngine_Windows\yaIncreaseProjectileBox.h"
 
 namespace ya
 {
@@ -23,19 +30,41 @@ namespace ya
 	unsigned int WaveManager::curMonsterCount = 0;
 	unsigned int WaveManager::prevMonsterCount = 0;
 
+	std::random_device WaveManager::rd;
+
 	std::vector<std::wstring> WaveManager::monsters = {};
+	std::vector<std::wstring> WaveManager::rewards = {};
+	std::vector<Vector3> WaveManager::rewardSpawnPos = {};
 
 	WaveButton* WaveManager::StartButton = nullptr;
 	WaveButton* WaveManager::GiveUpButton = nullptr;
 
+	void WaveManager::Release()
+	{
+
+	}
+
 	void WaveManager::Setting()
 	{
+		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Reward, true);
+
 		//button spawn
 		StartButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 5, 0));
 		GiveUpButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 10, 0));
 
 		GiveUpButton->SetType(WaveButton::WaveButtonType::giveup);
 		StartButton->SetType(WaveButton::WaveButtonType::start);
+
+		rewardSpawnPos.resize(3);
+		rewardSpawnPos[0] = Vector3(-5, 5, 0);
+		rewardSpawnPos[1] = Vector3(0, 5, 0);
+		rewardSpawnPos[2] = Vector3(5, 5, 0);
+
+		rewards.push_back(L"heal");
+		rewards.push_back(L"dmg");
+		rewards.push_back(L"firerate");
+		rewards.push_back(L"speed");
+		rewards.push_back(L"projectile");
 
 		//monster types initialize
 		monsters.push_back(L"zombie");
@@ -53,6 +82,7 @@ namespace ya
 				prevMonsterCount = WaveMonsterCount;
 				WaveMonsterCount = (prevMonsterCount + 3) /** ceil(waveCount % 10)*/;
 				isClear = false;
+				isGetReward = false;
 				inWave = true;
 
 				SpawnMonster();
@@ -70,13 +100,8 @@ namespace ya
 
 			if (isClear)
 			{
-				WaveClear();
+				SpawnReward();
 				isClear = false;
-			}
-
-			if (!isClear && !inWave && isGetReward)
-			{
-				StartButton->Activate();
 			}
 		}
 	}
@@ -95,11 +120,15 @@ namespace ya
 		Vector3 startPos = Vector3(-3, 8, 0);
 
 		for (int i = 0; i < WaveMonsterCount; i++)
-		{
+		{			
+			std::mt19937 gen(rd());  // to seed mersenne twister.
+									 // replace the call to rd() with a
+									 // constant value to get repeatable
+									 // results.
+
 			Vector3 curPos = startPos;
 
-			srand(Time::GetTime() / Time::DeltaTime() * i * waveCount / curMonsterCount * WaveMonsterCount / prevMonsterCount);
-			int r = rand();
+			unsigned int r = gen();
 			r %= 3;
 
 			curPos.x += (i - ((i / 5) * 5)) * 2;
@@ -115,9 +144,54 @@ namespace ya
 			curMonsterCount++;
 		}
 	}
-	void WaveManager::WaveClear()
+	void WaveManager::SpawnReward()
 	{
 		//상자 스폰
+		std::mt19937 gen(rd());  // to seed mersenne twister.
+								 // replace the call to rd() with a
+								 // constant value to get repeatable
+								 // results.
+
+		int spawned[3] = {};
+
+		for (int i = 0; i < 3; i++)
+		{
+			unsigned int r = gen(); 
+			r %= 5; 
+
+			if (i == 2)
+			{
+				while (true)
+				{
+					r = gen();
+					r %= 5;
+
+					if (r != spawned[i - 1] && r != spawned[i - 2])
+						break;
+				}
+			}
+			else if (i == 1)
+			{
+				while (r == spawned[0])
+				{
+					r = gen();
+					r %= 5;
+				}
+			}
+
+			if (rewards[r] == L"heal")
+				ya::object::Instantiate<HealBox>(enums::LAYER::Reward, rewardSpawnPos[i]);
+			else if (rewards[r] == L"dmg")
+				ya::object::Instantiate<DamageUpBox>(enums::LAYER::Reward, rewardSpawnPos[i]);
+			else if (rewards[r] == L"firerate")
+				ya::object::Instantiate<FireRateUpBox>(enums::LAYER::Reward, rewardSpawnPos[i]);
+			else if (rewards[r] == L"speed")
+				ya::object::Instantiate<SpeedUpBox>(enums::LAYER::Reward, rewardSpawnPos[i]);
+			else if (rewards[r] == L"projectile")
+				ya::object::Instantiate<IncreaseProjectileBox>(enums::LAYER::Reward, rewardSpawnPos[i]);
+
+			spawned[i] = r;
+		}
 	}
 	void WaveManager::GiveUp()
 	{
