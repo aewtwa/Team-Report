@@ -2,7 +2,7 @@
 #include "yaSceneManager.h"
 #include "yaTransform.h"
 #include "yaCollider.h"
-#include "yaMeshRenderer.h"
+#include "yaText.h"
 
 namespace ya
 {
@@ -18,7 +18,8 @@ namespace ya
 		tr->SetScale(Vector3(3, 2, 1));
 		Collider* col = AddComponent<Collider>();
 		col->SetSize(Vector2(3, 2));
-		AddComponent<MeshRenderer>();
+		Text* text = AddComponent<Text>();
+		text->SetText(L"Play");
 
 		GameObject::Initialize();
 	}

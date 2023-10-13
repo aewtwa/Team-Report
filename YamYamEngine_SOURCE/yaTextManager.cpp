@@ -3,6 +3,7 @@
 #include "yaTransform.h"
 #include <directxtk/SpriteBatch.h>
 #include <directxtk/SpriteFont.h>
+#include "yaCamera.h"
 
 namespace ya
 {
@@ -26,7 +27,8 @@ namespace ya
 		{
 			if (text->CanRender())
 			{
-				spriteFont->DrawString(spriteBatch.get(), text->GetText().c_str(), (DirectX::XMFLOAT2)text->GetPosition(), text->GetColor(), 0.0f, DirectX::XMFLOAT2(0.0f, 0.0f), (DirectX::XMFLOAT2)text->GetScale());
+				Vector2 nPos = Camera::CalculatePositionApi(text->GetPosition());
+				spriteFont->DrawString(spriteBatch.get(), text->GetText().c_str(), (DirectX::XMFLOAT2)(nPos), text->GetColor(), 0.0f, DirectX::XMFLOAT2(0.0f, 0.0f), (DirectX::XMFLOAT2)text->GetScale());
 				text->SetRender(false);
 			}
 		}
