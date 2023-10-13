@@ -15,11 +15,12 @@ namespace ya
 		, move_time(KING_MOVE_TIME)
 		, speed(KING_SPEED)
 		, color_change_time(KING_COLOR_CHANGE_TIME)
-		, cur_state(KingState::RoundMoving)
+		, cur_state(KingState::Following)
 		, origin_pos(Vector3::Zero)
 		, Color_Palette{}
 		, cur_color_index(0)
 		, cur_degree(0)
+		, is_left(false)
 	{
 		Color_Palette[0] = Vector3(0, 255, 0);
 		Color_Palette[1] = Vector3(255, 165, 0);
@@ -43,7 +44,7 @@ namespace ya
 			break;
 		case ya::KingState::RoundMoving:
 			RoundMoving();
-			//Shoot();
+			RoundShoot();
 			break;
 		case ya::KingState::FirstAttack:
 			Shoot();
@@ -88,6 +89,13 @@ namespace ya
 
 		move_time -= Time::DeltaTime();
 
+		if (move_time <= 0.f)
+		{
+			move_time = KING_MOVE_TIME;
+			cur_state = KingState::RoundMoving;
+		}
+
+
 	}
 
 	void KingScript::Shoot()
@@ -103,30 +111,65 @@ namespace ya
 
 
 	}
-	void KingScript::MoveAround()
-	{
-		
-	}
+
+
+
 	void KingScript::RoundShoot()
 	{
+		Vector2 pPos = (Vector2)mTarget->GetComponent<Transform>()->GetPosition(); //player Position
+		Vector3 mPos = GetOwner()->GetComponent<Transform>()->GetPosition(); //monster Position
+
+		Vector2 dir = pPos - (Vector2)mPos;
+		dir.normalize(); // 플레이어를 바라보는 방향 벡터
+
+		MonsterBullet* monsterBullet = object::Instantiate<MonsterBullet>(LAYER::Bullet, mPos);
+		monsterBullet->SetDir(dir);
+		is_left ? monsterBullet->SetColor(Color_Palette[2]) : monsterBullet->SetColor(Color_Palette[1]);
 	}
-	void KingScript::SpecialAttack()
+
+
+	void KingScript::FirstAttack()
+	{
+		cur_degree = 0;
+		for (int i = 0; i < 4; i++)
+		{
+			cur_degree += i * 90;
+		}
+	}
+
+	void KingScript::SecondAttack()
 	{
 	}
+
 	void KingScript::RoundMoving()
 	{
 		Vector3 cur_pos = origin_pos;
-		round_distance += Time::DeltaTime();
+		is_left ? round_distance += 3.f * Time::DeltaTime() : round_distance -= 3.f * Time::DeltaTime();
 		cur_degree += 100.f * Time::DeltaTime();
+
+		move_time -= Time::DeltaTime();
 
 		if (cur_degree >= 360.f)
 		{
 			cur_degree = 0.f;
+		}
+		if (cur_degree <= 0.f)
+		{
+			cur_degree = 360.f;
 		}
 
 		cur_pos.x += cos(XMConvertToRadians(cur_degree)) * round_distance;
 		cur_pos.y += sin(XMConvertToRadians(cur_degree)) * round_distance;
 
 		GetOwner()->GetComponent<Transform>()->SetPosition(cur_pos);
+
+		if (move_time <= 0.f)
+		{
+			move_time = KING_MOVE_TIME;
+			cur_state = KingState::Following;
+			round_distance = 0.f;
+			cur_degree = 0.f;
+			is_left = !is_left;
+		}
 	}
 }

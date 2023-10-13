@@ -32,9 +32,9 @@ namespace ya
 		void FindTarget();
 		void MoveToTarget();
 		void Shoot();
-		void MoveAround();
 		void RoundShoot();
-		void SpecialAttack();
+		void FirstAttack();
+		void SecondAttack();
 		void RoundMoving();
 
 	private:
@@ -52,7 +52,7 @@ namespace ya
 
 		//동그랗게 도는 phase
 		float round_distance;
-
+		bool is_left;
 
 		//현재 컬러 인덱스
 		int cur_color_index;
