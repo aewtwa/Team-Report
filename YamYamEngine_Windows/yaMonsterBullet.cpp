@@ -6,6 +6,7 @@
 #include "yaCollider.h"
 #include "yaMeshRenderer.h"
 #include "yaInput.h"
+#include "yaplayer.h"
 
 
 namespace ya
@@ -70,6 +71,12 @@ namespace ya
 	{
 		if (other->GetOwner()->GetTag() == TAG::Wall)
 		{
+			Destroy(this);
+		}
+
+		if (other->GetOwner()->GetTag() == TAG::Player)
+		{
+			dynamic_cast<player*>(other->GetOwner())->Hit();
 			Destroy(this);
 		}
 	}

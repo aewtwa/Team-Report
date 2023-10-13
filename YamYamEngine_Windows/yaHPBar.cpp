@@ -1,5 +1,7 @@
 #include "yaHPBar.h"
 #include "yaobject.h"
+#include "yaSceneManager.h"
+#include "yaplayer.h"
 #include "yaTransform.h"
 #include "yaHPUIManagerScript.h"
 #include "yaHPUI.h"
@@ -7,6 +9,7 @@
 namespace ya
 {
 	HPBar::HPBar()
+		: target(nullptr)
 	{
 	}
 	HPBar::~HPBar()
@@ -27,6 +30,41 @@ namespace ya
 	void HPBar::Update()
 	{
 		GameObject::Update();
+
+		switch (target->GetHP())
+		{
+		case 0:
+			{
+				GetScript<HPUIManagerScript>()->HPUISetState(0, GameObject::eState::Paused);
+				GetScript<HPUIManagerScript>()->HPUISetState(1, GameObject::eState::Paused);
+				GetScript<HPUIManagerScript>()->HPUISetState(2, GameObject::eState::Paused);
+			}
+			break;
+
+		case 1:
+			{
+				GetScript<HPUIManagerScript>()->HPUISetState(0, GameObject::eState::Active);
+				GetScript<HPUIManagerScript>()->HPUISetState(1, GameObject::eState::Paused);
+				GetScript<HPUIManagerScript>()->HPUISetState(2, GameObject::eState::Paused);
+			}
+			break;
+
+		case 2:
+			{
+				GetScript<HPUIManagerScript>()->HPUISetState(0, GameObject::eState::Active);
+				GetScript<HPUIManagerScript>()->HPUISetState(1, GameObject::eState::Active);
+				GetScript<HPUIManagerScript>()->HPUISetState(2, GameObject::eState::Paused);
+			}
+			break;
+
+		case 3:
+			{
+				GetScript<HPUIManagerScript>()->HPUISetState(0, GameObject::eState::Active);
+				GetScript<HPUIManagerScript>()->HPUISetState(1, GameObject::eState::Active);
+				GetScript<HPUIManagerScript>()->HPUISetState(2, GameObject::eState::Active);
+			}
+			break;
+		}
 	}
 	void HPBar::LateUpdate()
 	{

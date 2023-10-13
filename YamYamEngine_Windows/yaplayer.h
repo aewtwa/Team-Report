@@ -38,6 +38,8 @@ namespace ya
 		void SetPlayerColor(Vector3 input) { PlayerColor = input; }
 
 		void Heal() { HP++; }
+		int GetHP() { return HP; }
+		void Hit() { HP -= 1; }
 
 		void SetAdditionalFireRate(float fr) { Additional_Fire_Rate = fr; }
 		float GetAdditionalFireRate() { return Additional_Fire_Rate; }
@@ -47,6 +49,7 @@ namespace ya
 
 		void SetAdditionalDamage(float damage) { Additional_Damage = damage; }
 		float GetAdditionalDamage() { return Additional_Damage; }
+
 
 	private:		
 		ShootType	ShootType;
