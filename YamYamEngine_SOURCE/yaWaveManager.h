@@ -15,10 +15,11 @@ namespace ya
 
 		static void WaveStart();
 		static void SpawnMonster();
+		static void WaveClear();
 		static void GiveUp();
 
 		static void MonsterCountDecrease() { curMonsterCount -= 1; }
-
+		static void ChooseReward() { isGetReward = true; }
 
 	private:
 		static bool isActivate;
@@ -26,6 +27,7 @@ namespace ya
 		static bool StartCall;
 		static bool inWave;
 		static bool isClear;
+		static bool isGetReward;
 
 		static unsigned int waveCount;
 		static unsigned int WaveMonsterCount;

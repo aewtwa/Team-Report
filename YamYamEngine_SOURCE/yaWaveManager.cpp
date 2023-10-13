@@ -16,6 +16,7 @@ namespace ya
 	bool WaveManager::StartCall = false;
 	bool WaveManager::inWave = false;
 	bool WaveManager::isClear = false;
+	bool WaveManager::isGetReward = false;
 
 	unsigned int WaveManager::waveCount = 0;
 	unsigned int WaveManager::WaveMonsterCount = 0;
@@ -64,8 +65,18 @@ namespace ya
 				isClear = true;
 				inWave = false;
 
-				StartButton->Activate();
 				GiveUpButton->Activate();
+			}
+
+			if (isClear)
+			{
+				WaveClear();
+				isClear = false;
+			}
+
+			if (!isClear && !inWave && isGetReward)
+			{
+				StartButton->Activate();
 			}
 		}
 	}
@@ -103,6 +114,10 @@ namespace ya
 
 			curMonsterCount++;
 		}
+	}
+	void WaveManager::WaveClear()
+	{
+		//상자 스폰
 	}
 	void WaveManager::GiveUp()
 	{
