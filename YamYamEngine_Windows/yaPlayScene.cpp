@@ -100,24 +100,15 @@ namespace ya
 		//object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
 
 
-		//테스트용 리워드
+		/*테스트용 리워드*/
 	/*	{
 			for (int i = 0; i < 5; i++)
 			{
 				object::Instantiate<IncreaseProjectileBox>(LAYER::Monster, Vector3(5, i, 0));
 			}
 
-			for (int i = 0; i < 5; i++)
-			{
-				object::Instantiate<FireRateUpBox>(LAYER::Monster, Vector3(-5, i, 0));
-			}
-
-			for (int i = 0; i < 5; i++)
-			{
-				object::Instantiate<DamageUpBox>(LAYER::Monster, Vector3(0, i, 0));
-			}
 		
-		}*/
+		}
 
 		{
 			object::Instantiate<King>(LAYER::Monster, Vector3(1, 1, 0));
@@ -126,7 +117,7 @@ namespace ya
 
 		{
 			object::Instantiate<HPBar>(LAYER::UI, Vector3(-12, -8, 1));
-		}
+		}*/
 
 
 

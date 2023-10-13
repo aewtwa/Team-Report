@@ -90,7 +90,7 @@ namespace ya
 				dir.normalize();
 
 				dynamic_cast<ya::RpgBullet*>(objecti)->SetDir(dir);
-				dynamic_cast<ya::RpgBullet*>(objecti)->SetMaxDistance(Vector2(5.f + proj_level,5.f + proj_level));
+				dynamic_cast<ya::RpgBullet*>(objecti)->SetMaxDistance(Vector2(5.f + proj_level, 5.f + proj_level));
 				dynamic_cast<ya::RpgBullet*>(objecti)->SetStartPos(Vector2(pos));
 				dynamic_cast<ya::RpgBullet*>(objecti)->SetDamage(dynamic_cast<ya::RpgBullet*>(objecti)->GetDamage() + additional_damage);
 				
