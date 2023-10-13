@@ -16,6 +16,7 @@ namespace ya
 		player();
 		~player() override;
 
+		void Reset();
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
@@ -39,7 +40,10 @@ namespace ya
 
 		void Heal() { HP++; }
 		int GetHP() { return HP; }
-		void Hit() { HP -= 1; }
+		void Hit() { 
+			if(HP > 0)
+				HP -= 1;
+		}
 
 		void SetAdditionalFireRate(float fr) { Additional_Fire_Rate = fr; }
 		float GetAdditionalFireRate() { return Additional_Fire_Rate; }
@@ -49,6 +53,8 @@ namespace ya
 
 		void SetAdditionalDamage(float damage) { Additional_Damage = damage; }
 		float GetAdditionalDamage() { return Additional_Damage; }
+
+		bool GetIsDead() { return is_dead; }
 
 		void SetScore(int input) { score = input; }
 		int GetScore() { return score; }

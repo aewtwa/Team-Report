@@ -19,6 +19,7 @@
 #include "yaSpeedUI.h"
 #include "yaFireRateUI.h"
 #include "yaExtraDamageUI.h"
+#include "yaScoreUI.h"
 
 namespace ya
 {
@@ -65,44 +66,6 @@ namespace ya
 			w4->GetComponent<Collider>()->SetSize(Vector2(33, 1));
 		}
 
-		//터렛 생성
-		{
-			//object::Instantiate<Turret>(LAYER::Monster, Vector3(2, 2, 0));
-		}
-
-		//좀비 생성
-		//{
-		//	for (int i = 0; i < 5; i++)
-		//	{
-		//		//object::Instantiate<Zombie>(LAYER::Monster, Vector3(2, i * 3, 0));
-		//	}	
-		//}
-
-		//자폭병 생성
-		//object::Instantiate<Bomber>(LAYER::Monster, Vector3(5, 5, 0));
-
-
-		//군인 배치(테스트)
-		//object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
-
-
-		/*테스트용 리워드*/
-		/*{
-			for (int i = 0; i < 5; i++)
-			{
-				object::Instantiate<IncreaseProjectileBox>(LAYER::Monster, Vector3(5, i, 0));
-			}
-
-		
-		}
-
-		{
-			object::Instantiate<King>(LAYER::Monster, Vector3(1, 1, 0));
-		}*/
-
-		//군인 배치(테스트)
-		//object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
-
 		// UI 생성
 		{
 			HPBar* hb = new HPBar;
@@ -110,25 +73,33 @@ namespace ya
 			hb->GetComponent<Transform>()->SetPosition(Vector3(-12, -8, 1));
 			hb->SetTarget(dynamic_cast<player*>(obj));
 
-			SpeedUI* su = new SpeedUI;
-			AddGameObject(su, (UINT)LAYER::UI);
-			su->SetTarget(dynamic_cast<player*>(obj));
+			SpeedUI* speedui = new SpeedUI;
+			AddGameObject(speedui, (UINT)LAYER::UI);
+			speedui->SetTarget(dynamic_cast<player*>(obj));
 
-			FireRateUI* fru = new FireRateUI;
-			AddGameObject(fru, (UINT)LAYER::UI);
-			fru->SetTarget(dynamic_cast<player*>(obj));
+			FireRateUI* frui = new FireRateUI;
+			AddGameObject(frui, (UINT)LAYER::UI);
+			frui->SetTarget(dynamic_cast<player*>(obj));
 
-			ExtraDamageUI* edu = new ExtraDamageUI;
-			AddGameObject(edu, (UINT)LAYER::UI);
-			edu->SetTarget(dynamic_cast<player*>(obj));
+			ExtraDamageUI* edui = new ExtraDamageUI;
+			AddGameObject(edui, (UINT)LAYER::UI);
+			edui->SetTarget(dynamic_cast<player*>(obj));
+
+			ScoreUI* scoreui = new ScoreUI();
+			AddGameObject(scoreui, (UINT)LAYER::UI);
+			scoreui->SetTarget(dynamic_cast<player*>(obj));
 		}
-
-
 
 		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Wall, true);
 		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Wall, true);
 		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Monster, true);
 		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Player, true);
+	}
+
+	void PlayScene::Setting()
+	{
+		dynamic_cast<player*>(obj)->Reset();
+		Camera::SetTarget(obj);
 	}
 
 	void PlayScene::Update()

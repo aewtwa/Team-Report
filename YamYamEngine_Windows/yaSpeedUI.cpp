@@ -13,7 +13,7 @@ namespace ya
 	void SpeedUI::Initialize()
 	{
 		Transform* tr = AddComponent<Transform>();
-		tr->SetPositionVec2(Vector2(-750, 150));
+		tr->SetPositionVec2(Vector2(-15, -3));
 		Text* text = AddComponent<Text>();
 		text->SetStatic();
 

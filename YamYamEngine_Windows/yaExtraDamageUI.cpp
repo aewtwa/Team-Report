@@ -13,7 +13,7 @@ namespace ya
 	void ExtraDamageUI::Initialize()
 	{
 		Transform* tr = AddComponent<Transform>();
-		tr->SetPositionVec2(Vector2(-750, 250));
+		tr->SetPositionVec2(Vector2(-15, -5));
 		Text* text = AddComponent<Text>();
 		text->SetStatic();
 

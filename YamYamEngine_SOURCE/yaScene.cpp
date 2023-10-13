@@ -20,6 +20,10 @@ namespace ya
         }
     }
 
+    void Scene::Setting()
+    {
+    }
+
     void Scene::Update()
     {
         for (Layer& layer : mLayers)

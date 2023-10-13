@@ -7,16 +7,16 @@ namespace ya
 	{
 	public:
 		UIObject();
-		~UIObject() override;
+		virtual ~UIObject() override;
 
-		void Initialize() override;
-		void Update() override;
-		void LateUpdate() override;
-		void Render() override;
+		virtual void Initialize() override;
+		virtual void Update() override;
+		virtual void LateUpdate() override;
+		virtual void Render() override;
 
-		void OnCollisionEnter(Collider* other) override;
-		void OnCollisionStay(Collider* other) override;
-		void OnCollisionExit(Collider* other) override;
+		virtual void OnCollisionEnter(Collider* other) override;
+		virtual void OnCollisionStay(Collider* other) override;
+		virtual void OnCollisionExit(Collider* other) override;
 
 	private:
 

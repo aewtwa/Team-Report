@@ -14,6 +14,7 @@ namespace ya
 		virtual ~Scene();
 
 		virtual void Initialize();
+		virtual void Setting();
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();

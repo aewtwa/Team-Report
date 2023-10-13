@@ -62,6 +62,7 @@ namespace ya
 		Camera::Clear();
 
 		mActiveScene = iter->second;
+		mActiveScene->Setting();
 		return iter->second;
 	}
 }

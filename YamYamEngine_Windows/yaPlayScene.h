@@ -12,6 +12,7 @@ namespace ya
 		virtual ~PlayScene();
 
 		void Initialize() override;
+		void Setting() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render() override;

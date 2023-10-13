@@ -27,6 +27,17 @@ namespace ya
 	player::~player()
 	{
 	}
+	void player::Reset()
+	{
+		HP = 3;
+		is_dead = false;
+
+		FireRate = 0.3f;
+		MoveSpeed = 3.f;
+		Additional_Damage = 0.0f;
+		Additional_Fire_Rate = 0.0f;
+		Projectile_Level = 0;
+	}
 	void player::Initialize()
 	{
 		AddComponent<Transform>();
@@ -36,8 +47,6 @@ namespace ya
 		AddComponent<ShotScript>();
 		AddComponent<ControllerScript>();
 		AddComponent<PlayerColorChangeScript>();
-		text = AddComponent<Text>();
-		text->SetText(L"current : " + std::to_wstring(score));
 
 		col->SetSize(Vector2(1.f, 1.f));
 
@@ -45,7 +54,6 @@ namespace ya
 	}
 	void player::Update()
 	{
-		text->SetText(L"current : " + std::to_wstring(score));
 		if (HP <= 0 && !is_dead)
 		{
 			is_dead = true;

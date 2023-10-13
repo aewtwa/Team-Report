@@ -13,7 +13,7 @@ namespace ya
 	void FireRateUI::Initialize()
 	{
 		Transform* tr = AddComponent<Transform>();
-		tr->SetPositionVec2(Vector2(-750, 200));
+		tr->SetPositionVec2(Vector2(-15, -4));
 		Text* text = AddComponent<Text>();
 		text->SetStatic();
 

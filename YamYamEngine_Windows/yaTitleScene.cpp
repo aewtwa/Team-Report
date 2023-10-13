@@ -24,8 +24,6 @@ namespace ya
 		ExitButton* ebtn = new ExitButton();
 		AddGameObject(ebtn, (UINT)LAYER::UI);
 		ebtn->GetComponent<Transform>()->SetPositionVec2(Vector2(0, -4));
-		ebtn->AddComponent<MeshRenderer>();
-		//ebtn->GetComponent<Text>()->SetOffset(Vector2(0, 50));
 
 		ColliderManager::MouseCollisionLayerCheck(LAYER::UI, true);
 	}
