@@ -16,8 +16,10 @@ namespace ya
 	}
 	void RewardBox::Initialize()
 	{
-		AddComponent<Transform>();
-		AddComponent<Collider>();
+		Transform* tr = AddComponent<Transform>();
+		tr->SetScale(Vector3(0.75f, 0.75f, 0.75f));
+		Collider* col = AddComponent<Collider>();
+		col->SetSize(Vector2(0.75f, 0.75f));
 		AddComponent<MeshRenderer>();
 
 		GameObject::Initialize();
@@ -41,9 +43,9 @@ namespace ya
 	{
 		GameObject::OnCollisionEnter(other);
 
-		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)
+		if (other->GetOwner()->GetTag() == TAG::Player)
 		{
-			ReturnReward(dynamic_cast<player*>(SceneManager::GetActiveScene()->GetPlayer()));
+			ReturnReward(dynamic_cast<player*>(other->GetOwner()));
 			WaveManager::ChooseReward();
 			Destroy(this);
 		}

@@ -46,7 +46,7 @@ namespace ya
 
 	void WaveManager::Setting()
 	{
-		ColliderManager::CollisionLayerCheck(LAYER::Bullet, LAYER::Reward, true);
+		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Reward, true);
 
 		//button spawn
 		StartButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 5, 0));
@@ -166,7 +166,7 @@ namespace ya
 					r = gen();
 					r %= 5;
 
-					if (r != spawned[i - 1] && r != spawned[i - 2])
+					if (r != spawned[0] && r != spawned[1])
 						break;
 				}
 			}
