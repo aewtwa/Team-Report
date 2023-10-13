@@ -4,7 +4,6 @@
 #include <directxtk/SpriteBatch.h>
 #include <directxtk/SpriteFont.h>
 
-
 namespace ya
 {
 	std::vector<Text*> TextManager::mTexts = {};
@@ -25,7 +24,11 @@ namespace ya
 
 		for (Text* text : mTexts)
 		{
-			spriteFont->DrawString(spriteBatch.get(), text->GetText().c_str(), (XMFLOAT2)text->GetPosition(), text->GetColor(), 0.0f, XMFLOAT2(0.0f, 0.0f), (XMFLOAT2)text->GetScale());
+			if (text->CanRender())
+			{
+				spriteFont->DrawString(spriteBatch.get(), text->GetText().c_str(), (DirectX::XMFLOAT2)text->GetPosition(), text->GetColor(), 0.0f, DirectX::XMFLOAT2(0.0f, 0.0f), (DirectX::XMFLOAT2)text->GetScale());
+				text->SetRender(false);
+			}
 		}
 
 		spriteBatch->End();

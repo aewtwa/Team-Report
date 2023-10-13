@@ -36,7 +36,7 @@ namespace ya
 		AddComponent<ControllerScript>();
 		AddComponent<PlayerColorChangeScript>();
 		Text* text = AddComponent<Text>();
-		text->SetText(L"HELLO WORLD");
+		text->SetText(L"Test");
 
 		col->SetSize(Vector2(1.f, 1.f));
 

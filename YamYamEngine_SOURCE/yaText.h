@@ -22,11 +22,14 @@ namespace ya
 		void SetOffset(Vector2 offset) { mOffset = offset; }
 		Vector2 GetOffset() { return mOffset; }
 
-		void SetColor(Vector4 color) { mColor = color; }
-		Vector4 GetColor() { return mColor; }
+		void SetColor(std::wstring name);
+		DirectX::XMVECTORF32 GetColor() { return mColor; }
 
 		std::wstring GetText() { return text; }
 		void SetText(std::wstring tex) { text = tex; }
+
+		bool CanRender() { return render; }
+		void SetRender(bool value) { render = value; }
 
 	private:
 		std::wstring text;
@@ -34,7 +37,8 @@ namespace ya
 		Vector2 mScale;
 		Vector2 mOffset;
 
-		Vector4	mColor;
+		DirectX::XMVECTORF32 mColor;
+		bool render;
 	};
 
 }
