@@ -14,43 +14,41 @@ namespace ya
 	}
 	void GameStartButton::Initialize()
 	{
-		Transform* tr = AddComponent<Transform>();
-		tr->SetScale(Vector3(3, 2, 1));
-		Collider* col = AddComponent<Collider>();
-		col->SetSize(Vector2(3, 2));
-		Text* text = AddComponent<Text>();
+		Button::Initialize();
+
+		GetComponent<Transform>()->SetScale(Vector3(3, 2, 1));;
+		GetComponent<Collider>()->SetSize(Vector2(3, 2));
+		Text* text = GetComponent<Text>();
 		text->SetText(L"Play");
 		text->SetStatic();
-
-		GameObject::Initialize();
 	}
 	void GameStartButton::Update()
 	{
-		GameObject::Update();
+		Button::Update();
 	}
 	void GameStartButton::LateUpdate()
 	{
-		GameObject::LateUpdate();
+		Button::LateUpdate();
 	}
 	void GameStartButton::Render()
 	{
-		GameObject::Render();
+		Button::Render();
 	}
 	void GameStartButton::OnCollisionEnter(Collider* other)
 	{
-		GameObject::OnCollisionEnter(other);
+		Button::OnCollisionEnter(other);
 	}
 	void GameStartButton::OnCollisionStay(Collider* other)
 	{
-		GameObject::OnCollisionStay(other);
+		Button::OnCollisionStay(other);
 	}
 	void GameStartButton::OnCollisionExit(Collider* other)
 	{
-		GameObject::OnCollisionExit(other);
+		Button::OnCollisionExit(other);
 	}
 	void GameStartButton::OnClick()
 	{
-		GameObject::OnClick();
+		Button::OnClick();
 
 		SceneManager::LoadScene(L"PlayScene");
 	}

@@ -142,6 +142,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="yaButton.h" />
+    <ClInclude Include="yaExitButton.h" />
     <ClInclude Include="yaExtraDamageUI.h" />
     <ClInclude Include="yaFireRateUI.h" />
     <ClInclude Include="yaSpeedUI.h" />
@@ -183,6 +185,8 @@
     <ClInclude Include="yaZombieScript.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="yaButton.cpp" />
+    <ClCompile Include="yaExitButton.cpp" />
     <ClCompile Include="yaExtraDamageUI.cpp" />
     <ClCompile Include="yaFireRateUI.cpp" />
     <ClCompile Include="yaSpeedUI.cpp" />

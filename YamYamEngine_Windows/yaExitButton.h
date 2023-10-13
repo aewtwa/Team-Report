@@ -3,11 +3,11 @@
 
 namespace ya
 {
-    class GameStartButton : public Button
+    class ExitButton : public Button
     {
     public:
-        GameStartButton();
-        ~GameStartButton() override;
+        ExitButton();
+        ~ExitButton() override;
 
         void Initialize() override;
         void Update() override;

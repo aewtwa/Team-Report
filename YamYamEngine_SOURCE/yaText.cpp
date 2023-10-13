@@ -7,6 +7,7 @@
 namespace ya
 {
 	Text::Text() : Component(TEXT)
+		, text(L"")
 		, mPosition(Vector2::Zero)
 		, mScale(Vector2::One)
 		, mOffset(Vector2::Zero)
