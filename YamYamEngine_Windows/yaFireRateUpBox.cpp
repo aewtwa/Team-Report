@@ -15,7 +15,7 @@ namespace ya
 		RewardBox::Initialize();
 
 		MeshRenderer* mr = GetComponent<MeshRenderer>();
-		mr->SetColor(Vector3(255, 0, 0));
+		mr->SetColor(Vector3(0, 135, 189));
 	}
 	void FireRateUpBox::Update()
 	{

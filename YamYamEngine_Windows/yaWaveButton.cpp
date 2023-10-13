@@ -38,7 +38,7 @@ namespace ya
 	{
 		GameObject::OnCollisionEnter(other);
 
-		if (other->GetOwner()->GetTag() == TAG::PlayerBullet)
+		if (other->GetOwner()->GetTag() == TAG::Player)
 		{
 			if(mType == WaveButtonType::start)
 				WaveManager::WaveStart();
