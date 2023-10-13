@@ -1,26 +1,24 @@
 #include "yaPlayScene.h"
+
 #include "yaResources.h"
 #include "yaInput.h"
 #include "yaWaveManager.h"
-#include "yaWall.h"
+#include "yaobject.h"
+#include "yaCamera.h"
+#include "yaColliderManager.h"
+
 #include "yaGameObject.h"
 #include "yaTransform.h"
 #include "yaMeshRenderer.h"
-#include "yaRigidbody.h"
-#include "yaCamera.h"
-#include "yaobject.h"
 #include "yaControllerScript.h"
+
 #include "yaplayer.h"
-#include "yaColliderManager.h"
-#include "yaTurret.h"
+#include "yaWall.h"
+
 #include "yaHPBar.h"
-#include "yaZombie.h"
-#include "yaBomber.h"
-#include "yaSoldier.h"
-#include "yaDamageUpBox.h"
-#include "yaFireRateUpBox.h"
-#include "yaIncreaseProjectileBox.h"
-#include "yaKing.h"
+#include "yaSpeedUI.h"
+#include "yaFireRateUI.h"
+#include "yaExtraDamageUI.h"
 
 namespace ya
 {
@@ -117,9 +115,24 @@ namespace ya
 		//군인 배치(테스트)
 		//object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
 
+		// UI 생성
 		{
-			HPBar* hb = object::Instantiate<HPBar>(LAYER::UI, Vector3(-12, -8, 1));
+			HPBar* hb = new HPBar;
+			AddGameObject(hb, (UINT)LAYER::UI);
+			hb->GetComponent<Transform>()->SetPosition(Vector3(-12, -8, 1));
 			hb->SetTarget(dynamic_cast<player*>(obj));
+
+			SpeedUI* su = new SpeedUI;
+			AddGameObject(su, (UINT)LAYER::UI);
+			su->SetTarget(dynamic_cast<player*>(obj));
+
+			FireRateUI* fru = new FireRateUI;
+			AddGameObject(fru, (UINT)LAYER::UI);
+			fru->SetTarget(dynamic_cast<player*>(obj));
+
+			ExtraDamageUI* edu = new ExtraDamageUI;
+			AddGameObject(edu, (UINT)LAYER::UI);
+			edu->SetTarget(dynamic_cast<player*>(obj));
 		}
 
 

@@ -13,6 +13,7 @@ namespace ya
 
 		static Vector3 CalculatePosition(Vector3 pos) { return pos - mDistance; }
 		static Vector2 CalculatePositionApi(Vector2 pos) { return pos - mDistanceApi; }
+		static Vector2 PositionCoordToApi(Vector2 pos) { return pos - ((mResolution / 2) * -1); }
 
 		static GameObject* GetTarget() { return mTarget; }
 		static void SetTarget(GameObject* target) { mTarget = target; }

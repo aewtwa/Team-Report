@@ -20,6 +20,7 @@ namespace ya
 		col->SetSize(Vector2(3, 2));
 		Text* text = AddComponent<Text>();
 		text->SetText(L"Play");
+		text->SetStatic();
 
 		GameObject::Initialize();
 	}

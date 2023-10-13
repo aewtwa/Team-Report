@@ -135,17 +135,36 @@
     <ClInclude Include="yaSpeedUpBox.h">
       <Filter>GameObjects\Reward</Filter>
     </ClInclude>
-    <ClInclude Include="yaDamageUpBox.h" />
-    <ClInclude Include="yaFireRateUpBox.h" />
-    <ClInclude Include="yaHealBox.h" />
-    <ClInclude Include="yaIncreaseProjectileBox.h" />
     <ClInclude Include="yaKing.h">
       <Filter>GameObjects\Monsters</Filter>
     </ClInclude>
     <ClInclude Include="yaKingScript.h">
       <Filter>Scripts\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="yaGameOverScene.h" />
+    <ClInclude Include="yaSpeedUI.h">
+      <Filter>GameObjects\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="yaFireRateUI.h">
+      <Filter>GameObjects\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="yaHealBox.h">
+      <Filter>GameObjects\Reward</Filter>
+    </ClInclude>
+    <ClInclude Include="yaFireRateUpBox.h">
+      <Filter>GameObjects\Reward</Filter>
+    </ClInclude>
+    <ClInclude Include="yaDamageUpBox.h">
+      <Filter>GameObjects\Reward</Filter>
+    </ClInclude>
+    <ClInclude Include="yaGameOverScene.h">
+      <Filter>Scens</Filter>
+    </ClInclude>
+    <ClInclude Include="yaIncreaseProjectileBox.h">
+      <Filter>GameObjects\Reward</Filter>
+    </ClInclude>
+    <ClInclude Include="yaExtraDamageUI.h">
+      <Filter>GameObjects\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -232,16 +251,35 @@
     <ClCompile Include="yaSpeedUpBox.cpp">
       <Filter>GameObjects\Reward</Filter>
     </ClCompile>
-    <ClCompile Include="yaDamageUpBox.cpp" />
-    <ClCompile Include="yaFireRateUpBox.cpp" />
-    <ClCompile Include="yaHealBox.cpp" />
-    <ClCompile Include="yaIncreaseProjectileBox.cpp" />
     <ClCompile Include="yaKing.cpp">
       <Filter>GameObjects\Monsters</Filter>
     </ClCompile>
     <ClCompile Include="yaKingScript.cpp">
       <Filter>Scripts\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="yaGameOverScene.cpp" />
+    <ClCompile Include="yaSpeedUI.cpp">
+      <Filter>GameObjects\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="yaFireRateUI.cpp">
+      <Filter>GameObjects\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="yaHealBox.cpp">
+      <Filter>GameObjects\Reward</Filter>
+    </ClCompile>
+    <ClCompile Include="yaFireRateUpBox.cpp">
+      <Filter>GameObjects\Reward</Filter>
+    </ClCompile>
+    <ClCompile Include="yaDamageUpBox.cpp">
+      <Filter>GameObjects\Reward</Filter>
+    </ClCompile>
+    <ClCompile Include="yaGameOverScene.cpp">
+      <Filter>Scens</Filter>
+    </ClCompile>
+    <ClCompile Include="yaIncreaseProjectileBox.cpp">
+      <Filter>GameObjects\Reward</Filter>
+    </ClCompile>
+    <ClCompile Include="yaExtraDamageUI.cpp">
+      <Filter>GameObjects\UI</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ namespace ya
 		, mScale(Vector2::One)
 		, mOffset(Vector2::Zero)
 		, mColor(DirectX::Colors::White)
-		, render(false)
+		, mbRender(false)
 	{
 		TextManager::AddText(this);
 	}
@@ -24,7 +24,7 @@ namespace ya
 	void Text::Update()
 	{
 		mPosition = GetOwner()->GetComponent<Transform>()->GetPosition() + mOffset;
-		render = true;
+		mbRender = true;
 	}
 	void Text::LateUpdate()
 	{

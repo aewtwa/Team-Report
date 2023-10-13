@@ -28,8 +28,12 @@ namespace ya
 		std::wstring GetText() { return text; }
 		void SetText(std::wstring tex) { text = tex; }
 
-		bool CanRender() { return render; }
-		void SetRender(bool value) { render = value; }
+		bool CanRender() { return mbRender; }
+		void SetRender(bool value) { mbRender = value; }
+
+		bool GetIsStatic() { return mbIsStatic; }
+		void SetStatic() { mbIsStatic = true; }
+		void SetDynamic() { mbIsStatic = false; }
 
 	private:
 		std::wstring text;
@@ -38,7 +42,8 @@ namespace ya
 		Vector2 mOffset;
 
 		DirectX::XMVECTORF32 mColor;
-		bool render;
+		bool mbRender;
+		bool mbIsStatic = false;
 	};
 
 }
