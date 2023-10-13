@@ -1,6 +1,8 @@
 #include "yaMonster.h"
 #include "yaWaveManager.h"
+#include "yaSceneManager.h"
 #include "..\YamYamEngine_Windows\yaBullet.h"
+#include "..\YamYamEngine_Windows\yaplayer.h"
 
 namespace ya
 {
@@ -15,10 +17,17 @@ namespace ya
 	}
 	void Monster::Update()
 	{
+		cur_player = dynamic_cast<player*>(SceneManager::GetActiveScene()->GetPlayer());
 		if (HP <= 0.f)
 		{
+			if (cur_player != nullptr)
+			{
+				cur_player->SetScore(cur_player->GetScore() + 1);
+			}
 			Destroy(this);
 		}
+		
+
 	}
 	void Monster::OnCollisionEnter(Collider* other)
 	{

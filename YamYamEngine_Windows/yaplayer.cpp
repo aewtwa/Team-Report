@@ -20,6 +20,7 @@ namespace ya
 		, Additional_Fire_Rate(0.f)
 		, Projectile_Level(0)
 		, Additional_Damage(0.f)
+		, is_dead(false)
 	{
 		SetTag(enums::TAG::Player);
 	}
@@ -35,8 +36,8 @@ namespace ya
 		AddComponent<ShotScript>();
 		AddComponent<ControllerScript>();
 		AddComponent<PlayerColorChangeScript>();
-		Text* text = AddComponent<Text>();
-		text->SetText(L"Test");
+		text = AddComponent<Text>();
+		text->SetText(L"current : " + std::to_wstring(score));
 
 		col->SetSize(Vector2(1.f, 1.f));
 
@@ -44,6 +45,12 @@ namespace ya
 	}
 	void player::Update()
 	{
+		text->SetText(L"current : " + std::to_wstring(score));
+		if (HP <= 0 && !is_dead)
+		{
+			is_dead = true;
+			SaveScore();
+		}
 		GameObject::Update();
 	}
 	void player::LateUpdate()
@@ -65,5 +72,52 @@ namespace ya
 	void player::OnCollisionExit(Collider* other)
 	{
 		GameObject::OnCollisionExit(other);
+	}
+
+
+	void player::SaveScore()
+	{
+		//최고 점수 읽기
+		int prev_max_score = 0;
+		std::ifstream ifs;
+		ifs.open("score.txt", std::ios::in);
+		if (!ifs)
+		{
+			std::cout << "Error!" << std::endl;
+		}
+		std::string line;
+		int i = 0;
+		while (i <= 1)
+		{
+			getline(ifs, line);
+			if (i == 1)
+				prev_max_score = stoi(line);
+			i++;
+		}
+
+		ifs.close();
+
+		//현재 점수 기록 및 최고점수 갱신
+		std::ofstream ofs("score.txt", std::ios::out | std::ios::trunc);
+		if (ofs.fail())
+		{
+			std::cout << "Error!" << std::endl;
+		}
+		ofs << score;
+		ofs << "\n";
+
+		if (score > prev_max_score)
+		{
+			ofs << score;
+			ofs << "\n";
+		}
+		else
+		{
+			ofs << prev_max_score;
+			ofs << "\n";
+		}
+
+		ofs.close();
+			
 	}
 }

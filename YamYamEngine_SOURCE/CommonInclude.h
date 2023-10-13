@@ -7,6 +7,8 @@
 #include <vector>
 #include <map>
 #include <bitset>
+#include <fstream>
+#include <iostream>
 #include "yaMath.h"
 
 #define arraysize(a) (sizeof(a) / sizeof(a[0]))

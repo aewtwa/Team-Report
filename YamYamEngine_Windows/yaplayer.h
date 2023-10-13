@@ -50,6 +50,10 @@ namespace ya
 		void SetAdditionalDamage(float damage) { Additional_Damage = damage; }
 		float GetAdditionalDamage() { return Additional_Damage; }
 
+		void SetScore(int input) { score = input; }
+		int GetScore() { return score; }
+
+		void SaveScore();
 
 	private:		
 		ShootType	ShootType;
@@ -60,8 +64,13 @@ namespace ya
 		float Additional_Fire_Rate;
 		int Projectile_Level;
 		float Additional_Damage;
+		int score;
+		bool is_dead;
 
 		Vector3 PlayerColor;
+
+
+		class Text* text;
 	};
 }
 
