@@ -15,7 +15,7 @@ namespace ya
 
 		static void WaveStart();
 		static void SpawnMonster();
-		static void WaveClear();
+		static void SpawnReward();
 		static void GiveUp();
 
 		static void MonsterCountDecrease() { curMonsterCount -= 1; }
@@ -36,6 +36,7 @@ namespace ya
 
 		static std::vector<std::wstring> monsters;
 		static std::vector<std::wstring> rewards;
+		static std::vector<Vector3> rewardSpawnPos;
 
 		static WaveButton* StartButton;
 		static WaveButton* GiveUpButton;

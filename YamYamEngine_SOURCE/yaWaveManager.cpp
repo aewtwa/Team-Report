@@ -24,6 +24,8 @@ namespace ya
 	unsigned int WaveManager::prevMonsterCount = 0;
 
 	std::vector<std::wstring> WaveManager::monsters = {};
+	std::vector<std::wstring> WaveManager::rewards = {};
+	std::vector<Vector3> WaveManager::rewardSpawnPos = {};
 
 	WaveButton* WaveManager::StartButton = nullptr;
 	WaveButton* WaveManager::GiveUpButton = nullptr;
@@ -36,6 +38,8 @@ namespace ya
 
 		GiveUpButton->SetType(WaveButton::WaveButtonType::giveup);
 		StartButton->SetType(WaveButton::WaveButtonType::start);
+
+		rewardSpawnPos.resize(5);
 
 		//monster types initialize
 		monsters.push_back(L"zombie");
@@ -70,7 +74,7 @@ namespace ya
 
 			if (isClear)
 			{
-				WaveClear();
+				SpawnReward();
 				isClear = false;
 			}
 
@@ -115,7 +119,7 @@ namespace ya
 			curMonsterCount++;
 		}
 	}
-	void WaveManager::WaveClear()
+	void WaveManager::SpawnReward()
 	{
 		//상자 스폰
 	}
