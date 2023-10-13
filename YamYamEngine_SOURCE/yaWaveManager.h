@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
+#include <random>
 #include "..\YamYamEngine_Windows\yaWaveButton.h"
 
 namespace ya
@@ -8,6 +9,7 @@ namespace ya
 	{
 	public:
 		static void SetActivate(bool value) { isActivate = value; Setting(); }
+		static void Release();
 
 		static void Setting();
 		static void Update();
@@ -19,7 +21,11 @@ namespace ya
 		static void GiveUp();
 
 		static void MonsterCountDecrease() { curMonsterCount -= 1; }
-		static void ChooseReward() { isGetReward = true; }
+		static void ChooseReward() { 
+			isGetReward = true;
+			StartButton->Activate();
+		}
+		static bool IsRewardSelected() { return isGetReward; }
 
 	private:
 		static bool isActivate;
@@ -33,6 +39,8 @@ namespace ya
 		static unsigned int WaveMonsterCount;
 		static unsigned int curMonsterCount;
 		static unsigned int prevMonsterCount;
+
+		static std::random_device rd;   // non-deterministic generator
 
 		static std::vector<std::wstring> monsters;
 		static std::vector<std::wstring> rewards;

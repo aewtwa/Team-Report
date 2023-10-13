@@ -77,7 +77,7 @@ namespace ya
 
 		//터렛 생성
 		{
-			object::Instantiate<Turret>(LAYER::Monster, Vector3(2, 2, 0));
+			//object::Instantiate<Turret>(LAYER::Monster, Vector3(2, 2, 0));
 		}
 
 		//좀비 생성
@@ -93,7 +93,7 @@ namespace ya
 
 
 		//군인 배치(테스트)
-		object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
+		//object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
 
 		{
 			object::Instantiate<HPBar>(LAYER::UI, Vector3(-12, -8, 1));

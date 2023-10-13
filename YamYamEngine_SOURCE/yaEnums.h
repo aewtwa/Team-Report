@@ -9,6 +9,7 @@ namespace ya::enums
 		Player,
 		Bullet,
 		Monster,
+		Reward,
 		End
 	};
 
