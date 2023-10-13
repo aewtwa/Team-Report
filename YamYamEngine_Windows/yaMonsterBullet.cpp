@@ -76,8 +76,11 @@ namespace ya
 
 		if (other->GetOwner()->GetTag() == TAG::Player)
 		{
-			dynamic_cast<player*>(other->GetOwner())->Hit();
-			Destroy(this);
+			if (ColorPalette != (Vector3)other->GetOwner()->GetComponent<MeshRenderer>()->GetColor())
+			{
+				dynamic_cast<player*>(other->GetOwner())->Hit();
+				Destroy(this);
+			}
 		}
 	}
 	void MonsterBullet::OnCollisionStay(Collider* other)

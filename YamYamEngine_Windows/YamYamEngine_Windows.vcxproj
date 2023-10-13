@@ -148,6 +148,7 @@
     <ClInclude Include="yaControllerScript.h" />
     <ClInclude Include="yaDamageUpBox.h" />
     <ClInclude Include="yaFireRateUpBox.h" />
+    <ClInclude Include="yaGameOverScene.h" />
     <ClInclude Include="yaGameStartButton.h" />
     <ClInclude Include="yaHealBox.h" />
     <ClInclude Include="yaHPBar.h" />
@@ -185,6 +186,7 @@
     <ClCompile Include="yaControllerScript.cpp" />
     <ClCompile Include="yaDamageUpBox.cpp" />
     <ClCompile Include="yaFireRateUpBox.cpp" />
+    <ClCompile Include="yaGameOverScene.cpp" />
     <ClCompile Include="yaGameStartButton.cpp" />
     <ClCompile Include="yaHealBox.cpp" />
     <ClCompile Include="yaHPBar.cpp" />
