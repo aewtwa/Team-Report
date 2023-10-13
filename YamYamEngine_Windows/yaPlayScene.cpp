@@ -101,24 +101,25 @@ namespace ya
 
 
 		/*테스트용 리워드*/
-		//{
-		//	for (int i = 0; i < 5; i++)
-		//	{
-		//		object::Instantiate<IncreaseProjectileBox>(LAYER::Monster, Vector3(5, i, 0));
-		//	}
+		/*{
+			for (int i = 0; i < 5; i++)
+			{
+				object::Instantiate<IncreaseProjectileBox>(LAYER::Monster, Vector3(5, i, 0));
+			}
 
-		//
-		//}
+		
+		}
 
 		{
 			object::Instantiate<King>(LAYER::Monster, Vector3(1, 1, 0));
-		}
+		}*/
 
 		//군인 배치(테스트)
 		//object::Instantiate<Soldier>(LAYER::Monster, Vector3(5, 5, 0));
 
 		{
-			object::Instantiate<HPBar>(LAYER::UI, Vector3(-12, -8, 1));
+			HPBar* hb = object::Instantiate<HPBar>(LAYER::UI, Vector3(-12, -8, 1));
+			hb->SetTarget(dynamic_cast<player*>(obj));
 		}
 
 

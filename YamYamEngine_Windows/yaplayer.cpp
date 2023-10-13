@@ -53,15 +53,6 @@ namespace ya
 	}
 	void player::OnCollisionEnter(Collider* other)
 	{
-		if (other->GetOwner()->GetTag() == TAG::MonsterBullet)
-		{
-			MonsterBullet* monBullet = dynamic_cast<MonsterBullet*>(other->GetOwner());
-			if (monBullet->GetColor() != PlayerColor)
-			{
-				HP--;
-				Destroy(other->GetOwner());
-			}
-		}
 		GameObject::OnCollisionEnter(other);
 	}
 	void player::OnCollisionStay(Collider* other)

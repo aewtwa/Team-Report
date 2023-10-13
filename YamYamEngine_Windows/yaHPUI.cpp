@@ -5,7 +5,6 @@
 namespace ya
 {
 	HPUI::HPUI()
-		: mTarget(nullptr)
 	{
 	}
 	

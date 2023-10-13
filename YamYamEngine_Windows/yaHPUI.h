@@ -15,7 +15,6 @@ namespace ya
 		void Render() override;
 
 	private:
-		GameObject* mTarget;
 
 	};
 }
