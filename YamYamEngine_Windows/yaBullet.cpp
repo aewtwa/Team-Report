@@ -62,13 +62,11 @@ namespace ya
 	{
 		Transform* tr = GetComponent<Transform>();
 		math::Vector2 pos = (Vector2)tr->GetPosition();
-		if (other->GetOwner()->GetTag() == TAG::Wall && ! ((abs(startPos.x - pos.x) > maxDistance.x ||
-			abs(startPos.y - pos.y) > maxDistance.y)))
+		if (other->GetOwner()->GetTag() == TAG::Wall )
 		{
 			Destroy(this);
 		}
-		if (other->GetOwner()->GetTag() == TAG::Monster && !((abs(startPos.x - pos.x) > maxDistance.x ||
-			abs(startPos.y - pos.y) > maxDistance.y)))
+		if (other->GetOwner()->GetTag() == TAG::Monster)
 		{
 			Destroy(this);
 		}

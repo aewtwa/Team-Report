@@ -9,6 +9,7 @@
 #include "yaMeshRenderer.h"
 #include "yaText.h"
 #include "yaMonsterBullet.h"
+#include "yaTime.h"
 
 namespace ya
 {
@@ -22,6 +23,8 @@ namespace ya
 		, Projectile_Level(0)
 		, Additional_Damage(0.f)
 		, is_dead(false)
+		, is_invincible(false)
+		, invincible_time(1.5f)
 	{
 		SetTag(enums::TAG::Player);
 	}
@@ -32,7 +35,8 @@ namespace ya
 	{
 		HP = 3;
 		is_dead = false;
-
+		is_invincible = false;
+		invincible_time = 1.5f;
 		mShootType = ShootType::basic;
 
 		FireRate = 0.3f;
@@ -57,6 +61,19 @@ namespace ya
 	}
 	void player::Update()
 	{
+		if (invincible_time > 0.f)
+		{
+			invincible_time -= Time::DeltaTime();
+		}
+		if (invincible_time > 0.f)
+		{
+			is_invincible = true;
+		}
+		else
+		{
+			invincible_time = 0.f;
+			is_invincible = false;
+		}
 		if (HP <= 0 && !is_dead)
 		{
 			is_dead = true;

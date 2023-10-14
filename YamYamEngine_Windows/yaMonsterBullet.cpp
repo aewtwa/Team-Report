@@ -76,9 +76,10 @@ namespace ya
 
 		if (other->GetOwner()->GetTag() == TAG::Player)
 		{
-			if (ColorPalette != (Vector3)other->GetOwner()->GetComponent<MeshRenderer>()->GetColor())
+			if (ColorPalette != (Vector3)other->GetOwner()->GetComponent<MeshRenderer>()->GetColor() && !dynamic_cast<player*>(other->GetOwner())->GetInvincible())
 			{
 				dynamic_cast<player*>(other->GetOwner())->Hit();
+				dynamic_cast<player*>(other->GetOwner())->SetInvincible();
 				Destroy(this);
 			}
 		}

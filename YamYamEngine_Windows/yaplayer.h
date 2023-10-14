@@ -59,6 +59,8 @@ namespace ya
 		void SetScore(int input) { score = input; }
 		int GetScore() { return score; }
 
+		void SetInvincible() { invincible_time = 1.5f; }
+		bool GetInvincible() { return is_invincible; }
 	private:		
 		ShootType	mShootType;
 
@@ -70,7 +72,9 @@ namespace ya
 		float Additional_Damage;
 		int score;
 		bool is_dead;
+		bool is_invincible;
 
+		float invincible_time;
 
 		Vector3 PlayerColor;
 
