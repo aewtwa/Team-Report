@@ -25,7 +25,7 @@ namespace ya
 		void OnCollisionStay(Collider* other) override;
 		void OnCollisionExit(Collider* other) override;
 
-		void SetType(WaveButtonType type) { mType = type; }
+		void SetType(WaveButtonType type);
 
 	private:
 		WaveButtonType mType;
