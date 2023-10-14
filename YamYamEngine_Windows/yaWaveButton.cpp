@@ -54,4 +54,13 @@ namespace ya
 	{
 		GameObject::OnCollisionExit(other);
 	}
+	void WaveButton::SetType(WaveButtonType type)
+	{
+		mType = type;
+
+		if (mType == WaveButtonType::start)
+			GetComponent<MeshRenderer>()->SetColor(Vector3(0, 255, 100));
+		else if (mType == WaveButtonType::giveup)
+			GetComponent<MeshRenderer>()->SetColor(Vector3(255, 0, 0));
+	}
 }
