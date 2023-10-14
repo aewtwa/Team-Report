@@ -3,7 +3,6 @@
 #include "yaTransform.h"
 #include "yaCollider.h"
 #include "yaMeshRenderer.h"
-#include "yaText.h"
 
 namespace ya
 {
@@ -20,23 +19,12 @@ namespace ya
 		AddComponent<Transform>();
 		AddComponent<Collider>();
 		AddComponent<MeshRenderer>();
-		AddComponent<Text>()->SetDynamic();
 
 		GameObject::Initialize();
 	}
 	void WaveButton::Update()
 	{
 		GameObject::Update();
-
-		switch (mType)
-		{
-		case ya::WaveButton::WaveButtonType::start:
-			GetComponent<Text>()->SetText(L"Wave Start");
-			break;
-		case ya::WaveButton::WaveButtonType::giveup:
-			GetComponent<Text>()->SetText(L"Give Up");
-			break;
-		}
 	}
 	void WaveButton::LateUpdate()
 	{
