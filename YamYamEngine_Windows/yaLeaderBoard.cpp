@@ -82,7 +82,7 @@ namespace ya
 			std::cout << "Error!" << std::endl;
 		}
 		std::string line;
-		while (getline(ifs, line))
+		while (getline(ifs, line,','))
 		{
 			lines.push_back(std::wstring().assign(line.begin(), line.end()));
 			std::size_t pos = line.find(' ');

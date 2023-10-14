@@ -288,8 +288,10 @@ namespace ya
 		{
 			std::cout << "Error!" << std::endl;
 		}
-		ofs2 << std::to_string(Score) + " " + name + "\n";
-
+		if (name != "")
+		{
+			ofs2 << std::to_string(Score) + " " + name + ",";
+		}
 		ofs.close();
 	}
 }

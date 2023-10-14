@@ -1,5 +1,1 @@
-10 chan
-5 isc
-3 znxm
-2 wkjas
-240 po
+10 chan,5 isc,3 znxm,2 wkjas,240 po,9 HOTAN,29 HYUNSEOP,57 ABCDE,

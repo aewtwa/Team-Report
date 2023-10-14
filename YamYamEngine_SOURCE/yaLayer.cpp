@@ -25,13 +25,22 @@ namespace ya
 
 	void Layer::Update()
 	{
-		for (GameObject* gameObject : mGameObjects)
+		for (int i = 0; i < mGameObjects.size(); i++)
+		{
+			if (mGameObjects[i]->GetState() == GameObject::eState::Paused)
+				continue;
+
+			mGameObjects[i]->Update();
+		}
+
+
+	/*	for (GameObject* gameObject : mGameObjects)
 		{
 			if (gameObject->GetState() == GameObject::eState::Paused)
 				continue;
 
 			gameObject->Update();
-		}
+		}*/
 	}
 
 	void Layer::LateUpdate()
