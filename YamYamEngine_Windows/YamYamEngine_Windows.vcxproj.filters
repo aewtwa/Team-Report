@@ -177,6 +177,9 @@
     <ClInclude Include="yaScoreUI.h">
       <Filter>GameObjects\UI</Filter>
     </ClInclude>
+    <ClInclude Include="yaTextBox.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -234,9 +237,6 @@
     </ClCompile>
     <ClCompile Include="yaBomberScript.cpp">
       <Filter>Scripts\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="yaMonsterBullet.cpp">
-      <Filter>Bullets</Filter>
     </ClCompile>
     <ClCompile Include="yaTitleScene.cpp">
       <Filter>Scens</Filter>
@@ -309,6 +309,10 @@
     </ClCompile>
     <ClCompile Include="yaScoreUI.cpp">
       <Filter>GameObjects\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="yaMonsterBullet.cpp" />
+    <ClCompile Include="yaTextBox.cpp">
+      <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

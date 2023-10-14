@@ -35,6 +35,7 @@ namespace ya
 
 	void PlayScene::Initialize()
 	{
+		Scene::Initialize();
 		//ColliderManager::SetRender(true);
 		WaveManager::SetActivate(true);
 
@@ -112,6 +113,11 @@ namespace ya
 				Camera::SetTarget(obj);
 			else
 				Camera::SetTarget(nullptr);
+		}
+
+		if (dynamic_cast<player*>(obj)->GetIsDead())
+		{
+			SceneManager::LoadScene(L"GameOverScene");
 		}
 	}
 
