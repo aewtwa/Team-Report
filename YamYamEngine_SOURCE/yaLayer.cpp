@@ -33,8 +33,7 @@ namespace ya
 			mGameObjects[i]->Update();
 		}
 
-
-	/*	for (GameObject* gameObject : mGameObjects)
+		/*for (GameObject* gameObject : mGameObjects)
 		{
 			if (gameObject->GetState() == GameObject::eState::Paused)
 				continue;

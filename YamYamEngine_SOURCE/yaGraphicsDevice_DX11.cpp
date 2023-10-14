@@ -78,7 +78,6 @@ namespace ya::graphics
         if (!CreateTexture(texdesc))
             return;
 
-
         TextManager::Initialize(mDevice, mContext);
         //RECT winRect;
         //GetClientRect(application.GetHwnd(), &winRect);
