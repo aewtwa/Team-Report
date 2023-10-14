@@ -31,9 +31,7 @@ namespace ya
 				if (text->GetIsStatic())
 					nPos = Camera::PositionCoordToApi(text->GetPosition());
 				else
-				{
 					nPos = Camera::CalculatePositionApi(text->GetPosition());
-				}
 				spriteFont->DrawString(spriteBatch.get(), text->GetText().c_str(), (DirectX::XMFLOAT2)(nPos), text->GetColor(), 0.0f, DirectX::XMFLOAT2(0.0f, 0.0f), (DirectX::XMFLOAT2)text->GetScale());
 				text->SetRender(false);
 			}

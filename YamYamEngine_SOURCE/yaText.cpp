@@ -26,13 +26,20 @@ namespace ya
 	void Text::Update()
 	{
 		mPosition = GetOwner()->GetComponent<Transform>()->GetPosition() + mOffset;
+		mPosition.x -= mScale.x / 2;
+		mPosition.y += mScale.y / 2;
+
 		if (mbIsStatic) // mbIsStatic
 		{
-			mPosition.x -= mScale.x / 2;
-			mPosition.y += mScale.y / 2;
 			mPosition *= 50;
 			mPosition.y *= -1;
 		}
+		else
+		{
+			mPosition *= 50;
+			mPosition.y *= -1;
+		}
+
 		mbRender = true;
 	}
 	void Text::LateUpdate()
