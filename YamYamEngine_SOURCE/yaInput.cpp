@@ -101,6 +101,7 @@ namespace ya
 		XY.y = application.GetHeight();
 		return (mMousePosition * 2.f - XY) / 100.f;
 	}
+
 	int Input::GetASCII(KEY_CODE cCode)
 	{
 		return ASCII[(UINT)cCode];

@@ -19,7 +19,14 @@ namespace ya
         void OnCollisionExit(Collider* other) override;
         void OnClick() override;
 
+        void SaveName();
+
     private:
         bool is_clicked;
+        int start_index;
+        wchar_t input_char;
+        std::wstring init_text;
+        int max_name_count;
+        class Text* text;
     };
 }

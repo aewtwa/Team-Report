@@ -3,6 +3,7 @@
 #include "yaobject.h"
 #include "yaGameStartButton.h"
 #include "yaExitButton.h"
+#include "yaNameInputButton.h"
 #include "yaTransform.h"
 #include "yaMeshRenderer.h"
 #include "yaText.h"
@@ -20,6 +21,10 @@ namespace ya
 	{
 		GameStartButton* sbtn = new GameStartButton();
 		AddGameObject(sbtn, (UINT)LAYER::UI);
+
+		NameInputButton* nitn = new NameInputButton();
+		AddGameObject(nitn, (UINT)LAYER::UI);
+		nitn->GetComponent<Transform>()->SetPositionVec2(Vector2(4,-4));
 
 		ExitButton* ebtn = new ExitButton();
 		AddGameObject(ebtn, (UINT)LAYER::UI);
