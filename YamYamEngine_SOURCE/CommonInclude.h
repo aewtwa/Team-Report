@@ -9,6 +9,7 @@
 #include <bitset>
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 #include <random>
 #include "yaMath.h"
 

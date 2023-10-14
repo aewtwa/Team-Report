@@ -273,6 +273,23 @@ namespace ya
 			ofs << "\n";
 		}
 
+		//스코어 보드에 이름 점수 추가
+		std::ifstream ifs2;
+		ifs2.open("name.txt", std::ios::in);
+		if (!ifs2)
+		{
+			std::cout << "Error!" << std::endl;
+		}
+		std::string name;
+		getline(ifs2, name);
+
+		std::ofstream ofs2("records.txt", std::ios::out | std::ios::app);
+		if (ofs2.fail())
+		{
+			std::cout << "Error!" << std::endl;
+		}
+		ofs2 << std::to_string(Score) + " " + name + "\n";
+
 		ofs.close();
 	}
 }
