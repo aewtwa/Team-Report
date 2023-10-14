@@ -2,6 +2,7 @@
 #include "yaSceneManager.h"
 #include "yaPlayScene.h"
 #include "yaTitleScene.h"
+#include "yaGameOverScene.h"
 
 
 //#ifdef  _DEBUG
@@ -16,6 +17,7 @@ namespace ya
 	{
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 		SceneManager::CreateScene<TitleScene>(L"TitleScene");
+		SceneManager::CreateScene<GameOverScene>(L"GameOverScene");
 
 		SceneManager::LoadScene(L"TitleScene");
 	}

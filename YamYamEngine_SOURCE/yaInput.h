@@ -74,6 +74,8 @@ namespace ya
 		}
 
 		static Vector2 GetMouseWorldPosition();
+
+		static int GetASCII(KEY_CODE cCode);
 		
 
 	private:

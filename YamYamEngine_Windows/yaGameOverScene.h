@@ -1,5 +1,6 @@
 #pragma once
 #include "yaScene.h"
+#include "yaTextBox.h"
 
 namespace ya
 {
@@ -15,6 +16,7 @@ namespace ya
         void Render() override;
 
     private:
+        TextBox* tb1;
 
     };
 }
