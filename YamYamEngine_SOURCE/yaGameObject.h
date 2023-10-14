@@ -116,6 +116,6 @@ namespace ya
 
 	static __forceinline void Destroy(GameObject* gameObject)
 	{
-		gameObject->death();
+		gameObject->death(); 
 	}
 }

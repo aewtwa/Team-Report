@@ -17,7 +17,7 @@ namespace ya
 		, FireRate(0.3f)
 		, MoveSpeed(3.f)
 		, PlayerColor(Vector3(0.f,255.f,0.f))
-		, ShootType(ShootType::basic)
+		, mShootType(ShootType::basic)
 		, Additional_Fire_Rate(0.f)
 		, Projectile_Level(0)
 		, Additional_Damage(0.f)
@@ -32,6 +32,8 @@ namespace ya
 	{
 		HP = 3;
 		is_dead = false;
+
+		mShootType = ShootType::basic;
 
 		FireRate = 0.3f;
 		MoveSpeed = 3.f;

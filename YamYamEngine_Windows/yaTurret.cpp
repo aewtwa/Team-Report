@@ -24,6 +24,7 @@ namespace ya
 		AddComponent<TurretScript>();
 
 		GameObject::Initialize();
+
 	}
 	void Turret::Update()
 	{

@@ -26,8 +26,8 @@ namespace ya
 		void OnCollisionStay(Collider* other) override;
 		void OnCollisionExit(Collider* other) override;
 
-		ShootType GetShootType() { return ShootType; }
-		void SetShootType(ShootType input) { ShootType = input; }
+		ShootType GetShootType() { return mShootType; }
+		void SetShootType(ShootType input) { mShootType = input; }
 
 		float GetFireRate() { return FireRate; }
 		void SetFireRate(float fr) { FireRate = fr; }
@@ -60,7 +60,7 @@ namespace ya
 		int GetScore() { return score; }
 
 	private:		
-		ShootType	ShootType;
+		ShootType	mShootType;
 
 		int HP;
 		float FireRate;
