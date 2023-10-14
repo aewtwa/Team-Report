@@ -61,6 +61,7 @@ namespace ya
 
 		void SaveScore();
 
+
 	private:		
 		ShootType	ShootType;
 
@@ -72,6 +73,7 @@ namespace ya
 		float Additional_Damage;
 		int score;
 		bool is_dead;
+
 
 		Vector3 PlayerColor;
 
