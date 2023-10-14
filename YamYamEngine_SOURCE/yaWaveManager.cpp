@@ -9,6 +9,8 @@
 #include "..\YamYamEngine_Windows\yaZombie.h"
 #include "..\YamYamEngine_Windows\yaTurret.h"
 #include "..\YamYamEngine_Windows\yaBomber.h"
+#include "..\YamYamEngine_Windows\yaSoldier.h"
+#include "..\YamYamEngine_Windows\yaKing.h"
 
 #include "..\YamYamEngine_Windows\yaHealBox.h"
 #include "..\YamYamEngine_Windows\yaSpeedUpBox.h"
@@ -142,13 +144,27 @@ namespace ya
 	}
 	void WaveManager::SpawnMonster()
 	{
+		Vector3 startPos = Vector3(-3, 8, 0);
+
 		if (waveCount % 10 == 0)
 		{
-			
+			std::mt19937 gen(rd());  // to seed mersenne twister.
+			// replace the call to rd() with a
+			// constant value to get repeatable
+			// results.
+
+			unsigned int r = gen();
+			r %= 2;
+
+			if (bosses[r] == L"king")
+				ya::object::Instantiate<King>(enums::LAYER::Monster, startPos);
+			else if (bosses[r] == L"soldier")
+				ya::object::Instantiate<Soldier>(enums::LAYER::Monster, startPos);
+
+			curMonsterCount++;
 		}
 		else
 		{
-			Vector3 startPos = Vector3(-3, 8, 0);
 
 			for (int i = 0; i < WaveMonsterCount; i++)
 			{			
