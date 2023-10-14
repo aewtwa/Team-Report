@@ -51,12 +51,30 @@ namespace ya
 	{
 		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Reward, true);
 
-		//button spawn
-		StartButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 5, 0));
-		GiveUpButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 10, 0));
+		Score = 0;
 
-		GiveUpButton->SetType(WaveButton::WaveButtonType::giveup);
-		StartButton->SetType(WaveButton::WaveButtonType::start);
+		StartCall = false;
+		inWave = false;
+		isClear = false;
+		isGetReward = false;
+
+		waveCount = 0;
+		WaveMonsterCount = 0;
+		curMonsterCount = 0;
+		prevMonsterCount = 0;
+
+		if (StartButton == nullptr && GiveUpButton == nullptr)
+		{
+			//button spawn
+			StartButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 5, 0));
+			GiveUpButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 10, 0));
+
+			GiveUpButton->SetType(WaveButton::WaveButtonType::giveup);
+			StartButton->SetType(WaveButton::WaveButtonType::start);
+		}
+
+		GiveUpButton->Activate();
+		StartButton->Activate();
 
 		//reward
 		rewardSpawnPos.resize(3);

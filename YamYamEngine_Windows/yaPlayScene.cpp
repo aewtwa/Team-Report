@@ -98,8 +98,13 @@ namespace ya
 
 	void PlayScene::Setting()
 	{
+		KillAllObj(LAYER::Monster);
+		KillAllObj(LAYER::Bullet);
+		KillAllObj(LAYER::Reward);
 		dynamic_cast<player*>(obj)->Reset();
+		obj->GetComponent<Transform>()->SetPositionVec2(Vector2::Zero);
 		Camera::SetTarget(obj);
+		WaveManager::SetActivate(true);
 	}
 
 	void PlayScene::Update()
