@@ -60,7 +60,7 @@ namespace ya
 		isClear = false;
 		isGetReward = false;
 
-		waveCount = 9;
+		waveCount = 0;
 		WaveMonsterCount = 0;
 		curMonsterCount = 0;
 		prevMonsterCount = 0;
