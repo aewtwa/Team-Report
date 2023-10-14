@@ -88,7 +88,6 @@ namespace ya
 
 			ScoreUI* scoreui = new ScoreUI();
 			AddGameObject(scoreui, (UINT)LAYER::UI);
-			scoreui->SetTarget(dynamic_cast<player*>(obj));
 		}
 
 		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Wall, true);
@@ -99,8 +98,13 @@ namespace ya
 
 	void PlayScene::Setting()
 	{
+		KillAllObj(LAYER::Monster);
+		KillAllObj(LAYER::Bullet);
+		KillAllObj(LAYER::Reward);
 		dynamic_cast<player*>(obj)->Reset();
+		obj->GetComponent<Transform>()->SetPositionVec2(Vector2::Zero);
 		Camera::SetTarget(obj);
+		WaveManager::SetActivate(true);
 	}
 
 	void PlayScene::Update()

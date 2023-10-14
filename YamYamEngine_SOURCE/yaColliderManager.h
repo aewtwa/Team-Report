@@ -39,7 +39,7 @@ namespace ya
 
 	private:
 		static std::map<UINT64, bool> mCollisionMap;
-		static std::bitset<(UINT)LAYER::End>  mMouseLayerMap;
+		static std::vector<bool>  mMouseLayerMap;
 		static std::bitset<(UINT)enums::LAYER::End> mLayerMatrix[(UINT)enums::LAYER::End];
 		static bool render;
 	};

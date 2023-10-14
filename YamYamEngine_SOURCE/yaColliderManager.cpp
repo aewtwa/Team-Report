@@ -6,12 +6,18 @@
 namespace ya
 {
 	std::map<UINT64, bool>  ColliderManager::mCollisionMap = {};
-	std::bitset<(UINT)LAYER::End>  ColliderManager::mMouseLayerMap = {};
+	std::vector<bool>  ColliderManager::mMouseLayerMap = {false};
 	std::bitset<(UINT)LAYER::End>  ColliderManager::mLayerMatrix[(UINT)LAYER::End] = {};
 	bool ColliderManager::render = false;
 
 	void ColliderManager::Init()
 	{
+		mMouseLayerMap.resize((UINT)LAYER::End);
+
+		for (int i = 0; i < (INT)LAYER::End; i++)
+		{
+			mMouseLayerMap[i] = false;
+		}
 	}
 	void ColliderManager::Update()
 	{
@@ -26,14 +32,9 @@ namespace ya
 					LayerCollision(curScene, (LAYER)row, (LAYER)column);
 				}
 
-				if (mMouseLayerMap[row] == true)
-				{
-					MouseLayerCollision(curScene, (LAYER)row);
-				}
-
 				if (mMouseLayerMap[column] == true)
 				{
-					MouseLayerCollision(curScene, (LAYER)column);
+					MouseLayerCollision(curScene, (LAYER)row);
 				}
 			}
 		}

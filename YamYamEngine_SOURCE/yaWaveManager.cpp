@@ -20,6 +20,8 @@ namespace ya
 {
 	bool WaveManager::isActivate = false;
 
+	int WaveManager::Score = 0;
+
 	bool WaveManager::StartCall = false;
 	bool WaveManager::inWave = false;
 	bool WaveManager::isClear = false;
@@ -49,12 +51,30 @@ namespace ya
 	{
 		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Reward, true);
 
-		//button spawn
-		StartButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 5, 0));
-		GiveUpButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 10, 0));
+		Score = 0;
 
-		GiveUpButton->SetType(WaveButton::WaveButtonType::giveup);
-		StartButton->SetType(WaveButton::WaveButtonType::start);
+		StartCall = false;
+		inWave = false;
+		isClear = false;
+		isGetReward = false;
+
+		waveCount = 0;
+		WaveMonsterCount = 0;
+		curMonsterCount = 0;
+		prevMonsterCount = 0;
+
+		if (StartButton == nullptr && GiveUpButton == nullptr)
+		{
+			//button spawn
+			StartButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 5, 0));
+			GiveUpButton = object::Instantiate<WaveButton>(enums::LAYER::Wall, Vector3(10, 10, 0));
+
+			GiveUpButton->SetType(WaveButton::WaveButtonType::giveup);
+			StartButton->SetType(WaveButton::WaveButtonType::start);
+		}
+
+		GiveUpButton->Activate();
+		StartButton->Activate();
 
 		//reward
 		rewardSpawnPos.resize(3);
@@ -206,7 +226,52 @@ namespace ya
 	}
 	void WaveManager::GiveUp()
 	{
-		SceneManager::LoadScene(L"TitleScene");
+		SaveScore();
+		SceneManager::LoadScene(L"GameOverScene");
 		// 여기서 점수관련 작업
+	}
+	void WaveManager::SaveScore()
+	{
+		//최고 점수 읽기
+		int prev_max_score = 0;
+		std::ifstream ifs;
+		ifs.open("score.txt", std::ios::in);
+		if (!ifs)
+		{
+			std::cout << "Error!" << std::endl;
+		}
+		std::string line;
+		int i = 0;
+		while (i <= 1)
+		{
+			getline(ifs, line);
+			if (i == 1)
+				prev_max_score = stoi(line);
+			i++;
+		}
+
+		ifs.close();
+
+		//현재 점수 기록 및 최고점수 갱신
+		std::ofstream ofs("score.txt", std::ios::out | std::ios::trunc);
+		if (ofs.fail())
+		{
+			std::cout << "Error!" << std::endl;
+		}
+		ofs << Score;
+		ofs << "\n";
+
+		if (Score > prev_max_score)
+		{
+			ofs << Score;
+			ofs << "\n";
+		}
+		else
+		{
+			ofs << prev_max_score;
+			ofs << "\n";
+		}
+
+		ofs.close();
 	}
 }

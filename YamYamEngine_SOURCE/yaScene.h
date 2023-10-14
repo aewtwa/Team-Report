@@ -20,6 +20,15 @@ namespace ya
 		virtual void Render();
 		virtual void Destroy();
 
+		virtual void KillAllObj(LAYER layer)
+		{
+			std::vector<GameObject*> Gobjs = GetLayer((UINT)layer)->GetGameObjects();
+			for (GameObject* obj : Gobjs)
+			{
+				ya::Destroy(obj);
+			}
+		}
+
 		Layer* GetLayer(UINT index) { return &mLayers[index]; }
 		void AddGameObject(GameObject* gameObject, UINT layerIndex);
 

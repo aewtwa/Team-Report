@@ -17,17 +17,11 @@ namespace ya
 	}
 	void Monster::Update()
 	{
-		cur_player = dynamic_cast<player*>(SceneManager::GetActiveScene()->GetPlayer());
 		if (HP <= 0.f)
 		{
-			if (cur_player != nullptr)
-			{
-				cur_player->SetScore(cur_player->GetScore() + 1);
-			}
+			WaveManager::SetScore(WaveManager::GetScore() + 1);
 			Destroy(this);
 		}
-		
-
 	}
 	void Monster::OnCollisionEnter(Collider* other)
 	{

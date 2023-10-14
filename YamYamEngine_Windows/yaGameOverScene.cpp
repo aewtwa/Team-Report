@@ -1,5 +1,8 @@
 #include "yaGameOverScene.h"
 #include "yaTextBox.h"
+#include "yaExitButton.h"
+#include "yaRestartButton.h"
+#include "yaTransform.h"
 
 namespace ya
 {
@@ -13,8 +16,23 @@ namespace ya
 	{
 		Scene::Initialize();
 
-		tb1 = new TextBox();
-		AddGameObject(tb1, (UINT)LAYER::UI);
+		curScore = new TextBox();
+		AddGameObject(curScore, (UINT)LAYER::UI);
+		curScore->SetStatic();
+		curScore->GetComponent<Transform>()->SetPositionVec2(Vector2(0, 1));
+
+		highScore = new TextBox();
+		AddGameObject(highScore, (UINT)LAYER::UI);
+		highScore->SetStatic();
+		highScore->GetComponent<Transform>()->SetPositionVec2(Vector2(0, 3));
+
+		RestartButton* rbtn = new RestartButton();
+		AddGameObject(rbtn, (UINT)LAYER::UI);
+		rbtn->GetComponent<Transform>()->SetPositionVec2(Vector2(0, -1));
+
+		ExitButton* ebtn = new ExitButton();
+		AddGameObject(ebtn, (UINT)LAYER::UI);
+		ebtn->GetComponent<Transform>()->SetPositionVec2(Vector2(0, -3));
 	}
 	void GameOverScene::Update()
 	{
@@ -37,11 +55,16 @@ namespace ya
 			{
 			case 0:
 				{
-					prev_max_score = stoi(line); 
+					prev_max_score = stoi(line);
+					curScore->SetText(L"Your Score : " + std::to_wstring(prev_max_score));
 				}
 				break;
 
 			case 1:
+				{
+					prev_max_score = stoi(line);
+					highScore->SetText(L"High Score : " + std::to_wstring(prev_max_score));
+				}
 				break;
 
 			}

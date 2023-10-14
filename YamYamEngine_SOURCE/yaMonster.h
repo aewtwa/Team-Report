@@ -22,7 +22,6 @@ namespace ya
 		virtual int GetHp() { return HP; }
 	private:
 		float HP;
-		class player* cur_player;
 
 	};
 }

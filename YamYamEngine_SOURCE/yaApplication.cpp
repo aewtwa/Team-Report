@@ -35,9 +35,9 @@ namespace ya
 		Input::Initialize();
 		Camera::Initialize();
 		renderer::Initialize();
-		ya::InitializeScenes();
+		ColliderManager::Init();
 		SceneManager::Initialize();
-		ColliderManager::CollisionLayerCheck(enums::LAYER::Monster, enums::LAYER::Player, true);
+		ya::InitializeScenes();
 	}
 
 	void Application::Update()
