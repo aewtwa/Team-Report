@@ -30,7 +30,12 @@ namespace ya
 			mDistance = mLookPosition;
 		}
 
-		mDistanceApi = mLookPosition - (mResolution / 2);
+		Vector2 apiLook = (Vector2)mLookPosition;
+		apiLook.x *= mResolution.x;
+		apiLook.y *= mResolution.y;
+		apiLook /= 100;
+
+		mDistanceApi = apiLook - (mResolution / 2);
 	}
 	void Camera::Clear()
 	{
@@ -39,5 +44,6 @@ namespace ya
 		mLookPosition = Vector3::Zero;
 		mTarget = nullptr;
 		mDistance = Vector3::Zero;
+		mDistanceApi = Vector2::Zero;
 	}
 }
