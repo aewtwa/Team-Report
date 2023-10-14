@@ -59,8 +59,6 @@ namespace ya
 		void SetScore(int input) { score = input; }
 		int GetScore() { return score; }
 
-		void SaveScore();
-
 	private:		
 		ShootType	ShootType;
 

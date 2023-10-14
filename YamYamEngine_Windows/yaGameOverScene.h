@@ -16,7 +16,8 @@ namespace ya
         void Render() override;
 
     private:
-        TextBox* tb1;
+        TextBox* curScore;
+        TextBox* highScore;
 
     };
 }

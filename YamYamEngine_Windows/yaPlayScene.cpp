@@ -88,7 +88,6 @@ namespace ya
 
 			ScoreUI* scoreui = new ScoreUI();
 			AddGameObject(scoreui, (UINT)LAYER::UI);
-			scoreui->SetTarget(dynamic_cast<player*>(obj));
 		}
 
 		ColliderManager::CollisionLayerCheck(LAYER::Player, LAYER::Wall, true);

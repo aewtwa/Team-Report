@@ -16,6 +16,8 @@ namespace ya
 		void Render() override;
 
 		void SetText(std::wstring text) { mText->SetText(text); }
+		void SetStatic() { mText->SetStatic(); }
+		void SetDynamic() { mText->SetDynamic(); }
 
 	private:
 		Text* mText;

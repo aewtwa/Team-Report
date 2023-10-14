@@ -1,4 +1,5 @@
 #include "yaScoreUI.h"
+#include "yaWaveManager.h"
 #include "yaTransform.h"
 #include "yaText.h"
 
@@ -22,7 +23,7 @@ namespace ya
 	{
 		UIObject::Update();
 
-		GetComponent<Text>()->SetText(L"Score : " + std::to_wstring(target->GetScore()));
+		GetComponent<Text>()->SetText(L"Score : " + std::to_wstring(WaveManager::GetScore()));
 	}
 	void ScoreUI::LateUpdate()
 	{

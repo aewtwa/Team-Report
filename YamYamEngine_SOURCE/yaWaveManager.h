@@ -26,9 +26,15 @@ namespace ya
 			StartButton->Activate();
 		}
 		static bool IsRewardSelected() { return isGetReward; }
+		static void SaveScore();
+
+		static int GetScore() { return Score; }
+		static void SetScore(int value) { Score = value; }
 
 	private:
 		static bool isActivate;
+
+		static int Score;
 
 		static bool StartCall;
 		static bool inWave;

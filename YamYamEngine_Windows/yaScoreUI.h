@@ -1,6 +1,5 @@
 #pragma once
 #include "yaUIObject.h"
-#include "yaplayer.h"
 
 namespace ya
 {
@@ -15,10 +14,7 @@ namespace ya
 		void LateUpdate() override;
 		void Render() override;
 
-		void SetTarget(player* p) { target = p; }
-
     private:
-		player* target;
 
     };
 }
