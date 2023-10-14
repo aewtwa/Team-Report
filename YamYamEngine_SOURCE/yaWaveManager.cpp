@@ -103,6 +103,7 @@ namespace ya
 			if (StartCall)
 			{
 				waveCount++;
+				curMonsterCount = 0;
 				prevMonsterCount = WaveMonsterCount;
 				WaveMonsterCount = (prevMonsterCount + 3) /** ceil(waveCount % 10)*/;
 				isClear = false;

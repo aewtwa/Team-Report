@@ -1,7 +1,7 @@
 #include "yaGameOverScene.h"
 #include "yaTextBox.h"
 #include "yaExitButton.h"
-#include "yaRestartButton.h"
+#include "yaReturnTitleButton.h"
 #include "yaTransform.h"
 
 namespace ya
@@ -26,7 +26,7 @@ namespace ya
 		highScore->SetStatic();
 		highScore->GetComponent<Transform>()->SetPositionVec2(Vector2(0, 3));
 
-		RestartButton* rbtn = new RestartButton();
+		ReturnTitleButton* rbtn = new ReturnTitleButton();
 		AddGameObject(rbtn, (UINT)LAYER::UI);
 		rbtn->GetComponent<Transform>()->SetPositionVec2(Vector2(0, -1));
 

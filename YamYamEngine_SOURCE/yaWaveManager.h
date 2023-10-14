@@ -2,6 +2,7 @@
 #include "CommonInclude.h"
 #include <random>
 #include "..\YamYamEngine_Windows\yaWaveButton.h"
+#include "yaMonster.h"
 
 namespace ya
 {
@@ -23,7 +24,7 @@ namespace ya
 		static void MonsterCountDecrease() { curMonsterCount -= 1; }
 		static void ChooseReward() { 
 			isGetReward = true;
-			StartButton->Activate();
+			StartButton->Activate(); 
 		}
 		static bool IsRewardSelected() { return isGetReward; }
 		static void SaveScore();

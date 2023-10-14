@@ -1,5 +1,6 @@
 #include "yaBomberScript.h"
 #include "yaTransform.h"
+#include "yaWaveManager.h"
 #include "yaSceneManager.h"
 #include "yaScene.h"
 #include "yaTime.h"

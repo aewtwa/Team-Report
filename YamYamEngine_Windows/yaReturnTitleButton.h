@@ -3,11 +3,11 @@
 
 namespace ya
 {
-    class RestartButton : public Button
+    class ReturnTitleButton : public Button
     {
     public:
-        RestartButton();
-        ~RestartButton() override;
+        ReturnTitleButton();
+        ~ReturnTitleButton() override;
 
         void Initialize() override;
         void Update() override;
