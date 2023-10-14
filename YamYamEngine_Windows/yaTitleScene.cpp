@@ -4,6 +4,7 @@
 #include "yaGameStartButton.h"
 #include "yaExitButton.h"
 #include "yaNameInputButton.h"
+#include "yaLeaderBoard.h"
 #include "yaTransform.h"
 #include "yaMeshRenderer.h"
 #include "yaText.h"
@@ -29,6 +30,10 @@ namespace ya
 		ExitButton* ebtn = new ExitButton();
 		AddGameObject(ebtn, (UINT)LAYER::UI);
 		ebtn->GetComponent<Transform>()->SetPositionVec2(Vector2(0, -4));
+
+		LeaderBoard* leader = new LeaderBoard();
+		AddGameObject(leader, (UINT)LAYER::UI);
+		leader->GetComponent<Transform>()->SetPositionVec2(Vector2(-10, 5));
 
 		ColliderManager::MouseCollisionLayerCheck(LAYER::UI, true);
 	}

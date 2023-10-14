@@ -146,6 +146,7 @@
     <ClInclude Include="yaExitButton.h" />
     <ClInclude Include="yaExtraDamageUI.h" />
     <ClInclude Include="yaFireRateUI.h" />
+    <ClInclude Include="yaLeaderBoard.h" />
     <ClInclude Include="yaNameInputButton.h" />
     <ClInclude Include="yaRestartButton.h" />
     <ClInclude Include="yaScoreUI.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="yaExitButton.cpp" />
     <ClCompile Include="yaExtraDamageUI.cpp" />
     <ClCompile Include="yaFireRateUI.cpp" />
+    <ClCompile Include="yaLeaderBoard.cpp" />
     <ClCompile Include="yaNameInputButton.cpp" />
     <ClCompile Include="yaRestartButton.cpp" />
     <ClCompile Include="yaScoreUI.cpp" />
